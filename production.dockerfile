@@ -1,9 +1,10 @@
 # https://hub.docker.com/_/node/tags?page=1&name=bookworm-slim <- look for vulnerabilities
 # https://github.com/primer/octicons/blob/main/package.json
 
+ARG NODE_IMAGE
 FROM --platform=${TARGETPLATFORM} arm64v8/node:20.14.0-alpine3.20 AS build-stage
 
-ARG TARGETPLATFORM TARGETOS TARGETARCH
+ARG TARGETPLATFORM TARGETOS TARGETARCH NODE_IMAGE
 ENV npm_config_cache=/usr/app/node_modules/.cache
 
 WORKDIR /usr/app
@@ -11,7 +12,7 @@ WORKDIR /usr/app
 COPY package*.json yarn.lock .yarnrc.yml .
 
 RUN node -p "process.arch" \
-    && echo $TARGETPLATFORM && echo $TARGETOS && echo $TARGETARCH
+    && echo $TARGETPLATFORM && echo $TARGETOS && echo $TARGETARCH && echo $NODE_IMAGE
 RUN corepack enable \
     && yarn config set --home enableTelemetry 0 \
     && yarn install --immutable --check-cache
