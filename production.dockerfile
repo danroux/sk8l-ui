@@ -1,7 +1,8 @@
 # https://hub.docker.com/_/node/tags?page=1&name=bookworm-slim <- look for vulnerabilities
 # https://github.com/primer/octicons/blob/main/package.json
 
-FROM --platform=${TARGETPLATFORM} arm64v8/node:20.14.0-alpine3.20 AS build-stage
+# https://hub.docker.com/r/microsoft/devcontainers-typescript-node
+FROM --platform=${TARGETPLATFORM} mcr.microsoft.com/devcontainers/typescript-node:20 AS build-stage
 
 ARG TARGETPLATFORM TARGETOS TARGETARCH
 ENV npm_config_cache=/usr/app/node_modules/.cache

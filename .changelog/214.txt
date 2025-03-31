@@ -1,0 +1,12 @@
+```release-note:improvement
+Docker: Improve multiarch(amd64,arm64) image building process for pre/production
+
+Migrate to mcr.microsoft.com/devcontainers/typescript-node image to build production images with support for x86-64, amd64, arm64 architectures
+as it includes Node.js, eslint, nvm, yarn, and the TypeScript compiler.
+
+More info: https://hub.docker.com/r/microsoft/devcontainers-typescript-node
+
+The previously used image came from: https://hub.docker.com/r/arm64v8/node/tags?name=20.14 but was missing some dependencies.
+
+Also remove arm/v8 as a supported architecture for now.
+```
