@@ -1,3 +1,18 @@
+## v0.15.0 (April 01, 2025)
+
+ENHANCEMENTS:
+
+* ci/dependabot: gha:(deps): bump actions/checkout from 4.1.7 to 4.2.2 [[GH-224](https://github.com/danroux/sk8l-ui/issues/224)]
+* ci/dependabot: gha:(deps): bump azure/setup-helm from 4.2.0 to 4.3.0 [[GH-221](https://github.com/danroux/sk8l-ui/issues/221)]
+* ci/dependabot: gha:(deps): bump docker/build-push-action from 6.0.2 to 6.15.0 [[GH-219](https://github.com/danroux/sk8l-ui/issues/219)]
+* ci/dependabot: gha:(deps): bump docker/login-action from 3.2.0 to 3.3.0 [[GH-150](https://github.com/danroux/sk8l-ui/issues/150)]
+* ci/dependabot: gha:(deps): bump docker/login-action from 3.3.0 to 3.4.0 [[GH-220](https://github.com/danroux/sk8l-ui/issues/220)]
+* ci/dependabot: gha:(deps): bump docker/setup-buildx-action from 3.3.0 to 3.10.0 [[GH-223](https://github.com/danroux/sk8l-ui/issues/223)]
+
+IMPROVEMENTS:
+
+* Docker: Improve multiarch(amd64,arm64) image building process for pre/production [[GH-214](https://github.com/danroux/sk8l-ui/issues/214)]
+
 ## v0.14.0 (June 21, 2024)
 
 ENHANCEMENTS:
