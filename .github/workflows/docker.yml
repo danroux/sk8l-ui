@@ -52,8 +52,7 @@ jobs:
           file: Dockerfile
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          # platforms: linux/amd64,linux/arm64,linux/arm/v7
-          platforms: linux/amd64
+          platforms: linux/amd64, linux/arm64
           push: true
           tags: |
             ${{ vars.GHCR_SK8L_UI_IMAGE_NAME }}:dev-${{ inputs.image_tag }}
@@ -84,7 +83,7 @@ jobs:
           file: Dockerfile
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platforms: linux/amd64
+          platforms: linux/amd64, linux/arm64
           push: true
           tags: |
             ${{ vars.GHCR_SK8L_UI_IMAGE_NAME }}:dev
@@ -182,7 +181,7 @@ jobs:
   sk8l-ui-test-img:
     runs-on: ubuntu-latest
     name: sk8l-ui:ui-test-${{ inputs.image_tag }}
-    needs: [sk8l-ui-pre-pr-img]
+    needs: [sk8l-ui-dev-img]
     if: ${{ github.event_name == 'workflow_call' && inputs.image_tag || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2

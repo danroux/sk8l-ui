@@ -1,0 +1,5 @@
+```release-note:improvement
+Docker: Use node images with alpine for dev release on Dockerfile
+
+Do this to simplify Dockerfile
+```
