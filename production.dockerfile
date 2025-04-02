@@ -3,7 +3,7 @@
 
 # https://hub.docker.com/r/microsoft/devcontainers-typescript-node
 # https://mcr.microsoft.com/v2/devcontainers/typescript-node/tags/list
-FROM --platform=${TARGETPLATFORM} mcr.microsoft.com/devcontainers/typescript-node:1.1.9-20-bookworm AS build-stage
+FROM --platform=${TARGETPLATFORM} mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm AS build-stage
 
 ARG TARGETPLATFORM TARGETOS TARGETARCH
 ENV npm_config_cache=/usr/app/node_modules/.cache
