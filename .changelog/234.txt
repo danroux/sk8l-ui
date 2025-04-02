@@ -1,0 +1,16 @@
+```release-note:enhancement
+ci/dependabot: docker:(deps): bump devcontainers/typescript-node from 20 to 22
+
+docker:(deps): bump devcontainers/typescript-node from 20 to 22
+
+Bumps devcontainers/typescript-node from 20 to 22.
+
+---
+updated-dependencies:
+- dependency-name: devcontainers/typescript-node
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
