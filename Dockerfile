@@ -1,6 +1,7 @@
 # https://hub.docker.com/_/node/tags?page=1&name=bookworm-slim <- look for vulnerabilities
+# https://hub.docker.com/_/node/tags?name=22.14
 # https://github.com/primer/octicons/blob/main/package.json
-FROM node:22.3.0-bookworm-slim AS deps
+FROM node:22.14.0-bookworm-slim AS deps
 
 RUN groupadd --system --gid 101 nginx \
     && useradd --system --gid nginx --create-home --home /home/nginx --comment "nginx user" --shell /bin/bash --uid 101 nginx \
@@ -17,7 +18,9 @@ RUN mkdir -p $(pwd)/node_modules/.cache  \
     && yarn config set --home enableTelemetry 0 \
     && yarn install
 
-FROM --platform=${TARGETPLATFORM} node:20.14.0-alpine3.20 AS release
+# https://hub.docker.com/_/node/tags?name=22.14
+# https://hub.docker.com/r/arm64v8/node/tags
+FROM --platform=${TARGETPLATFORM} node:22.14.0-alpine3.21 AS release
 
 LABEL org.opencontainers.image.source=https://github.com/danroux/sk8l-ui
 LABEL org.opencontainers.image.description="sk8l-ui dev image"
