@@ -21,7 +21,7 @@
     "rollup": "^4.39.0",
     "simple-statistics": "^7.8.3",
     "typescript": "npm:4.9.5",
-    "uplot": "^1.6.25",
+    "uplot": "^1.6.32",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
