@@ -1,0 +1,20 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps): bump simple-statistics from 7.8.3 to 7.8.8
+
+npm:(deps): bump simple-statistics from 7.8.3 to 7.8.8
+
+Bumps [simple-statistics](https://github.com/simple-statistics/simple-statistics) from 7.8.3 to 7.8.8.
+- [Release notes](https://github.com/simple-statistics/simple-statistics/releases)
+- [Changelog](https://github.com/simple-statistics/simple-statistics/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/simple-statistics/simple-statistics/commits)
+
+---
+updated-dependencies:
+- dependency-name: simple-statistics
+  dependency-version: 7.8.8
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
