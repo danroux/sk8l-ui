@@ -1,0 +1,20 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps): bump google-protobuf from 3.21.2 to 3.21.4
+
+npm:(deps): bump google-protobuf from 3.21.2 to 3.21.4
+
+Bumps [google-protobuf](https://github.com/protocolbuffers/protobuf-javascript) from 3.21.2 to 3.21.4.
+- [Release notes](https://github.com/protocolbuffers/protobuf-javascript/releases)
+- [Changelog](https://github.com/protocolbuffers/protobuf-javascript/blob/main/protobuf_javascript_release.bzl)
+- [Commits](https://github.com/protocolbuffers/protobuf-javascript/compare/v3.21.2...v3.21.4)
+
+---
+updated-dependencies:
+- dependency-name: google-protobuf
+  dependency-version: 3.21.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
