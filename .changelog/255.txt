@@ -1,0 +1,3 @@
+```release-note:improvement
+npm/deps: Add missing dependencies
+```
