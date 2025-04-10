@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps): bump luxon from 3.4.4 to 3.6.1
+
+npm:(deps): bump luxon from 3.4.4 to 3.6.1
+
+Bumps [luxon](https://github.com/moment/luxon) from 3.4.4 to 3.6.1.
+- [Changelog](https://github.com/moment/luxon/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/moment/luxon/compare/3.4.4...3.6.1)
+
+---
+updated-dependencies:
+- dependency-name: luxon
+  dependency-version: 3.6.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
