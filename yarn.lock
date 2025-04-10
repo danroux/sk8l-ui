@@ -818,17 +818,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:^1.10.0":
-  version: 1.10.0
-  resolution: "@bufbuild/protobuf@npm:1.10.0"
-  checksum: 10c0/5487b9c2e63846d0e3bde4d025cc77ae44a22166a5d6c184df0da5581e1ab6d66dd115af0ccad814576dcd011bb1b93989fb0ac1eb4ae452979bb8b186693ba0
-  languageName: node
-  linkType: hard
-
 "@bufbuild/protobuf@npm:^1.7.2":
   version: 1.7.2
   resolution: "@bufbuild/protobuf@npm:1.7.2"
   checksum: 10c0/37a968b7d314c1f2e2b996bb287c72dbeaacd5bc0d92e2f706437a51c4e483ff85b97994428e252d6acf99bd7b16435471413ae3af1bd9b416d72ab3f0decd22
+  languageName: node
+  linkType: hard
+
+"@bufbuild/protobuf@npm:^2.2.5":
+  version: 2.2.5
+  resolution: "@bufbuild/protobuf@npm:2.2.5"
+  checksum: 10c0/bd4f7b0e76c47ec656204cfe3f9a9413c4027cf36c1c9be23dccb8c880ad8e9da610133376848b2011904e8d89fdda5e7f4870b51a1417d037bdc0fbe4e74cf5
   languageName: node
   linkType: hard
 
@@ -7114,7 +7114,7 @@ __metadata:
   dependencies:
     "@achrinza/node-ipc": "npm:^10.1.11"
     "@babel/core": "npm:^7.26.10"
-    "@bufbuild/protobuf": "npm:^1.10.0"
+    "@bufbuild/protobuf": "npm:^2.2.5"
     "@connectrpc/connect": "npm:^1.4.0"
     "@connectrpc/connect-web": "npm:^1.4.0"
     "@connectrpc/protoc-gen-connect-es": "npm:^1.4.0"
