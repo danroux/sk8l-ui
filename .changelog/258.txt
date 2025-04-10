@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps-dev): bump @connectrpc/protoc-gen-connect-es from 1.4.0 to 1.6.1
+
+npm:(deps-dev): bump @connectrpc/protoc-gen-connect-es
+
+Bumps [@connectrpc/protoc-gen-connect-es](https://github.com/connectrpc/connect-es/tree/HEAD/packages/protoc-gen-connect-es) from 1.4.0 to 1.6.1.
+- [Release notes](https://github.com/connectrpc/connect-es/releases)
+- [Commits](https://github.com/connectrpc/connect-es/commits/v1.6.1/packages/protoc-gen-connect-es)
+
+---
+updated-dependencies:
+- dependency-name: "@connectrpc/protoc-gen-connect-es"
+  dependency-version: 1.6.1
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
