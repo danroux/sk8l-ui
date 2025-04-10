@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps-dev): bump @connectrpc/connect from 1.4.0 to 2.0.2
+
+npm:(deps-dev): bump @connectrpc/connect from 1.4.0 to 2.0.2
+
+Bumps [@connectrpc/connect](https://github.com/connectrpc/connect-es/tree/HEAD/packages/connect) from 1.4.0 to 2.0.2.
+- [Release notes](https://github.com/connectrpc/connect-es/releases)
+- [Commits](https://github.com/connectrpc/connect-es/commits/v2.0.2/packages/connect)
+
+---
+updated-dependencies:
+- dependency-name: "@connectrpc/connect"
+  dependency-version: 2.0.2
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
