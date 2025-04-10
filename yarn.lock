@@ -1922,14 +1922,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/estree@npm:1.0.5":
-  version: 1.0.5
-  resolution: "@types/estree@npm:1.0.5"
-  checksum: 10c0/b3b0e334288ddb407c7b3357ca67dbee75ee22db242ca7c56fe27db4e1a31989cb8af48a84dd401deb787fe10cc6b2ab1ee82dc4783be87ededbe3d53c79c70d
-  languageName: node
-  linkType: hard
-
-"@types/estree@npm:^1.0.6":
+"@types/estree@npm:1.0.7, @types/estree@npm:^1.0.6":
   version: 1.0.7
   resolution: "@types/estree@npm:1.0.7"
   checksum: 10c0/be815254316882f7c40847336cd484c3bc1c3e34f710d197160d455dc9d6d050ffbf4c3bc76585dba86f737f020ab20bdb137ebe0e9116b0c86c7c0342221b8c
@@ -6816,17 +6809,17 @@ __metadata:
   linkType: hard
 
 "rollup@npm:@rollup/wasm-node@*":
-  version: 4.18.0
-  resolution: "@rollup/wasm-node@npm:4.18.0"
+  version: 4.39.0
+  resolution: "@rollup/wasm-node@npm:4.39.0"
   dependencies:
-    "@types/estree": "npm:1.0.5"
+    "@types/estree": "npm:1.0.7"
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 10c0/b39514f3649858a4120567500ff6974902f99976f315df6b6e565ef2c206f3287f86fc665bc4c59d009cf52697a22fcddcbac2bdef6bf4546d472bdd26945137
+  checksum: 10c0/c86ba5ae9d2448ce2c73150638e52c1418b878561d1c5ed305a9a1b48ae81cfe3a4959e117855f2f8bda7239079ba3155ef014332f1a211a592838dfb0c9d6fe
   languageName: node
   linkType: hard
 
