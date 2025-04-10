@@ -843,13 +843,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@connectrpc/connect-web@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@connectrpc/connect-web@npm:1.4.0"
+"@connectrpc/connect-web@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@connectrpc/connect-web@npm:2.0.2"
   peerDependencies:
-    "@bufbuild/protobuf": ^1.4.2
-    "@connectrpc/connect": 1.4.0
-  checksum: 10c0/8f636ebda5b2707416c94aff72d285972e85eba15cae57eb6126b1d0da6f9dcdc7452ab3bd5d527cd987eb527e2f5cdc453ccb43098ac20ea2e2c3604c69c366
+    "@bufbuild/protobuf": ^2.2.0
+    "@connectrpc/connect": 2.0.2
+  checksum: 10c0/d668b4ed31c2c14e4d996ede6a34f74e88dbecc8d9f8836aeedd50864f6e03b08045aefcee4b5f96744d8a7d5fa525d58e0f2b9db38a0ee0e1cabf09abc98320
   languageName: node
   linkType: hard
 
@@ -7116,7 +7116,7 @@ __metadata:
     "@babel/core": "npm:^7.26.10"
     "@bufbuild/protobuf": "npm:^1.10.0"
     "@connectrpc/connect": "npm:^1.4.0"
-    "@connectrpc/connect-web": "npm:^1.4.0"
+    "@connectrpc/connect-web": "npm:^2.0.2"
     "@connectrpc/protoc-gen-connect-es": "npm:^1.4.0"
     "@grpc/grpc-js": "npm:^1.13.2"
     "@originjs/vite-plugin-commonjs": "npm:^1.0.3"
