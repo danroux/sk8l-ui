@@ -1,3 +1,35 @@
+## v0.16.0 (April 10, 2025)
+
+ENHANCEMENTS:
+
+* ci/dependabot: docker:(deps): bump cypress/included from 13.12.0 to 14.3.0 [[GH-215](https://github.com/danroux/sk8l-ui/issues/215)]
+* ci/dependabot: docker:(deps): bump devcontainers/typescript-node from 20 to 22 [[GH-234](https://github.com/danroux/sk8l-ui/issues/234)]
+* ci/dependabot: npm:(deps): bump @grpc/grpc-js from 1.10.9 to 1.13.2 [[GH-227](https://github.com/danroux/sk8l-ui/issues/227)]
+* ci/dependabot: npm:(deps): bump cronstrue from 2.50.0 to 2.57.0 [[GH-247](https://github.com/danroux/sk8l-ui/issues/247)]
+* ci/dependabot: npm:(deps): bump luxon from 3.4.4 to 3.6.1 [[GH-252](https://github.com/danroux/sk8l-ui/issues/252)]
+* ci/dependabot: npm:(deps): bump rollup from 4.18.0 to 4.38.0 [[GH-235](https://github.com/danroux/sk8l-ui/issues/235)]
+* ci/dependabot: npm:(deps): bump rollup from 4.18.0 to 4.39.0 [[GH-253](https://github.com/danroux/sk8l-ui/issues/253)]
+* ci/dependabot: npm:(deps): bump vue from 3.4.29 to 3.5.13 [[GH-232](https://github.com/danroux/sk8l-ui/issues/232)]
+* ci/dependabot: npm:(deps): bump vue-router from 4.3.3 to 4.5.0 [[GH-228](https://github.com/danroux/sk8l-ui/issues/228)]
+* ci/dependabot: npm:(deps-dev): bump @babel/core from 7.24.7 to 7.26.10 [[GH-226](https://github.com/danroux/sk8l-ui/issues/226)]
+* ci/dependabot: npm:(deps-dev): bump @vitejs/plugin-vue from 5.0.5 to 5.2.3 [[GH-248](https://github.com/danroux/sk8l-ui/issues/248)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 9.5.0 to 9.23.0 [[GH-233](https://github.com/danroux/sk8l-ui/issues/233)]
+* ci/dependabot: npm:(deps-dev): bump eslint-plugin-import from 2.29.1 to 2.31.0 [[GH-243](https://github.com/danroux/sk8l-ui/issues/243)]
+* ci/dependabot: npm:(deps-dev): bump eslint-plugin-vue from 9.26.0 to 10.0.0 [[GH-229](https://github.com/danroux/sk8l-ui/issues/229)]
+* ci/dependabot: npm:(deps-dev): bump eslint-plugin-vuejs-accessibility from 2.3.0 to 2.4.1 [[GH-154](https://github.com/danroux/sk8l-ui/issues/154)]
+* ci/dependabot: npm:(deps-dev): bump sass from 1.77.6 to 1.86.0 [[GH-230](https://github.com/danroux/sk8l-ui/issues/230)]
+* ci/dependabot: npm:(deps-dev): bump sass from 1.86.2 to 1.86.3 [[GH-254](https://github.com/danroux/sk8l-ui/issues/254)]
+* ci/dependabot: npm:(deps-dev): bump vite from 5.3.1 to 6.2.4 [[GH-236](https://github.com/danroux/sk8l-ui/issues/236)]
+
+IMPROVEMENTS:
+
+* Docker: Reference typescript node image with semver [[GH-239](https://github.com/danroux/sk8l-ui/issues/239)]
+* Docker: Update to node v22.14.0 in Dockerfile [[GH-240](https://github.com/danroux/sk8l-ui/issues/240)]
+* Docker: Use node images with alpine for dev release on Dockerfile
+
+Do this to simplify Dockerfile [[GH-238](https://github.com/danroux/sk8l-ui/issues/238)]
+* npm/deps: Add missing dependencies [[GH-255](https://github.com/danroux/sk8l-ui/issues/255)]
+
 ## v0.15.0 (April 01, 2025)
 
 ENHANCEMENTS:
