@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps-dev): bump @bufbuild/protobuf from 1.10.0 to 2.2.5
+
+npm:(deps-dev): bump @bufbuild/protobuf from 1.10.0 to 2.2.5
+
+Bumps [@bufbuild/protobuf](https://github.com/bufbuild/protobuf-es/tree/HEAD/packages/protobuf) from 1.10.0 to 2.2.5.
+- [Release notes](https://github.com/bufbuild/protobuf-es/releases)
+- [Commits](https://github.com/bufbuild/protobuf-es/commits/v2.2.5/packages/protobuf)
+
+---
+updated-dependencies:
+- dependency-name: "@bufbuild/protobuf"
+  dependency-version: 2.2.5
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
