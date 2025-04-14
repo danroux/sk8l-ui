@@ -1,0 +1,3 @@
+```release-note:enhancement
+npm:(deps): Upgrade protobuf to v2.2.5(pr#250), upgrade connect to v2.0.2(pr#249), update protobuf files and update application code accordingly
+```
