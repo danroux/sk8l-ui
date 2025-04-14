@@ -131,8 +131,9 @@ import Octicon from '@/components/Octicon.vue';
 import WiderHeader from '@/components/WiderHeader.vue';
 import cronstrue from 'cronstrue';
 
-import {CronjobRequest,
-       CronjobResponse} from '@/components/protos/sk8l_pb.ts';
+import { create } from "@bufbuild/protobuf";
+import {CronjobRequestSchema,
+       CronjobResponseSchema} from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
 
 export default {
@@ -206,7 +207,7 @@ export default {
   },
   mounted() {
     window.onbeforeunload = this.leaving;
-    var request = new CronjobRequest({ cronjobName: this.name, cronjobNamespace: this.namespace});
+    var request = create(CronjobRequestSchema, { cronjobName: this.name, cronjobNamespace: this.namespace});
     const app = this;
 
     app.stream = this.getCronjob(app, request);

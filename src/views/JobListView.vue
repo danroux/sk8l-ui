@@ -15,8 +15,9 @@ import CronjobListHeader from '@/components/CronjobListHeader.vue';
 import LogoHeader from '@/components/LogoHeader.vue';
 import RootBlankSlate from '@/views/RootBlankSlate.vue';
 
-import {JobsRequest,
-       JobsResponse} from '@/components/protos/sk8l_pb.ts';
+import { create } from "@bufbuild/protobuf";
+import {JobsRequestSchema,
+       JobsResponseSchema} from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
 import {ConnectError} from "@connectrpc/connect";
 
@@ -69,7 +70,7 @@ export default {
   },
   async mounted() {
     window.onbeforeunload = this.leaving;
-    var request = new JobsRequest();
+    var request = create(JobsRequestSchema, {});
     const app = this;
 
     app.stream = await this.getJobs(app, request);
