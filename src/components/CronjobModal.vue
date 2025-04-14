@@ -25,8 +25,9 @@
 import Octicon from '@/components/Octicon.vue';
 import ModalContainer from '@/components/ModalContainer.vue';
 
-import {CronjobRequest,
-       CronjobYAMLResponse} from '@/components/protos/sk8l_pb.ts';
+import { create } from "@bufbuild/protobuf";
+import {CronjobRequestSchema,
+       CronjobYAMLResponseSchema} from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
 
 export default {
@@ -41,7 +42,7 @@ export default {
   },
   methods: {
     getCronjobYAML: async function(namespace, name) {
-      var request = new CronjobRequest({ cronjobName: name, cronjobNamespace: namespace });
+      var request = create(CronjobRequestSchema, { cronjobName: name, cronjobNamespace: namespace });
       const that = this;
 
       await Sk8lCronjobClient.getCronjobYAML(

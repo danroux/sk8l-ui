@@ -18,8 +18,9 @@ import RootBlankSlate from '@/views/RootBlankSlate.vue';
 import WiderHeader from '@/components/WiderHeader.vue';
 // import axios, { isCancel, AxiosError } from 'axios';
 
-import {CronjobPodsRequest,
-       CronjobPodsResponse} from '@/components/protos/sk8l_pb.ts';
+import { create } from "@bufbuild/protobuf";
+import {CronjobPodsRequestSchema,
+       CronjobPodsResponseSchema} from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
 
 export default {
@@ -79,7 +80,7 @@ export default {
   },
   mounted() {
     window.onbeforeunload = this.leaving;
-    var request = new CronjobPodsRequest({ cronjobName: this.cronjobName, cronjobNamespace: this.namespace });
+    var request = create(CronjobPodsRequestSchema, { cronjobName: this.cronjobName, cronjobNamespace: this.namespace });
     const app = this;
 
     app.stream = this.getCronjobPods(app, request);

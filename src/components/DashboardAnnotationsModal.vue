@@ -33,8 +33,9 @@
 import ModalContainer from '@/components/ModalContainer.vue';
 import Octicon from '@/components/Octicon.vue';
 
-import {DashboardAnnotationsRequest,
-       DashboardAnnotationsResponse} from '@/components/protos/sk8l_pb.ts';
+import { create } from "@bufbuild/protobuf";
+import {DashboardAnnotationsRequestSchema,
+       DashboardAnnotationsResponseSchema} from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
 
 export default {
@@ -49,7 +50,7 @@ export default {
   },
   methods: {
     copyDashboardAnnotations: async function() {
-      var request = new DashboardAnnotationsRequest({});
+      var request = create(DashboardAnnotationsRequestSchema, {});
       const that = this;
 
       await Sk8lCronjobClient.getDashboardAnnotations(
@@ -65,7 +66,7 @@ export default {
       );
     },
     getDashboardAnnotations: async function() {
-      var request = new DashboardAnnotationsRequest({});
+      var request = create(DashboardAnnotationsRequestSchema({}));
       const that = this;
 
       await Sk8lCronjobClient.getDashboardAnnotations(

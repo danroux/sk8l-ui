@@ -25,8 +25,9 @@
 import ModalContainer from '@/components/ModalContainer.vue';
 import Octicon from '@/components/Octicon.vue';
 
-import {JobRequest,
-       JobYAMLResponse} from '@/components/protos/sk8l_pb.ts';
+import { create } from "@bufbuild/protobuf";
+import {JobRequestSchema,
+       JobYAMLResponseSchema} from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
 
 export default {
@@ -41,7 +42,7 @@ export default {
   },
   methods: {
     getJobYAML: async function(jobNamespace, jobName) {
-      var request = new JobRequest({ jobNamespace: jobNamespace, jobName: jobName });
+      var request = create(JobRequestSchema, { jobNamespace: jobNamespace, jobName: jobName });
       const that = this;
 
       await Sk8lCronjobClient.getJobYAML(

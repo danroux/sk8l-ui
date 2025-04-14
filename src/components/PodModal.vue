@@ -25,8 +25,9 @@
 import ModalContainer from '@/components/ModalContainer.vue';
 import Octicon from '@/components/Octicon.vue';
 
-import {PodRequest,
-       PodYAMLResponse} from '@/components/protos/sk8l_pb.ts';
+import { create } from "@bufbuild/protobuf";
+import {PodRequestSchema,
+       PodYAMLResponseSchema} from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
 
 export default {
@@ -41,7 +42,7 @@ export default {
   },
   methods: {
     getPodYAML: async function(podNamespace, podName) {
-      var request = new PodRequest({ podNamespace: podNamespace, podName: podName });
+      var request = create(PodRequestSchema, { podNamespace: podNamespace, podName: podName });
       const that = this;
 
       await Sk8lCronjobClient.getPodYAML(
