@@ -1,0 +1,20 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps-dev): bump vite from 6.2.5 to 6.2.6
+
+npm:(deps-dev): bump vite from 6.2.5 to 6.2.6
+
+Bumps [vite](https://github.com/vitejs/vite/tree/HEAD/packages/vite) from 6.2.5 to 6.2.6.
+- [Release notes](https://github.com/vitejs/vite/releases)
+- [Changelog](https://github.com/vitejs/vite/blob/v6.2.6/packages/vite/CHANGELOG.md)
+- [Commits](https://github.com/vitejs/vite/commits/v6.2.6/packages/vite)
+
+---
+updated-dependencies:
+- dependency-name: vite
+  dependency-version: 6.2.6
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
