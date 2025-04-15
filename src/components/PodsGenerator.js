@@ -86,9 +86,17 @@ const PodsGenerator = {
     return status;
   },
   processStatus(containerStatus) {
-    let states = Object.entries(containerStatus.state);
-    let stateKey = states.find((x) => x[1]);
-    let stateAttrs = containerStatus.state[stateKey[0]];
+    // k8s.io.api.core.v1.ContainerState
+    let { "$typeName": _,...properties} = containerStatus.state;
+    let statePropsEntries = Object.entries(properties);
+    // k8s.io.api.core.v1.ContainerStateWaiting
+    // waiting?: ContainerStateWaiting;
+    // k8s.io.api.core.v1.ContainerStateRunning
+    // running?: ContainerStateRunning;
+    // k8s.io.api.core.v1.ContainerStateTerminated
+    // terminated?: ContainerStateTerminated;
+    let stateKey = statePropsEntries[0][0];
+    let stateAttrs = properties[stateKey];
 
     let status = { state: stateKey, reason: stateAttrs.reason };
     return status;

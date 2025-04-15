@@ -1,5 +1,5 @@
 <template>
-  <span class="mr-2">
+  <span class="mr-2 status-row">
     <span class="repo-language-color" :class="itemPropClass"></span>&nbsp;
     <span itemprop="programmingLanguage">{{ propText }}</span>
   </span>
