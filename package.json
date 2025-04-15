@@ -15,7 +15,7 @@
     "@grpc/grpc-js": "^1.13.2",
     "@primer/octicons": "^19.10.0",
     "cronstrue": "^2.59.0",
-    "google-protobuf": "^3.21.2",
+    "google-protobuf": "^3.21.4",
     "grpc-web": "^1.5.0",
     "luxon": "^3.6.1",
     "rollup": "^4.39.0",
