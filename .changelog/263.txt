@@ -1,0 +1,3 @@
+```release-note:bug
+StatusProp: Fix API changes for ContainerState && ContainerStatus
+```

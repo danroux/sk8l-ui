@@ -47,8 +47,7 @@ export default {
   computed: {
     status(_vm) {
       const { state: statusState, reason: reason } = this.pod.containerStatuses[0];
-      const statusKey = statusState[0];
-
+      const statusKey = statusState;
       if (statusKey === 'running' || statusKey == 'waiting') {
         if (reason && reason.toLowerCase().includes('error')) {
           return 'Failing';

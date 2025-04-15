@@ -65,6 +65,11 @@ describe('Home Test', () => {
                 .should('exist')
                 .contains(/\d+ (?:second|minute)(s)? ago/);
 
+            cy.get('@cronJobElement')
+                .find('.status-row')
+                .should('exist')
+                .contains(/Active|Succeeded|Pending/);
+
             // cy.get('@cronJobElement')
             //     .find('.cronjob-failure-time')
             //     .should('exist');
@@ -75,6 +80,7 @@ describe('Home Test', () => {
 describe('/cronjobs/:namespace', () => {
     it('visits a cronjob', () => {
         cy.visit('https://sk8l-ui:8001/cronjob/sk8l/download-report-files')
+
         cy.contains('Overview')
         cy.contains('Success')
         cy.contains('Active')
@@ -99,6 +105,8 @@ describe('/cronjobs/:namespace', () => {
         cy.contains('suspend false')
         cy.contains('successfulJobsHistoryLimit 20')
         cy.contains('failedJobsHistoryLimit 20')
+
+        cy.contains(/Active|Succeeded|Pending/);
     })
 
     it("visits a cronjob's pods", () => {
@@ -106,6 +114,8 @@ describe('/cronjobs/:namespace', () => {
         cy.contains('Node:')
         cy.contains('Host:')
         cy.contains('Pod Ips:')
+
+        cy.contains(/Active|Succeeded|Pending/);
     })
 });
 
@@ -228,6 +238,8 @@ describe('/jobs/:namespace', () => {
                 .find('.job-failure-time')
                 .should('exist')
                 .contains(/\d+ (?:second|minute)(s)? ago/);
+
+            cy.contains(/Failed|Failing/);
         });
     });
 });
