@@ -3,8 +3,8 @@ FROM node:22.14.0-bookworm-slim AS deps
 WORKDIR /usr/app/src
 
 RUN npm install -g npm@11.3.0
-RUN npm install -g @bufbuild/buf @bufbuild/protoc-gen-es && \
-    npm install -g @connectrpc/connect @bufbuild/protobuf
+RUN npm install -g @bufbuild/buf@^1.52.1 @bufbuild/protoc-gen-es@^2.2.5 && \
+    npm install -g @connectrpc/connect@^2.0.2 @bufbuild/protobuf@^2.2.5
 
 COPY buf.gen.yaml .
 

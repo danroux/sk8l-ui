@@ -1,3 +1,12 @@
 ```release-note:bug
-StatusProp: Fix API changes for ContainerState && ContainerStatus
+StatusProp: Fix API changes for ContainerState && ContainerStatus after upgrading to Protobuf-ES/Connect 2.0
+
+Add new smoke tests to cover what got broken.
+
+Pin version of npm packages in Dockerfile.connect used for code generation:
+
+- bufbuild/buf@^1.52.1
+- bufbuild/protoc-gen-es@^2.2.5
+- connectrpc/connect@^2.0.2
+- bufbuild/protobuf@^2.2.5
 ```
