@@ -1,3 +1,28 @@
+## v0.17.0 (April 16, 2025)
+
+ENHANCEMENTS:
+
+* ci/dependabot: npm:(deps): bump @grpc/grpc-js from 1.13.2 to 1.13.3 [[GH-259](https://github.com/danroux/sk8l-ui/issues/259)]
+* ci/dependabot: npm:(deps): bump google-protobuf from 3.21.2 to 3.21.4 [[GH-244](https://github.com/danroux/sk8l-ui/issues/244)]
+* ci/dependabot: npm:(deps): bump rollup from 4.39.0 to 4.40.0 [[GH-262](https://github.com/danroux/sk8l-ui/issues/262)]
+* ci/dependabot: npm:(deps-dev): bump @bufbuild/protobuf from 1.10.0 to 2.2.5 [[GH-249](https://github.com/danroux/sk8l-ui/issues/249)]
+* ci/dependabot: npm:(deps-dev): bump @connectrpc/connect from 1.4.0 to 2.0.2 [[GH-250](https://github.com/danroux/sk8l-ui/issues/250)]
+* ci/dependabot: npm:(deps-dev): bump vite from 6.2.5 to 6.2.6 [[GH-257](https://github.com/danroux/sk8l-ui/issues/257)]
+* npm:(deps): Upgrade protobuf to v2.2.5(pr#250), upgrade connect to v2.0.2(pr#249), protobuf files and application code accordingly [[GH-261](https://github.com/danroux/sk8l-ui/issues/261)]
+
+BUG FIXES:
+
+* StatusProp: Fix API changes for ContainerState && ContainerStatus after upgrading to Protobuf-ES/Connect 2.0
+
+Add new smoke tests to cover what got broken.
+
+Pin version of npm packages in Dockerfile.connect used for code generation:
+
+- bufbuild/buf@^1.52.1
+- bufbuild/protoc-gen-es@^2.2.5
+- connectrpc/connect@^2.0.2
+- bufbuild/protobuf@^2.2.5 [[GH-263](https://github.com/danroux/sk8l-ui/issues/263)]
+
 ## v0.16.0 (April 10, 2025)
 
 ENHANCEMENTS:
