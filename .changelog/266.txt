@@ -1,0 +1,5 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps): bump rollup from 4.39.0 to 4.40.0
+
+Move changelog commit below HEAD so checks are visible in the PR (#268)
+```
