@@ -6755,8 +6755,8 @@ __metadata:
   linkType: hard
 
 "rollup@npm:@rollup/wasm-node@*":
-  version: 4.39.0
-  resolution: "@rollup/wasm-node@npm:4.39.0"
+  version: 4.40.0
+  resolution: "@rollup/wasm-node@npm:4.40.0"
   dependencies:
     "@types/estree": "npm:1.0.7"
     fsevents: "npm:~2.3.2"
@@ -6765,7 +6765,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 10c0/c86ba5ae9d2448ce2c73150638e52c1418b878561d1c5ed305a9a1b48ae81cfe3a4959e117855f2f8bda7239079ba3155ef014332f1a211a592838dfb0c9d6fe
+  checksum: 10c0/dfbcee725210be04d3aa793f31524f0b6691c0676514186334432e5483bf7b87d25b0a69515c421b0f9652ded0cb712058050aae1b17b0d55ad2176d69a698fb
   languageName: node
   linkType: hard
 
