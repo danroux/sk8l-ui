@@ -55,7 +55,9 @@ jobs:
         echo "---"
         git log -1
         git commit -m "Add .changelog/$PR_NUMBER.txt"
-        git push
+        # Move changelog commit below HEAD so checks are visible in the PR
+        git rebase --onto HEAD~2 HEAD~1 HEAD
+        git push --force
         # git push --force "https://x-access-token:$GITHUB_TOKEN@github.com/${{ github.repository }}.git" HEAD:${{ github.event.pull_request.head.ref }}
         # echo '{"pull_request_number": "${{ github.event.pull_request.number }}"}' | gh workflow run k8s.yml  --ref ${{ github.event.pull_request.head.ref }} --json -
   # checks that a .changelog entry is present for a PR
