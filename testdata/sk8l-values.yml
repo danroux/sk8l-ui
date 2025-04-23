@@ -43,3 +43,15 @@ sk8lUi:
 configMaps:
   ui:
     vite_sk8l_api_url: "https://sk8l-ui:9080"
+#  Enables network policy for sk8l pods
+networkPolicy:
+  enabled: false
+  apiserverPolicy:
+    ingress:
+      - from:
+          - ipBlock:
+              cidr: 0.0.0.0/8
+    egress:
+      - to:
+          - ipBlock:
+              cidr: 0.0.0.0/8
