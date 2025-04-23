@@ -37,3 +37,12 @@ helm upgrade --install [RELEASE_NAME] sk8l/sk8l \
 --set namespace=[NAMESPACE] \
 --set serviceAccount.metadata.namespace=[NAMESPACE]
 ```
+
+## Supported Kubernetes versions
+The Kubernetes community releases minor versions roughly every three months. These are the versions currently supported and tested against.
+
+| Version       | Tested Version |
+| ------------- | ----------------- |
+| v1.31         | v1.31.0           |
+| v1.30         | v1.30.4           |
+| v1.29         | v1.29.8           |
