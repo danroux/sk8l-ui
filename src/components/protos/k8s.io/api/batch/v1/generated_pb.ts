@@ -33,7 +33,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file k8s.io/api/batch/v1/generated.proto.
  */
 export const file_k8s_io_api_batch_v1_generated: GenFile = /*@__PURE__*/
-  fileDesc("CiNrOHMuaW8vYXBpL2JhdGNoL3YxL2dlbmVyYXRlZC5wcm90bxITazhzLmlvLmFwaS5iYXRjaC52MSKxAQoHQ3JvbkpvYhJCCghtZXRhZGF0YRgBIAEoCzIwLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5PYmplY3RNZXRhEi4KBHNwZWMYAiABKAsyIC5rOHMuaW8uYXBpLmJhdGNoLnYxLkNyb25Kb2JTcGVjEjIKBnN0YXR1cxgDIAEoCzIiLms4cy5pby5hcGkuYmF0Y2gudjEuQ3JvbkpvYlN0YXR1cyJ8CgtDcm9uSm9iTGlzdBJACghtZXRhZGF0YRgBIAEoCzIuLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5MaXN0TWV0YRIrCgVpdGVtcxgCIAMoCzIcLms4cy5pby5hcGkuYmF0Y2gudjEuQ3JvbkpvYiL9AQoLQ3JvbkpvYlNwZWMSEAoIc2NoZWR1bGUYASABKAkSEAoIdGltZVpvbmUYCCABKAkSHwoXc3RhcnRpbmdEZWFkbGluZVNlY29uZHMYAiABKAMSGQoRY29uY3VycmVuY3lQb2xpY3kYAyABKAkSDwoHc3VzcGVuZBgEIAEoCBI5Cgtqb2JUZW1wbGF0ZRgFIAEoCzIkLms4cy5pby5hcGkuYmF0Y2gudjEuSm9iVGVtcGxhdGVTcGVjEiIKGnN1Y2Nlc3NmdWxKb2JzSGlzdG9yeUxpbWl0GAYgASgFEh4KFmZhaWxlZEpvYnNIaXN0b3J5TGltaXQYByABKAUi0gEKDUNyb25Kb2JTdGF0dXMSMwoGYWN0aXZlGAEgAygLMiMuazhzLmlvLmFwaS5jb3JlLnYxLk9iamVjdFJlZmVyZW5jZRJEChBsYXN0U2NoZWR1bGVUaW1lGAQgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUSRgoSbGFzdFN1Y2Nlc3NmdWxUaW1lGAUgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUipQEKA0pvYhJCCghtZXRhZGF0YRgBIAEoCzIwLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5PYmplY3RNZXRhEioKBHNwZWMYAiABKAsyHC5rOHMuaW8uYXBpLmJhdGNoLnYxLkpvYlNwZWMSLgoGc3RhdHVzGAMgASgLMh4uazhzLmlvLmFwaS5iYXRjaC52MS5Kb2JTdGF0dXMi2AEKDEpvYkNvbmRpdGlvbhIMCgR0eXBlGAEgASgJEg4KBnN0YXR1cxgCIAEoCRJBCg1sYXN0UHJvYmVUaW1lGAMgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUSRgoSbGFzdFRyYW5zaXRpb25UaW1lGAQgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUSDgoGcmVhc29uGAUgASgJEg8KB21lc3NhZ2UYBiABKAkidAoHSm9iTGlzdBJACghtZXRhZGF0YRgBIAEoCzIuLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5MaXN0TWV0YRInCgVpdGVtcxgCIAMoCzIYLms4cy5pby5hcGkuYmF0Y2gudjEuSm9iIt8DCgdKb2JTcGVjEhMKC3BhcmFsbGVsaXNtGAEgASgFEhMKC2NvbXBsZXRpb25zGAIgASgFEh0KFWFjdGl2ZURlYWRsaW5lU2Vjb25kcxgDIAEoAxI/ChBwb2RGYWlsdXJlUG9saWN5GAsgASgLMiUuazhzLmlvLmFwaS5iYXRjaC52MS5Qb2RGYWlsdXJlUG9saWN5EhQKDGJhY2tvZmZMaW1pdBgHIAEoBRIcChRiYWNrb2ZmTGltaXRQZXJJbmRleBgMIAEoBRIYChBtYXhGYWlsZWRJbmRleGVzGA0gASgFEkUKCHNlbGVjdG9yGAQgASgLMjMuazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLkxhYmVsU2VsZWN0b3ISFgoObWFudWFsU2VsZWN0b3IYBSABKAgSNQoIdGVtcGxhdGUYBiABKAsyIy5rOHMuaW8uYXBpLmNvcmUudjEuUG9kVGVtcGxhdGVTcGVjEh8KF3R0bFNlY29uZHNBZnRlckZpbmlzaGVkGAggASgFEhYKDmNvbXBsZXRpb25Nb2RlGAkgASgJEg8KB3N1c3BlbmQYCiABKAgSHAoUcG9kUmVwbGFjZW1lbnRQb2xpY3kYDiABKAkinAMKCUpvYlN0YXR1cxI1Cgpjb25kaXRpb25zGAEgAygLMiEuazhzLmlvLmFwaS5iYXRjaC52MS5Kb2JDb25kaXRpb24SPQoJc3RhcnRUaW1lGAIgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUSQgoOY29tcGxldGlvblRpbWUYAyABKAsyKi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuVGltZRIOCgZhY3RpdmUYBCABKAUSEQoJc3VjY2VlZGVkGAUgASgFEg4KBmZhaWxlZBgGIAEoBRITCgt0ZXJtaW5hdGluZxgLIAEoBRIYChBjb21wbGV0ZWRJbmRleGVzGAcgASgJEhUKDWZhaWxlZEluZGV4ZXMYCiABKAkSTQoXdW5jb3VudGVkVGVybWluYXRlZFBvZHMYCCABKAsyLC5rOHMuaW8uYXBpLmJhdGNoLnYxLlVuY291bnRlZFRlcm1pbmF0ZWRQb2RzEg0KBXJlYWR5GAkgASgFIoEBCg9Kb2JUZW1wbGF0ZVNwZWMSQgoIbWV0YWRhdGEYASABKAsyMC5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuT2JqZWN0TWV0YRIqCgRzcGVjGAIgASgLMhwuazhzLmlvLmFwaS5iYXRjaC52MS5Kb2JTcGVjIkwKEFBvZEZhaWx1cmVQb2xpY3kSOAoFcnVsZXMYASADKAsyKS5rOHMuaW8uYXBpLmJhdGNoLnYxLlBvZEZhaWx1cmVQb2xpY3lSdWxlImEKJlBvZEZhaWx1cmVQb2xpY3lPbkV4aXRDb2Rlc1JlcXVpcmVtZW50EhUKDWNvbnRhaW5lck5hbWUYASABKAkSEAoIb3BlcmF0b3IYAiABKAkSDgoGdmFsdWVzGAMgAygFIkYKJlBvZEZhaWx1cmVQb2xpY3lPblBvZENvbmRpdGlvbnNQYXR0ZXJuEgwKBHR5cGUYASABKAkSDgoGc3RhdHVzGAIgASgJIs4BChRQb2RGYWlsdXJlUG9saWN5UnVsZRIOCgZhY3Rpb24YASABKAkSUAoLb25FeGl0Q29kZXMYAiABKAsyOy5rOHMuaW8uYXBpLmJhdGNoLnYxLlBvZEZhaWx1cmVQb2xpY3lPbkV4aXRDb2Rlc1JlcXVpcmVtZW50ElQKD29uUG9kQ29uZGl0aW9ucxgDIAMoCzI7Lms4cy5pby5hcGkuYmF0Y2gudjEuUG9kRmFpbHVyZVBvbGljeU9uUG9kQ29uZGl0aW9uc1BhdHRlcm4iPAoXVW5jb3VudGVkVGVybWluYXRlZFBvZHMSEQoJc3VjY2VlZGVkGAEgAygJEg4KBmZhaWxlZBgCIAMoCUIVWhNrOHMuaW8vYXBpL2JhdGNoL3Yx", [file_k8s_io_api_core_v1_generated, file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, file_k8s_io_apimachinery_pkg_runtime_generated, file_k8s_io_apimachinery_pkg_runtime_schema_generated]);
+  fileDesc("CiNrOHMuaW8vYXBpL2JhdGNoL3YxL2dlbmVyYXRlZC5wcm90bxITazhzLmlvLmFwaS5iYXRjaC52MSKxAQoHQ3JvbkpvYhJCCghtZXRhZGF0YRgBIAEoCzIwLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5PYmplY3RNZXRhEi4KBHNwZWMYAiABKAsyIC5rOHMuaW8uYXBpLmJhdGNoLnYxLkNyb25Kb2JTcGVjEjIKBnN0YXR1cxgDIAEoCzIiLms4cy5pby5hcGkuYmF0Y2gudjEuQ3JvbkpvYlN0YXR1cyJ8CgtDcm9uSm9iTGlzdBJACghtZXRhZGF0YRgBIAEoCzIuLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5MaXN0TWV0YRIrCgVpdGVtcxgCIAMoCzIcLms4cy5pby5hcGkuYmF0Y2gudjEuQ3JvbkpvYiL9AQoLQ3JvbkpvYlNwZWMSEAoIc2NoZWR1bGUYASABKAkSEAoIdGltZVpvbmUYCCABKAkSHwoXc3RhcnRpbmdEZWFkbGluZVNlY29uZHMYAiABKAMSGQoRY29uY3VycmVuY3lQb2xpY3kYAyABKAkSDwoHc3VzcGVuZBgEIAEoCBI5Cgtqb2JUZW1wbGF0ZRgFIAEoCzIkLms4cy5pby5hcGkuYmF0Y2gudjEuSm9iVGVtcGxhdGVTcGVjEiIKGnN1Y2Nlc3NmdWxKb2JzSGlzdG9yeUxpbWl0GAYgASgFEh4KFmZhaWxlZEpvYnNIaXN0b3J5TGltaXQYByABKAUi0gEKDUNyb25Kb2JTdGF0dXMSMwoGYWN0aXZlGAEgAygLMiMuazhzLmlvLmFwaS5jb3JlLnYxLk9iamVjdFJlZmVyZW5jZRJEChBsYXN0U2NoZWR1bGVUaW1lGAQgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUSRgoSbGFzdFN1Y2Nlc3NmdWxUaW1lGAUgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUipQEKA0pvYhJCCghtZXRhZGF0YRgBIAEoCzIwLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5PYmplY3RNZXRhEioKBHNwZWMYAiABKAsyHC5rOHMuaW8uYXBpLmJhdGNoLnYxLkpvYlNwZWMSLgoGc3RhdHVzGAMgASgLMh4uazhzLmlvLmFwaS5iYXRjaC52MS5Kb2JTdGF0dXMi2AEKDEpvYkNvbmRpdGlvbhIMCgR0eXBlGAEgASgJEg4KBnN0YXR1cxgCIAEoCRJBCg1sYXN0UHJvYmVUaW1lGAMgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUSRgoSbGFzdFRyYW5zaXRpb25UaW1lGAQgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUSDgoGcmVhc29uGAUgASgJEg8KB21lc3NhZ2UYBiABKAkidAoHSm9iTGlzdBJACghtZXRhZGF0YRgBIAEoCzIuLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5MaXN0TWV0YRInCgVpdGVtcxgCIAMoCzIYLms4cy5pby5hcGkuYmF0Y2gudjEuSm9iIq0ECgdKb2JTcGVjEhMKC3BhcmFsbGVsaXNtGAEgASgFEhMKC2NvbXBsZXRpb25zGAIgASgFEh0KFWFjdGl2ZURlYWRsaW5lU2Vjb25kcxgDIAEoAxI/ChBwb2RGYWlsdXJlUG9saWN5GAsgASgLMiUuazhzLmlvLmFwaS5iYXRjaC52MS5Qb2RGYWlsdXJlUG9saWN5EjkKDXN1Y2Nlc3NQb2xpY3kYECABKAsyIi5rOHMuaW8uYXBpLmJhdGNoLnYxLlN1Y2Nlc3NQb2xpY3kSFAoMYmFja29mZkxpbWl0GAcgASgFEhwKFGJhY2tvZmZMaW1pdFBlckluZGV4GAwgASgFEhgKEG1heEZhaWxlZEluZGV4ZXMYDSABKAUSRQoIc2VsZWN0b3IYBCABKAsyMy5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuTGFiZWxTZWxlY3RvchIWCg5tYW51YWxTZWxlY3RvchgFIAEoCBI1Cgh0ZW1wbGF0ZRgGIAEoCzIjLms4cy5pby5hcGkuY29yZS52MS5Qb2RUZW1wbGF0ZVNwZWMSHwoXdHRsU2Vjb25kc0FmdGVyRmluaXNoZWQYCCABKAUSFgoOY29tcGxldGlvbk1vZGUYCSABKAkSDwoHc3VzcGVuZBgKIAEoCBIcChRwb2RSZXBsYWNlbWVudFBvbGljeRgOIAEoCRIRCgltYW5hZ2VkQnkYDyABKAkinAMKCUpvYlN0YXR1cxI1Cgpjb25kaXRpb25zGAEgAygLMiEuazhzLmlvLmFwaS5iYXRjaC52MS5Kb2JDb25kaXRpb24SPQoJc3RhcnRUaW1lGAIgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUSQgoOY29tcGxldGlvblRpbWUYAyABKAsyKi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuVGltZRIOCgZhY3RpdmUYBCABKAUSEQoJc3VjY2VlZGVkGAUgASgFEg4KBmZhaWxlZBgGIAEoBRITCgt0ZXJtaW5hdGluZxgLIAEoBRIYChBjb21wbGV0ZWRJbmRleGVzGAcgASgJEhUKDWZhaWxlZEluZGV4ZXMYCiABKAkSTQoXdW5jb3VudGVkVGVybWluYXRlZFBvZHMYCCABKAsyLC5rOHMuaW8uYXBpLmJhdGNoLnYxLlVuY291bnRlZFRlcm1pbmF0ZWRQb2RzEg0KBXJlYWR5GAkgASgFIoEBCg9Kb2JUZW1wbGF0ZVNwZWMSQgoIbWV0YWRhdGEYASABKAsyMC5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuT2JqZWN0TWV0YRIqCgRzcGVjGAIgASgLMhwuazhzLmlvLmFwaS5iYXRjaC52MS5Kb2JTcGVjIkwKEFBvZEZhaWx1cmVQb2xpY3kSOAoFcnVsZXMYASADKAsyKS5rOHMuaW8uYXBpLmJhdGNoLnYxLlBvZEZhaWx1cmVQb2xpY3lSdWxlImEKJlBvZEZhaWx1cmVQb2xpY3lPbkV4aXRDb2Rlc1JlcXVpcmVtZW50EhUKDWNvbnRhaW5lck5hbWUYASABKAkSEAoIb3BlcmF0b3IYAiABKAkSDgoGdmFsdWVzGAMgAygFIkYKJlBvZEZhaWx1cmVQb2xpY3lPblBvZENvbmRpdGlvbnNQYXR0ZXJuEgwKBHR5cGUYASABKAkSDgoGc3RhdHVzGAIgASgJIs4BChRQb2RGYWlsdXJlUG9saWN5UnVsZRIOCgZhY3Rpb24YASABKAkSUAoLb25FeGl0Q29kZXMYAiABKAsyOy5rOHMuaW8uYXBpLmJhdGNoLnYxLlBvZEZhaWx1cmVQb2xpY3lPbkV4aXRDb2Rlc1JlcXVpcmVtZW50ElQKD29uUG9kQ29uZGl0aW9ucxgDIAMoCzI7Lms4cy5pby5hcGkuYmF0Y2gudjEuUG9kRmFpbHVyZVBvbGljeU9uUG9kQ29uZGl0aW9uc1BhdHRlcm4iRgoNU3VjY2Vzc1BvbGljeRI1CgVydWxlcxgBIAMoCzImLms4cy5pby5hcGkuYmF0Y2gudjEuU3VjY2Vzc1BvbGljeVJ1bGUiRQoRU3VjY2Vzc1BvbGljeVJ1bGUSGAoQc3VjY2VlZGVkSW5kZXhlcxgBIAEoCRIWCg5zdWNjZWVkZWRDb3VudBgCIAEoBSI8ChdVbmNvdW50ZWRUZXJtaW5hdGVkUG9kcxIRCglzdWNjZWVkZWQYASADKAkSDgoGZmFpbGVkGAIgAygJQhVaE2s4cy5pby9hcGkvYmF0Y2gvdjE", [file_k8s_io_api_core_v1_generated, file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, file_k8s_io_apimachinery_pkg_runtime_generated, file_k8s_io_apimachinery_pkg_runtime_schema_generated]);
 
 /**
  * CronJob represents the configuration of a single cron job.
@@ -421,13 +421,26 @@ export type JobSpec = Message<"k8s.io.api.batch.v1.JobSpec"> & {
    * checked against the backoffLimit. This field cannot be used in combination
    * with restartPolicy=OnFailure.
    *
-   * This field is beta-level. It can be used when the `JobPodFailurePolicy`
-   * feature gate is enabled (enabled by default).
    * +optional
    *
    * @generated from field: optional k8s.io.api.batch.v1.PodFailurePolicy podFailurePolicy = 11;
    */
   podFailurePolicy?: PodFailurePolicy;
+
+  /**
+   * successPolicy specifies the policy when the Job can be declared as succeeded.
+   * If empty, the default behavior applies - the Job is declared as succeeded
+   * only when the number of succeeded pods equals to the completions.
+   * When the field is specified, it must be immutable and works only for the Indexed Jobs.
+   * Once the Job meets the SuccessPolicy, the lingering pods are terminated.
+   *
+   * This field is beta-level. To use this field, you must enable the
+   * `JobSuccessPolicy` feature gate (enabled by default).
+   * +optional
+   *
+   * @generated from field: optional k8s.io.api.batch.v1.SuccessPolicy successPolicy = 16;
+   */
+  successPolicy?: SuccessPolicy;
 
   /**
    * Specifies the number of retries before marking this job failed.
@@ -581,6 +594,25 @@ export type JobSpec = Message<"k8s.io.api.batch.v1.JobSpec"> & {
    * @generated from field: optional string podReplacementPolicy = 14;
    */
   podReplacementPolicy: string;
+
+  /**
+   * ManagedBy field indicates the controller that manages a Job. The k8s Job
+   * controller reconciles jobs which don't have this field at all or the field
+   * value is the reserved string `kubernetes.io/job-controller`, but skips
+   * reconciling Jobs with a custom value for this field.
+   * The value must be a valid domain-prefixed path (e.g. acme.io/foo) -
+   * all characters before the first "/" must be a valid subdomain as defined
+   * by RFC 1123. All characters trailing the first "/" must be valid HTTP Path
+   * characters as defined by RFC 3986. The value cannot exceed 63 characters.
+   * This field is immutable.
+   *
+   * This field is beta-level. The job controller accepts setting the field
+   * when the feature gate JobManagedBy is enabled (enabled by default).
+   * +optional
+   *
+   * @generated from field: optional string managedBy = 15;
+   */
+  managedBy: string;
 };
 
 /**
@@ -603,6 +635,12 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
    * status true; when the Job is resumed, the status of this condition will
    * become false. When a Job is completed, one of the conditions will have
    * type "Complete" and status true.
+   *
+   * A job is considered finished when it is in a terminal condition, either
+   * "Complete" or "Failed". A Job cannot have both the "Complete" and "Failed" conditions.
+   * Additionally, it cannot be in the "Complete" and "FailureTarget" conditions.
+   * The "Complete", "Failed" and "FailureTarget" conditions cannot be disabled.
+   *
    * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
    * +optional
    * +patchMergeKey=type
@@ -618,6 +656,10 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
    * Job is created in the suspended state, this field is not set until the
    * first time it is resumed. This field is reset every time a Job is resumed
    * from suspension. It is represented in RFC3339 form and is in UTC.
+   *
+   * Once set, the field can only be removed when the job is suspended.
+   * The field cannot be modified while the job is unsuspended or finished.
+   *
    * +optional
    *
    * @generated from field: optional k8s.io.apimachinery.pkg.apis.meta.v1.Time startTime = 2;
@@ -628,7 +670,9 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
    * Represents time when the job was completed. It is not guaranteed to
    * be set in happens-before order across separate operations.
    * It is represented in RFC3339 form and is in UTC.
-   * The completion time is only set when the job finishes successfully.
+   * The completion time is set when the job finishes successfully, and only then.
+   * The value cannot be updated or removed. The value indicates the same or
+   * later point in time as the startTime field.
    * +optional
    *
    * @generated from field: optional k8s.io.apimachinery.pkg.apis.meta.v1.Time completionTime = 3;
@@ -636,7 +680,9 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
   completionTime?: Time;
 
   /**
-   * The number of pending and running pods.
+   * The number of pending and running pods which are not terminating (without
+   * a deletionTimestamp).
+   * The value is zero for finished jobs.
    * +optional
    *
    * @generated from field: optional int32 active = 4;
@@ -645,6 +691,8 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
 
   /**
    * The number of pods which reached phase Succeeded.
+   * The value increases monotonically for a given spec. However, it may
+   * decrease in reaction to scale down of elastic indexed jobs.
    * +optional
    *
    * @generated from field: optional int32 succeeded = 5;
@@ -653,6 +701,7 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
 
   /**
    * The number of pods which reached phase Failed.
+   * The value increases monotonically.
    * +optional
    *
    * @generated from field: optional int32 failed = 6;
@@ -686,7 +735,7 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
   completedIndexes: string;
 
   /**
-   * FailedIndexes holds the failed indexes when backoffLimitPerIndex=true.
+   * FailedIndexes holds the failed indexes when spec.backoffLimitPerIndex is set.
    * The indexes are represented in the text format analogous as for the
    * `completedIndexes` field, ie. they are kept as decimal integers
    * separated by commas. The numbers are listed in increasing order. Three or
@@ -694,6 +743,8 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
    * last element of the series, separated by a hyphen.
    * For example, if the failed indexes are 1, 3, 4, 5 and 7, they are
    * represented as "1,3-5,7".
+   * The set of failed indexes cannot overlap with the set of completed indexes.
+   *
    * This field is beta-level. It can be used when the `JobBackoffLimitPerIndex`
    * feature gate is enabled (enabled by default).
    * +optional
@@ -717,6 +768,7 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
    *
    * Old jobs might not be tracked using this field, in which case the field
    * remains null.
+   * The structure is empty for finished jobs.
    * +optional
    *
    * @generated from field: optional k8s.io.api.batch.v1.UncountedTerminatedPods uncountedTerminatedPods = 8;
@@ -724,8 +776,8 @@ export type JobStatus = Message<"k8s.io.api.batch.v1.JobStatus"> & {
   uncountedTerminatedPods?: UncountedTerminatedPods;
 
   /**
-   * The number of pods which have a Ready condition.
-   * +optional
+   * The number of active pods which have a Ready condition and are not
+   * terminating (without a deletionTimestamp).
    *
    * @generated from field: optional int32 ready = 9;
    */
@@ -945,6 +997,85 @@ export const PodFailurePolicyRuleSchema: GenMessage<PodFailurePolicyRule> = /*@_
   messageDesc(file_k8s_io_api_batch_v1_generated, 13);
 
 /**
+ * SuccessPolicy describes when a Job can be declared as succeeded based on the success of some indexes.
+ *
+ * @generated from message k8s.io.api.batch.v1.SuccessPolicy
+ */
+export type SuccessPolicy = Message<"k8s.io.api.batch.v1.SuccessPolicy"> & {
+  /**
+   * rules represents the list of alternative rules for the declaring the Jobs
+   * as successful before `.status.succeeded >= .spec.completions`. Once any of the rules are met,
+   * the "SucceededCriteriaMet" condition is added, and the lingering pods are removed.
+   * The terminal state for such a Job has the "Complete" condition.
+   * Additionally, these rules are evaluated in order; Once the Job meets one of the rules,
+   * other rules are ignored. At most 20 elements are allowed.
+   * +listType=atomic
+   *
+   * @generated from field: repeated k8s.io.api.batch.v1.SuccessPolicyRule rules = 1;
+   */
+  rules: SuccessPolicyRule[];
+};
+
+/**
+ * Describes the message k8s.io.api.batch.v1.SuccessPolicy.
+ * Use `create(SuccessPolicySchema)` to create a new message.
+ */
+export const SuccessPolicySchema: GenMessage<SuccessPolicy> = /*@__PURE__*/
+  messageDesc(file_k8s_io_api_batch_v1_generated, 14);
+
+/**
+ * SuccessPolicyRule describes rule for declaring a Job as succeeded.
+ * Each rule must have at least one of the "succeededIndexes" or "succeededCount" specified.
+ *
+ * @generated from message k8s.io.api.batch.v1.SuccessPolicyRule
+ */
+export type SuccessPolicyRule = Message<"k8s.io.api.batch.v1.SuccessPolicyRule"> & {
+  /**
+   * succeededIndexes specifies the set of indexes
+   * which need to be contained in the actual set of the succeeded indexes for the Job.
+   * The list of indexes must be within 0 to ".spec.completions-1" and
+   * must not contain duplicates. At least one element is required.
+   * The indexes are represented as intervals separated by commas.
+   * The intervals can be a decimal integer or a pair of decimal integers separated by a hyphen.
+   * The number are listed in represented by the first and last element of the series,
+   * separated by a hyphen.
+   * For example, if the completed indexes are 1, 3, 4, 5 and 7, they are
+   * represented as "1,3-5,7".
+   * When this field is null, this field doesn't default to any value
+   * and is never evaluated at any time.
+   *
+   * +optional
+   *
+   * @generated from field: optional string succeededIndexes = 1;
+   */
+  succeededIndexes: string;
+
+  /**
+   * succeededCount specifies the minimal required size of the actual set of the succeeded indexes
+   * for the Job. When succeededCount is used along with succeededIndexes, the check is
+   * constrained only to the set of indexes specified by succeededIndexes.
+   * For example, given that succeededIndexes is "1-4", succeededCount is "3",
+   * and completed indexes are "1", "3", and "5", the Job isn't declared as succeeded
+   * because only "1" and "3" indexes are considered in that rules.
+   * When this field is null, this doesn't default to any value and
+   * is never evaluated at any time.
+   * When specified it needs to be a positive integer.
+   *
+   * +optional
+   *
+   * @generated from field: optional int32 succeededCount = 2;
+   */
+  succeededCount: number;
+};
+
+/**
+ * Describes the message k8s.io.api.batch.v1.SuccessPolicyRule.
+ * Use `create(SuccessPolicyRuleSchema)` to create a new message.
+ */
+export const SuccessPolicyRuleSchema: GenMessage<SuccessPolicyRule> = /*@__PURE__*/
+  messageDesc(file_k8s_io_api_batch_v1_generated, 15);
+
+/**
  * UncountedTerminatedPods holds UIDs of Pods that have terminated but haven't
  * been accounted in Job status counters.
  *
@@ -975,5 +1106,5 @@ export type UncountedTerminatedPods = Message<"k8s.io.api.batch.v1.UncountedTerm
  * Use `create(UncountedTerminatedPodsSchema)` to create a new message.
  */
 export const UncountedTerminatedPodsSchema: GenMessage<UncountedTerminatedPods> = /*@__PURE__*/
-  messageDesc(file_k8s_io_api_batch_v1_generated, 14);
+  messageDesc(file_k8s_io_api_batch_v1_generated, 16);
 

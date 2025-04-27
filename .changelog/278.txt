@@ -1,0 +1,3 @@
+```release-note:enhancement
+js/vue.js: Improve status display for jobs with sidecars containers && setup vitest
+```
