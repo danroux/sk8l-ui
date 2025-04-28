@@ -6,7 +6,7 @@
 
 <template>
   <!-- eslint-disable -->
-  <li :id="`cronjob-${cronJob.name}`">
+  <li :id="`cronjob-${cronJob.name}`" class="cronjob-row">
     <div class="d-block">
       <div class="d-flex flex-justify-between">
         <div class="mb-0 col-9">

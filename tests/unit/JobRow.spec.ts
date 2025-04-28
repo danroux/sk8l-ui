@@ -1,5 +1,3 @@
-// JobRow.spec.ts
-
 import { shallowMount, mount } from '@vue/test-utils';
 // import { render } from '@testing-library/vue'
 import JobRow from '@/components/JobRow.vue';

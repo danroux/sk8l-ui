@@ -6,14 +6,14 @@
           <div class="Box-header">
             <div class="d-table col-12" style="padding: 0px;">
               <div class="col-11 d-table-cell" style="padding-left: 0px;">
-                <h3 class="Box-title">
+                <h3 class="Box-title" id="cronjob-counter">
                   Cronjobs <span class="Counter Counter--gray-dark">{{ cronJobs.length }}</span>
                 </h3>
               </div>
             </div>
           </div>
 
-          <ul>
+          <ul id="cronjob-rows">
             <li is="vue:CronJobRow"
                 class="Box-row"
                 :key="cronJob.name"
@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <div class="flex-shrink-0 col-12 col-md-3">
+      <div class="flex-shrink-0 col-12 col-md-3" id="cronjob-activity">
         <div class="BorderGrid BorderGrid--spacious">
           <div class="BorderGrid-row">
             <div class="BorderGrid-cell">
