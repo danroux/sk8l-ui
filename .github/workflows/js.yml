@@ -1,0 +1,47 @@
+name: js CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      - name: Enable Corepack # workaround for issue with setup-node.cache = 'yarn'
+        run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.15.0'
+          cache: 'yarn'
+          # gha output
+          # /usr/local/bin/yarn config get cacheFolder
+          # /home/runner/.yarn/berry/cache
+          # /usr/local/bin/yarn config get enableGlobalCache
+          # true
+          # yarn cache is not found
+          # Cache saved with the key: node-cache-Linux-x64-yarn-b3f0fa98f31928ccb3a7b7d39d9b9024942792c72bdd1f878a46fb04c6ecc6bb
+          # ...
+          # later ..
+          # Cache hit for: node-cache-Linux-x64-yarn-b3f0fa98f31928ccb3a7b7d39d9b9024942792c72bdd1f878a46fb04c6ecc6bb
+          # Received 64412737 of 64412737 (100.0%), 108.7 MBs/sec
+          # Cache Size: ~61 MB (64412737 B)
+          # /usr/bin/tar -xf /home/runner/work/_temp/5664b46b-4ad7-4435-934d-255137b84980/cache.tzst -P -C /home/runner/work/sk8l-ui/sk8l-ui --use-compress-program unzstd
+          # Cache restored successfully
+          # Cache restored from key: node-cache-Linux-x64-yarn-b3f0fa98f31928ccb3a7b7d39d9b9024942792c72bdd1f878a46fb04c6ecc6bb
+      - name: Run js tests
+        run: |
+          yarn install --immutable #  --immutable-cache
+          npx vitest
+      # - name: Report Coverage
+      #   uses: davelosert/vitest-coverage-report-action@v2
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     file-coverage-mode: changes
