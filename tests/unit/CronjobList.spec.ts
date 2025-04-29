@@ -1,16 +1,13 @@
 import { shallowMount, mount } from '@vue/test-utils';
 import { render, screen } from '@testing-library/vue'
-// import { render } from '@testing-library/vue'
 import CronjobList from '@/components/CronjobList.vue';
-import router from '@/router';
+
 import CronjobsTimeline from '@/components/CronjobsTimeline.vue';
 import CronjobActivityProgressBar from '@/components/CronjobActivityProgressBar.vue';
 import CronJobRow from '@/components/CronJobRow.vue';
+import router from '@/router';
 
 describe('CronjobList', () => {
-    let wrapper: any;
-
-    // JobSpec implementation
     const myJobSpec: JobSpec = {
         parallelism: 2,
         completions: 5,
@@ -26,7 +23,6 @@ describe('CronjobList', () => {
         managedBy: "job-controller"
     };
 
-    // JobTemplateSpec with embedded JobSpec
     const jobTemplateSpec: JobTemplateSpec = {
         metadata: {
             name: "daily-job",
@@ -38,7 +34,6 @@ describe('CronjobList', () => {
         spec: myJobSpec
     };
 
-    // CronJobSpec with embedded JobTemplateSpec
     const cronJobSpec: CronJobSpec = {
         schedule: "0 2 * * *",
         timeZone: "UTC",
@@ -50,7 +45,6 @@ describe('CronjobList', () => {
         failedJobsHistoryLimit: 1
     };
 
-    // Full CronjobResponse with integrated CronJobSpec
     const cronjob: CronjobResponse = {
         name: "nightly-backup",
         namespace: "production",

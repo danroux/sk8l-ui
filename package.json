@@ -16,6 +16,7 @@
     "@primer/octicons": "^19.10.0",
     "@testing-library/vue": "^8.1.0",
     "cronstrue": "^2.59.0",
+    "factory-girl-ts": "^2.3.1",
     "google-protobuf": "^3.21.4",
     "grpc-web": "^1.5.0",
     "happy-dom": "^17.4.4",

@@ -14,7 +14,7 @@
             {{ cronJob.namespace }} / {{ cronJob.name }}
           </router-link> <CronjobRowLabels :cronjob="cronJob" :status="status" /><br/>
 
-          <p class="color-fg-muted wb-break-word">
+          <p class="color-fg-muted wb-break-word" id="cronjob-rendered-definition">
             {{ schedule(cronJob.definition) }}
           </p>
         </div>

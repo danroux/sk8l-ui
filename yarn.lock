@@ -2902,6 +2902,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"class-transformer@npm:0.5.1":
+  version: 0.5.1
+  resolution: "class-transformer@npm:0.5.1"
+  checksum: 10c0/19809914e51c6db42c036166839906420bb60367df14e15f49c45c8c1231bf25ae661ebe94736ee29cc688b77101ef851a8acca299375cc52fc141b64acde18a
+  languageName: node
+  linkType: hard
+
 "clean-stack@npm:^2.0.0":
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
@@ -3196,7 +3203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deepmerge@npm:^4.2.2":
+"deepmerge@npm:^4.2.2, deepmerge@npm:^4.3.1":
   version: 4.3.1
   resolution: "deepmerge@npm:4.3.1"
   checksum: 10c0/e53481aaf1aa2c4082b5342be6b6d8ad9dfe387bc92ce197a66dea08bd4265904a087e75e464f14d1347cf2ac8afe1e4c16b266e0561cc5df29382d3c5f80044
@@ -4275,6 +4282,17 @@ __metadata:
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
   checksum: 10c0/160456d2d647e6019640bd07111634d8c353038d9fa40176afb7cd49b0548bdae83b56d05e907c2cce2300b81cae35d800ef92fefb9d0208e190fa3b7d6bb579
+  languageName: node
+  linkType: hard
+
+"factory-girl-ts@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "factory-girl-ts@npm:2.3.1"
+  dependencies:
+    class-transformer: "npm:0.5.1"
+    deepmerge: "npm:^4.3.1"
+    lodash: "npm:4.17.21"
+  checksum: 10c0/821cc34e6805cc384c04d0c146bff433cbd0ed37df83cf275951930e0843a055a844c7af0468d3ffebc8e0535231b5d1ac95efd2b29ccd0f402e611d9cffcf44
   languageName: node
   linkType: hard
 
@@ -6071,7 +6089,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.21":
+"lodash@npm:4.17.21, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
@@ -7381,6 +7399,7 @@ __metadata:
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-vue: "npm:^10.0.0"
     eslint-plugin-vuejs-accessibility: "npm:^2.4.1"
+    factory-girl-ts: "npm:^2.3.1"
     google-protobuf: "npm:^3.21.4"
     grpc-web: "npm:^1.5.0"
     happy-dom: "npm:^17.4.4"
