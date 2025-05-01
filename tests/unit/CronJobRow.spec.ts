@@ -14,10 +14,12 @@ import {
   jobFactory,
   jobTemplateSpecFactory,
   cronJobSpecFactory,
-  cronJobFactory,
   jobResponseFactory,
   cronJobResponseFactory,
+  createTimeFromDate,
 } from '@/../tests/fg.ts';
+
+import StatusProp from '@/components/StatusProp.vue';
 
 describe('CronjobRow', () => {
     let exampleUncountedTerminatedPods: ReturnType<typeof uncountedTerminatedPodsFactory.build>;
@@ -29,7 +31,6 @@ describe('CronjobRow', () => {
     let myJobSpec: ReturnType<typeof jobSpecFactory.build>;
     let jobTemplateSpec: ReturnType<typeof jobTemplateSpecFactory.build>;
     let cronJobSpec: ReturnType<typeof cronJobSpecFactory.build>;
-    let cronJob: ReturnType<typeof cronJobFactory.build>;
     let cronJobResponse: ReturnType<typeof cronJobResponseFactory.build>;
     let job1: ReturnType<typeof jobResponseFactory.build>;
     let job2: ReturnType<typeof jobResponseFactory.build>;
@@ -68,17 +69,19 @@ describe('CronjobRow', () => {
             succeeded: true,
             failed: false,
             failureCondition: undefined,
-            jobStatus: await jobStatusCompletedFactory.build(), // opcional, o usa un jobStatus con condiciones Complete
+            jobStatus: await jobStatusCompletedFactory.build(),
+            status: await jobStatusCompletedFactory.build({
+                completionTime: createTimeFromDate(eightDaysAgoDate),
+            }),
         });
 
-        // Job fallido con condición Failed
         job2 = await jobResponseFactory.build({
             name: 'job-002',
             namespace: 'production',
             succeeded: false,
             failed: true,
             failureCondition: await jobConditionFailedFactory.build(),
-            jobStatus: await jobStatusCompletedFactory.build(), // opcional, o usa un jobStatus con condiciones Complete
+            jobStatus: await jobStatusCompletedFactory.build(),
         });
 
         cronJobResponse = await cronJobResponseFactory.build({
@@ -92,12 +95,18 @@ describe('CronjobRow', () => {
     });
 
     let container: ReturnType<typeof mount>;
+    // Date Wed Apr 23 2025 14:14:05 GMT+0200 (Central European Summer Time)
+    const eightDaysAgoDate = new Date(new Date().setDate(new Date().getDate() - 8));
+    // 2025-04-23T00:00:00.000Z
+    const eightDaysAgoISO = eightDaysAgoDate.toISOString().replace(/T.+/, 'T00:00:00.000Z');
 
     beforeEach(() => {
         container = mount(CronJobRow, { props: { cronJob: cronJobResponse }, global: { plugins: [router] } });
     });
 
     it('renders correctly', () => {
+        expect(container.findComponent(StatusProp).exists()).toBe(true)
+
         let header = container.find(`#cronjob-${cronJobResponse.name} #cronjob-rendered-definition`);
         expect(header).not.toBeNull();
         expect(header.text()).toMatch('At 12:00 AM');
@@ -116,11 +125,15 @@ describe('CronjobRow', () => {
 
         elm = container.find('.cronjob-creation-time');
         expect(elm).not.toBeNull();
-        expect(elm.text()).toMatch('2025-01-01T00:00:00Z');
+        expect(elm.text()).toMatch(eightDaysAgoISO);
 
         elm = container.find('.cronjob-successful-time');
         expect(elm).not.toBeNull();
-        expect(elm.text()).toMatch('3 months ago');
+        expect(elm.text()).toMatch('8 days ago');
+
+        elm = container.find('.cronjob-completion-time');
+        expect(elm).not.toBeNull();
+        expect(elm.text()).toMatch('8 days ago');
 
         // let el = container.querySelectorAll('#cronjob-rows .cronjob-row');
         // expect(el).toHaveLength(2);

@@ -14,7 +14,7 @@ import {
 
 FactoryGirl.setAdapter(new ObjectAdapter());
 
-const exampleTime: Time = '2025-01-01T00:00:00Z' as unknown as Time;
+const exampleTime: Time = createTimeFromDate(new Date('2025-01-01T00:00:00Z')) as unknown as Time;
 
 export const uncountedTerminatedPodsFactory = FactoryGirl.define<UncountedTerminatedPods>('UncountedTerminatedPods', () => ({
   succeeded: ['pod-uid-1', 'pod-uid-2'],
@@ -48,10 +48,10 @@ export const jobConditionFailedFactory = FactoryGirl.define<JobCondition>('JobCo
   message: 'The job failed due to an error.',
 }));
 
-export const jobStatusCompletedFactory = FactoryGirl.define<JobStatus>('JobStatusCompleted', async () => ({
+export const jobStatusCompletedFactory = FactoryGirl.define<JobStatus>('JobStatusCompleted', async (buildOptions) => ({
   conditions: [await jobConditionCompleteFactory.build()],
   startTime: exampleTime,
-  completionTime: exampleTime,
+  completionTime: buildOptions.completionTime || createTimeFromDate(new Date('2025-03-01T00:00:00Z')) as unknown as Time,
   active: 0,
   succeeded: 5,
   failed: 0,
@@ -125,30 +125,6 @@ export const cronJobSpecFactory = FactoryGirl.define<CronJobSpec>('CronJobSpec',
   failedJobsHistoryLimit: buildOptions?.failedJobsHistoryLimit ?? 1,
 }));
 
-export const cronJobFactory = FactoryGirl.define<CronjobResponse>('CronjobResponse', async (buildOptions) => ({
-  name: buildOptions?.name || 'nightly-backup',
-  namespace: buildOptions?.namespace || 'sk8l',
-  uid: buildOptions?.uid || '550e8400-e29b-41d4-a716-446655440000',
-  containerCommands: buildOptions?.containerCommands || {},
-  creationTimestamp: buildOptions?.creationTimestamp || '2025-01-01T00:00:00Z',
-  definition: buildOptions?.definition || '0 0 * * *',
-  lastSuccessfulTime: buildOptions?.lastSuccessfulTime || '2025-01-01T01:30:00Z',
-  lastScheduleTime: buildOptions?.lastScheduleTime || '2025-01-01T00:00:00Z',
-  active: buildOptions?.active ?? true,
-  jobs: buildOptions?.jobs || [
-    await jobFactory.build({ metadata: { name: 'job-001', namespace: 'production' }, status: await jobStatusCompletedFactory.build() }),
-    await jobFactory.build({ metadata: { name: 'job-002', namespace: 'production' }, status: await jobStatusRunningFactory.build() }),
-  ],
-  runningJobs: buildOptions?.runningJobs || ['job-002'],
-  runningJobsPods: buildOptions?.runningJobsPods || [],
-  jobsPods: buildOptions?.jobsPods || [],
-  lastDuration: buildOptions?.lastDuration || BigInt(3600_000_000_000),
-  currentDuration: buildOptions?.currentDuration || BigInt(1800_000_000_000),
-  spec: buildOptions?.spec || await cronJobSpecFactory.build(),
-  failed: buildOptions?.failed ?? false,
-}));
-
-
 export const terminationReasonFactory = FactoryGirl.define<TerminationReason>('TerminationReason',  async (buildOptions) => ({
     terminationDetails: await containerStateTerminatedFactory.build(),
     containerName: 'my-container',
@@ -175,14 +151,16 @@ export const jobResponseFactory = FactoryGirl.define<JobResponse>('JobResponse',
   withSidecarContainers: buildOptions?.withSidecarContainers ?? false,
 }));
 
+const eightDaysAgoAtMidnight = new Date(new Date().setDate(new Date().getDate() - 8)).toISOString().replace(/T.+/, 'T00:00:00.000Z');
+
 export const cronJobResponseFactory = FactoryGirl.define<CronjobResponse>('CronjobResponse', async (buildOptions) => ({
   name: buildOptions?.name || 'example-cronjob',
   namespace: buildOptions?.namespace || 'default',
   uid: buildOptions?.uid || '550e8400-e29b-41d4-a716-446655440000',
   containerCommands: buildOptions?.containerCommands || {},
-  creationTimestamp: buildOptions?.creationTimestamp || '2025-01-01T00:00:00Z',
+  creationTimestamp: buildOptions?.creationTimestamp || eightDaysAgoAtMidnight,
   definition: buildOptions?.definition || '0 0 * * *',
-  lastSuccessfulTime: buildOptions?.lastSuccessfulTime || '2025-01-01T01:30:00Z',
+  lastSuccessfulTime: buildOptions?.lastSuccessfulTime || eightDaysAgoAtMidnight,
   lastScheduleTime: buildOptions?.lastScheduleTime || '2025-01-01T00:00:00Z',
   active: buildOptions?.active ?? true,
   jobs: buildOptions?.jobs || [
@@ -198,7 +176,7 @@ export const cronJobResponseFactory = FactoryGirl.define<CronjobResponse>('Cronj
   failed: buildOptions?.failed ?? false,
 }));
 
-function createTimeFromDate(date: Date): Time {
+export function createTimeFromDate(date: Date): Time {
     const tsFromDate: Timestamp = timestampFromDate(date);
     return tsFromDate;
 };
