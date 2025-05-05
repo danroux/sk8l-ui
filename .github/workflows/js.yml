@@ -41,7 +41,7 @@ jobs:
       - name: Run js tests
         run: |
           yarn install --immutable #  --immutable-cache
-          npx vitest
+          yarn test
       # - name: Report Coverage
       #   uses: davelosert/vitest-coverage-report-action@v2
       #   with:
