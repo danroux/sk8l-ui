@@ -1,15 +1,15 @@
 <template>
   <!-- https://primer.style/css/components/labels#labels -->
-  <span class="Label Label--accent Label--inline mr-1" v-if="active">Active</span>
-  <span class="Label Label--secondary Label--inline mr-1" v-if="suspended">Success</span>
-  <span class="Label Label--danger Label--inline mr-1" v-if="failed">Failed</span>
-  <span class="Label Label--danger Label--inline mr-1" v-if="failing">Failing</span>
+  <span class="Label mr-1 Label--accent Label--inline" v-if="status == 'Active'">Active></span>
+  <span class="Label mr-1 Label--success Label--inline" v-if="status == 'Succeeded'">Success</span>
+  <span class="Label mr-1 Label--danger Label--inline" v-if="status == 'Failed'">Failed</span>
+  <span class="Label mr-1 Label--danger Label--inline" v-if="status == 'Failing'">Failing</span>
 </template>
 
 <script>
 export default {
   name: 'CronjobRowLabels',
-  props: ['cronjob'],
+  props: ['cronjob', 'status'],
   computed: {
     active(_vm) {
       return this.cronjob.active && !this.cronjob.failed;

@@ -1,8 +1,7 @@
 <template>
 <div class="mb-3 dashboard-changelog color-bg-default border color-border-muted p-3 rounded-2"
-     id="cronjobs-timeline"
-     v-if="jobs.length > 0">
-  <h2 class="f5 text-bold mb-3">Latest completions</h2>
+     id="cronjobs-timeline">
+  <h2 class="f5 text-bold mb-3" id="timeline-header">Latest completions</h2>
 
   <ul class="list-style-none">
     <li class="TimelineItem TimelineItem--condensed ml-1 pt-0 pb-3" v-for="job in sortedJobs">

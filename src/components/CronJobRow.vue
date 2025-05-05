@@ -6,15 +6,15 @@
 
 <template>
   <!-- eslint-disable -->
-  <li :id="`cronjob-${cronJob.name}`">
+  <li :id="`cronjob-${cronJob.name}`" class="cronjob-row">
     <div class="d-block">
       <div class="d-flex flex-justify-between">
         <div class="mb-0 col-9">
           <router-link :to="{ name: 'cronDetails', params: { namespace: cronJob.namespace, name: cronJob.name }}" class="text-bold mr-1">
             {{ cronJob.namespace }} / {{ cronJob.name }}
-          </router-link> <CronjobRowLabels :cronjob="cronJob" /><br/>
+          </router-link> <CronjobRowLabels :cronjob="cronJob" :status="status" /><br/>
 
-          <p class="color-fg-muted wb-break-word">
+          <p class="color-fg-muted wb-break-word" id="cronjob-rendered-definition">
             {{ schedule(cronJob.definition) }}
           </p>
         </div>

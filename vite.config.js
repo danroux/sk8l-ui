@@ -20,6 +20,10 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
           // exclude: [ 'node_modules/lodash-es/**', 'node_modules/@types/lodash-es/**', ]
         }
       },
+      test: {
+        environment: 'happy-dom',
+        globals: true,
+      },
       server: {
         host: "0.0.0.0",
         port: 8001,
@@ -46,6 +50,10 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
           transformMixedEsModules: true,
           // exclude: [ 'node_modules/lodash-es/**', 'node_modules/@types/lodash-es/**', ]
         }
+      },
+      test: {
+        environment: 'happy-dom',
+        globals: true,
       },
       server: {
         host: "0.0.0.0",

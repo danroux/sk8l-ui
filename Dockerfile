@@ -14,6 +14,7 @@ COPY package*.json yarn.lock .yarnrc.yml .
 RUN node -p "process.arch" \
     && echo $TARGETPLATFORM && echo $TARGETOS && echo $TARGETARCH
 RUN mkdir -p $(pwd)/node_modules/.cache  \
+    && npm install -g npm@11.3.0 \
     && corepack enable \
     && yarn config set --home enableTelemetry 0 \
     && yarn install
@@ -43,7 +44,8 @@ RUN chown -R 101:101 $(pwd)
 COPY --chown=101:101 --from=deps /home/nginx/node_modules/ ./node_modules
 COPY --chown=101:101 --from=deps /home/nginx/package*.json /home/nginx/yarn.lock /home/nginx/.yarnrc.yml .
 
-RUN corepack enable \
+RUN npm install -g npm@11.3.0 \
+    && corepack enable \
     && yarn config set --home enableTelemetry 0 \
     && yarn install
 # RUN npm config set cache /usr/app/.node_modules_cache --global

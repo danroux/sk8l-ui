@@ -10,7 +10,7 @@
                     :pod="pod" />
         </div>
         <div>
-          <strong class="job-name">{{ job.name }}</strong> <RowLabels :job="job" /><br/>
+          <strong class="job-name">{{ job.name }}</strong> <RowLabels :job="job" :status="status"/><br/>
           <p class="color-fg-muted mb-0 wb-break-word job-uuid">
             Uuid:  {{ job.Uuid }}
           </p>
@@ -55,6 +55,12 @@
       </span>
       <span class="mr-2 job-completion-time" v-if="job.status.succeeded && job.status.completionTime">
         <Octicon name="goal" /> {{ luxs(job.status.completionTime.seconds) }}
+      </span>
+      <span class="mr-2 job-with-sidecar" v-if="job.withSidecarContainers">
+        <Octicon name="columns" />
+      </span>
+      <span class="mr-2 job-with-init-containers" v-if="job.spec.template.spec.initContainers.length > 0">
+        <Octicon name="rows" /> {{ job.withSidecarContainers }}
       </span>
     </div>
   </li>

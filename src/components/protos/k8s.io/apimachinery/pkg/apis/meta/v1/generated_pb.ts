@@ -30,7 +30,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file k8s.io/apimachinery/pkg/apis/meta/v1/generated.proto.
  */
 export const file_k8s_io_apimachinery_pkg_apis_meta_v1_generated: GenFile = /*@__PURE__*/
-  fileDesc("CjRrOHMuaW8vYXBpbWFjaGluZXJ5L3BrZy9hcGlzL21ldGEvdjEvZ2VuZXJhdGVkLnByb3RvEiRrOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEiqQIKCEFQSUdyb3VwEgwKBG5hbWUYASABKAkSUAoIdmVyc2lvbnMYAiADKAsyPi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuR3JvdXBWZXJzaW9uRm9yRGlzY292ZXJ5ElgKEHByZWZlcnJlZFZlcnNpb24YAyABKAsyPi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuR3JvdXBWZXJzaW9uRm9yRGlzY292ZXJ5EmMKGnNlcnZlckFkZHJlc3NCeUNsaWVudENJRFJzGAQgAygLMj8uazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlNlcnZlckFkZHJlc3NCeUNsaWVudENJRFIiTgoMQVBJR3JvdXBMaXN0Ej4KBmdyb3VwcxgBIAMoCzIuLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5BUElHcm91cCLzAQoLQVBJUmVzb3VyY2USDAoEbmFtZRgBIAEoCRIUCgxzaW5ndWxhck5hbWUYBiABKAkSEgoKbmFtZXNwYWNlZBgCIAEoCBINCgVncm91cBgIIAEoCRIPCgd2ZXJzaW9uGAkgASgJEgwKBGtpbmQYAyABKAkSOgoFdmVyYnMYBCABKAsyKy5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuVmVyYnMSEgoKc2hvcnROYW1lcxgFIAMoCRISCgpjYXRlZ29yaWVzGAcgAygJEhoKEnN0b3JhZ2VWZXJzaW9uSGFzaBgKIAEoCSJtCg9BUElSZXNvdXJjZUxpc3QSFAoMZ3JvdXBWZXJzaW9uGAEgASgJEkQKCXJlc291cmNlcxgCIAMoCzIxLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5BUElSZXNvdXJjZSKEAQoLQVBJVmVyc2lvbnMSEAoIdmVyc2lvbnMYASADKAkSYwoac2VydmVyQWRkcmVzc0J5Q2xpZW50Q0lEUnMYAiADKAsyPy5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuU2VydmVyQWRkcmVzc0J5Q2xpZW50Q0lEUiJDCgxBcHBseU9wdGlvbnMSDgoGZHJ5UnVuGAEgAygJEg0KBWZvcmNlGAIgASgIEhQKDGZpZWxkTWFuYWdlchgDIAEoCSKuAQoJQ29uZGl0aW9uEgwKBHR5cGUYASABKAkSDgoGc3RhdHVzGAIgASgJEhoKEm9ic2VydmVkR2VuZXJhdGlvbhgDIAEoAxJGChJsYXN0VHJhbnNpdGlvblRpbWUYBCABKAsyKi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuVGltZRIOCgZyZWFzb24YBSABKAkSDwoHbWVzc2FnZRgGIAEoCSJOCg1DcmVhdGVPcHRpb25zEg4KBmRyeVJ1bhgBIAMoCRIUCgxmaWVsZE1hbmFnZXIYAyABKAkSFwoPZmllbGRWYWxpZGF0aW9uGAQgASgJIrwBCg1EZWxldGVPcHRpb25zEhoKEmdyYWNlUGVyaW9kU2Vjb25kcxgBIAEoAxJKCg1wcmVjb25kaXRpb25zGAIgASgLMjMuazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlByZWNvbmRpdGlvbnMSGAoQb3JwaGFuRGVwZW5kZW50cxgDIAEoCBIZChFwcm9wYWdhdGlvblBvbGljeRgEIAEoCRIOCgZkcnlSdW4YBSADKAkiHAoIRHVyYXRpb24SEAoIZHVyYXRpb24YASABKAMiFwoIRmllbGRzVjESCwoDUmF3GAEgASgMIiUKCkdldE9wdGlvbnMSFwoPcmVzb3VyY2VWZXJzaW9uGAEgASgJIigKCUdyb3VwS2luZBINCgVncm91cBgBIAEoCRIMCgRraW5kGAIgASgJIjAKDUdyb3VwUmVzb3VyY2USDQoFZ3JvdXAYASABKAkSEAoIcmVzb3VyY2UYAiABKAkiLgoMR3JvdXBWZXJzaW9uEg0KBWdyb3VwGAEgASgJEg8KB3ZlcnNpb24YAiABKAkiQQoYR3JvdXBWZXJzaW9uRm9yRGlzY292ZXJ5EhQKDGdyb3VwVmVyc2lvbhgBIAEoCRIPCgd2ZXJzaW9uGAIgASgJIkAKEEdyb3VwVmVyc2lvbktpbmQSDQoFZ3JvdXAYASABKAkSDwoHdmVyc2lvbhgCIAEoCRIMCgRraW5kGAMgASgJIkgKFEdyb3VwVmVyc2lvblJlc291cmNlEg0KBWdyb3VwGAEgASgJEg8KB3ZlcnNpb24YAiABKAkSEAoIcmVzb3VyY2UYAyABKAki+AEKDUxhYmVsU2VsZWN0b3ISWQoLbWF0Y2hMYWJlbHMYASADKAsyRC5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuTGFiZWxTZWxlY3Rvci5NYXRjaExhYmVsc0VudHJ5ElgKEG1hdGNoRXhwcmVzc2lvbnMYAiADKAsyPi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuTGFiZWxTZWxlY3RvclJlcXVpcmVtZW50GjIKEE1hdGNoTGFiZWxzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJJChhMYWJlbFNlbGVjdG9yUmVxdWlyZW1lbnQSCwoDa2V5GAEgASgJEhAKCG9wZXJhdG9yGAIgASgJEg4KBnZhbHVlcxgDIAMoCSKGAQoETGlzdBJACghtZXRhZGF0YRgBIAEoCzIuLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5MaXN0TWV0YRI8CgVpdGVtcxgCIAMoCzItLms4cy5pby5hcGltYWNoaW5lcnkucGtnLnJ1bnRpbWUuUmF3RXh0ZW5zaW9uImMKCExpc3RNZXRhEhAKCHNlbGZMaW5rGAEgASgJEhcKD3Jlc291cmNlVmVyc2lvbhgCIAEoCRIQCghjb250aW51ZRgDIAEoCRIaChJyZW1haW5pbmdJdGVtQ291bnQYBCABKAMi8gEKC0xpc3RPcHRpb25zEhUKDWxhYmVsU2VsZWN0b3IYASABKAkSFQoNZmllbGRTZWxlY3RvchgCIAEoCRINCgV3YXRjaBgDIAEoCBIbChNhbGxvd1dhdGNoQm9va21hcmtzGAkgASgIEhcKD3Jlc291cmNlVmVyc2lvbhgEIAEoCRIcChRyZXNvdXJjZVZlcnNpb25NYXRjaBgKIAEoCRIWCg50aW1lb3V0U2Vjb25kcxgFIAEoAxINCgVsaW1pdBgHIAEoAxIQCghjb250aW51ZRgIIAEoCRIZChFzZW5kSW5pdGlhbEV2ZW50cxgLIAEoCCLxAQoSTWFuYWdlZEZpZWxkc0VudHJ5Eg8KB21hbmFnZXIYASABKAkSEQoJb3BlcmF0aW9uGAIgASgJEhIKCmFwaVZlcnNpb24YAyABKAkSOAoEdGltZRgEIAEoCzIqLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5UaW1lEhIKCmZpZWxkc1R5cGUYBiABKAkSQAoIZmllbGRzVjEYByABKAsyLi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuRmllbGRzVjESEwoLc3VicmVzb3VyY2UYCCABKAkiKwoJTWljcm9UaW1lEg8KB3NlY29uZHMYASABKAMSDQoFbmFub3MYAiABKAUi/gUKCk9iamVjdE1ldGESDAoEbmFtZRgBIAEoCRIUCgxnZW5lcmF0ZU5hbWUYAiABKAkSEQoJbmFtZXNwYWNlGAMgASgJEhAKCHNlbGZMaW5rGAQgASgJEgsKA3VpZBgFIAEoCRIXCg9yZXNvdXJjZVZlcnNpb24YBiABKAkSEgoKZ2VuZXJhdGlvbhgHIAEoAxJFChFjcmVhdGlvblRpbWVzdGFtcBgIIAEoCzIqLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5UaW1lEkUKEWRlbGV0aW9uVGltZXN0YW1wGAkgASgLMiouazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlRpbWUSIgoaZGVsZXRpb25HcmFjZVBlcmlvZFNlY29uZHMYCiABKAMSTAoGbGFiZWxzGAsgAygLMjwuazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLk9iamVjdE1ldGEuTGFiZWxzRW50cnkSVgoLYW5ub3RhdGlvbnMYDCADKAsyQS5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuT2JqZWN0TWV0YS5Bbm5vdGF0aW9uc0VudHJ5Ek0KD293bmVyUmVmZXJlbmNlcxgNIAMoCzI0Lms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5Pd25lclJlZmVyZW5jZRISCgpmaW5hbGl6ZXJzGA4gAygJEk8KDW1hbmFnZWRGaWVsZHMYESADKAsyOC5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuTWFuYWdlZEZpZWxkc0VudHJ5Gi0KC0xhYmVsc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEaMgoQQW5ub3RhdGlvbnNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIn0KDk93bmVyUmVmZXJlbmNlEhIKCmFwaVZlcnNpb24YBSABKAkSDAoEa2luZBgBIAEoCRIMCgRuYW1lGAMgASgJEgsKA3VpZBgEIAEoCRISCgpjb250cm9sbGVyGAYgASgIEhoKEmJsb2NrT3duZXJEZWxldGlvbhgHIAEoCCJbChVQYXJ0aWFsT2JqZWN0TWV0YWRhdGESQgoIbWV0YWRhdGEYASABKAsyMC5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuT2JqZWN0TWV0YSKpAQoZUGFydGlhbE9iamVjdE1ldGFkYXRhTGlzdBJACghtZXRhZGF0YRgBIAEoCzIuLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5MaXN0TWV0YRJKCgVpdGVtcxgCIAMoCzI7Lms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5QYXJ0aWFsT2JqZWN0TWV0YWRhdGEiBwoFUGF0Y2giXAoMUGF0Y2hPcHRpb25zEg4KBmRyeVJ1bhgBIAMoCRINCgVmb3JjZRgCIAEoCBIUCgxmaWVsZE1hbmFnZXIYAyABKAkSFwoPZmllbGRWYWxpZGF0aW9uGAQgASgJIjUKDVByZWNvbmRpdGlvbnMSCwoDdWlkGAEgASgJEhcKD3Jlc291cmNlVmVyc2lvbhgCIAEoCSIaCglSb290UGF0aHMSDQoFcGF0aHMYASADKAkiRgoZU2VydmVyQWRkcmVzc0J5Q2xpZW50Q0lEUhISCgpjbGllbnRDSURSGAEgASgJEhUKDXNlcnZlckFkZHJlc3MYAiABKAkizwEKBlN0YXR1cxJACghtZXRhZGF0YRgBIAEoCzIuLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5MaXN0TWV0YRIOCgZzdGF0dXMYAiABKAkSDwoHbWVzc2FnZRgDIAEoCRIOCgZyZWFzb24YBCABKAkSRAoHZGV0YWlscxgFIAEoCzIzLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5TdGF0dXNEZXRhaWxzEgwKBGNvZGUYBiABKAUiPQoLU3RhdHVzQ2F1c2USDgoGcmVhc29uGAEgASgJEg8KB21lc3NhZ2UYAiABKAkSDQoFZmllbGQYAyABKAkipQEKDVN0YXR1c0RldGFpbHMSDAoEbmFtZRgBIAEoCRINCgVncm91cBgCIAEoCRIMCgRraW5kGAMgASgJEgsKA3VpZBgGIAEoCRJBCgZjYXVzZXMYBCADKAsyMS5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuU3RhdHVzQ2F1c2USGQoRcmV0cnlBZnRlclNlY29uZHMYBSABKAUiJQoMVGFibGVPcHRpb25zEhUKDWluY2x1ZGVPYmplY3QYASABKAkiJgoEVGltZRIPCgdzZWNvbmRzGAEgASgDEg0KBW5hbm9zGAIgASgFIisKCVRpbWVzdGFtcBIPCgdzZWNvbmRzGAEgASgDEg0KBW5hbm9zGAIgASgFIiwKCFR5cGVNZXRhEgwKBGtpbmQYASABKAkSEgoKYXBpVmVyc2lvbhgCIAEoCSJOCg1VcGRhdGVPcHRpb25zEg4KBmRyeVJ1bhgBIAMoCRIUCgxmaWVsZE1hbmFnZXIYAiABKAkSFwoPZmllbGRWYWxpZGF0aW9uGAMgASgJIhYKBVZlcmJzEg0KBWl0ZW1zGAEgAygJIlkKCldhdGNoRXZlbnQSDAoEdHlwZRgBIAEoCRI9CgZvYmplY3QYAiABKAsyLS5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5ydW50aW1lLlJhd0V4dGVuc2lvbkImWiRrOHMuaW8vYXBpbWFjaGluZXJ5L3BrZy9hcGlzL21ldGEvdjE", [file_k8s_io_apimachinery_pkg_runtime_generated, file_k8s_io_apimachinery_pkg_runtime_schema_generated]);
+  fileDesc("CjRrOHMuaW8vYXBpbWFjaGluZXJ5L3BrZy9hcGlzL21ldGEvdjEvZ2VuZXJhdGVkLnByb3RvEiRrOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEiqQIKCEFQSUdyb3VwEgwKBG5hbWUYASABKAkSUAoIdmVyc2lvbnMYAiADKAsyPi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuR3JvdXBWZXJzaW9uRm9yRGlzY292ZXJ5ElgKEHByZWZlcnJlZFZlcnNpb24YAyABKAsyPi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuR3JvdXBWZXJzaW9uRm9yRGlzY292ZXJ5EmMKGnNlcnZlckFkZHJlc3NCeUNsaWVudENJRFJzGAQgAygLMj8uazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlNlcnZlckFkZHJlc3NCeUNsaWVudENJRFIiTgoMQVBJR3JvdXBMaXN0Ej4KBmdyb3VwcxgBIAMoCzIuLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5BUElHcm91cCLzAQoLQVBJUmVzb3VyY2USDAoEbmFtZRgBIAEoCRIUCgxzaW5ndWxhck5hbWUYBiABKAkSEgoKbmFtZXNwYWNlZBgCIAEoCBINCgVncm91cBgIIAEoCRIPCgd2ZXJzaW9uGAkgASgJEgwKBGtpbmQYAyABKAkSOgoFdmVyYnMYBCABKAsyKy5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuVmVyYnMSEgoKc2hvcnROYW1lcxgFIAMoCRISCgpjYXRlZ29yaWVzGAcgAygJEhoKEnN0b3JhZ2VWZXJzaW9uSGFzaBgKIAEoCSJtCg9BUElSZXNvdXJjZUxpc3QSFAoMZ3JvdXBWZXJzaW9uGAEgASgJEkQKCXJlc291cmNlcxgCIAMoCzIxLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5BUElSZXNvdXJjZSKEAQoLQVBJVmVyc2lvbnMSEAoIdmVyc2lvbnMYASADKAkSYwoac2VydmVyQWRkcmVzc0J5Q2xpZW50Q0lEUnMYAiADKAsyPy5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuU2VydmVyQWRkcmVzc0J5Q2xpZW50Q0lEUiJDCgxBcHBseU9wdGlvbnMSDgoGZHJ5UnVuGAEgAygJEg0KBWZvcmNlGAIgASgIEhQKDGZpZWxkTWFuYWdlchgDIAEoCSKuAQoJQ29uZGl0aW9uEgwKBHR5cGUYASABKAkSDgoGc3RhdHVzGAIgASgJEhoKEm9ic2VydmVkR2VuZXJhdGlvbhgDIAEoAxJGChJsYXN0VHJhbnNpdGlvblRpbWUYBCABKAsyKi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuVGltZRIOCgZyZWFzb24YBSABKAkSDwoHbWVzc2FnZRgGIAEoCSJOCg1DcmVhdGVPcHRpb25zEg4KBmRyeVJ1bhgBIAMoCRIUCgxmaWVsZE1hbmFnZXIYAyABKAkSFwoPZmllbGRWYWxpZGF0aW9uGAQgASgJIvYBCg1EZWxldGVPcHRpb25zEhoKEmdyYWNlUGVyaW9kU2Vjb25kcxgBIAEoAxJKCg1wcmVjb25kaXRpb25zGAIgASgLMjMuazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlByZWNvbmRpdGlvbnMSGAoQb3JwaGFuRGVwZW5kZW50cxgDIAEoCBIZChFwcm9wYWdhdGlvblBvbGljeRgEIAEoCRIOCgZkcnlSdW4YBSADKAkSOAowaWdub3JlU3RvcmVSZWFkRXJyb3JXaXRoQ2x1c3RlckJyZWFraW5nUG90ZW50aWFsGAYgASgIIhwKCER1cmF0aW9uEhAKCGR1cmF0aW9uGAEgASgDIkkKGEZpZWxkU2VsZWN0b3JSZXF1aXJlbWVudBILCgNrZXkYASABKAkSEAoIb3BlcmF0b3IYAiABKAkSDgoGdmFsdWVzGAMgAygJIhcKCEZpZWxkc1YxEgsKA1JhdxgBIAEoDCIlCgpHZXRPcHRpb25zEhcKD3Jlc291cmNlVmVyc2lvbhgBIAEoCSIoCglHcm91cEtpbmQSDQoFZ3JvdXAYASABKAkSDAoEa2luZBgCIAEoCSIwCg1Hcm91cFJlc291cmNlEg0KBWdyb3VwGAEgASgJEhAKCHJlc291cmNlGAIgASgJIi4KDEdyb3VwVmVyc2lvbhINCgVncm91cBgBIAEoCRIPCgd2ZXJzaW9uGAIgASgJIkEKGEdyb3VwVmVyc2lvbkZvckRpc2NvdmVyeRIUCgxncm91cFZlcnNpb24YASABKAkSDwoHdmVyc2lvbhgCIAEoCSJAChBHcm91cFZlcnNpb25LaW5kEg0KBWdyb3VwGAEgASgJEg8KB3ZlcnNpb24YAiABKAkSDAoEa2luZBgDIAEoCSJIChRHcm91cFZlcnNpb25SZXNvdXJjZRINCgVncm91cBgBIAEoCRIPCgd2ZXJzaW9uGAIgASgJEhAKCHJlc291cmNlGAMgASgJIvgBCg1MYWJlbFNlbGVjdG9yElkKC21hdGNoTGFiZWxzGAEgAygLMkQuazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLkxhYmVsU2VsZWN0b3IuTWF0Y2hMYWJlbHNFbnRyeRJYChBtYXRjaEV4cHJlc3Npb25zGAIgAygLMj4uazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLkxhYmVsU2VsZWN0b3JSZXF1aXJlbWVudBoyChBNYXRjaExhYmVsc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiSQoYTGFiZWxTZWxlY3RvclJlcXVpcmVtZW50EgsKA2tleRgBIAEoCRIQCghvcGVyYXRvchgCIAEoCRIOCgZ2YWx1ZXMYAyADKAkihgEKBExpc3QSQAoIbWV0YWRhdGEYASABKAsyLi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuTGlzdE1ldGESPAoFaXRlbXMYAiADKAsyLS5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5ydW50aW1lLlJhd0V4dGVuc2lvbiJjCghMaXN0TWV0YRIQCghzZWxmTGluaxgBIAEoCRIXCg9yZXNvdXJjZVZlcnNpb24YAiABKAkSEAoIY29udGludWUYAyABKAkSGgoScmVtYWluaW5nSXRlbUNvdW50GAQgASgDIvIBCgtMaXN0T3B0aW9ucxIVCg1sYWJlbFNlbGVjdG9yGAEgASgJEhUKDWZpZWxkU2VsZWN0b3IYAiABKAkSDQoFd2F0Y2gYAyABKAgSGwoTYWxsb3dXYXRjaEJvb2ttYXJrcxgJIAEoCBIXCg9yZXNvdXJjZVZlcnNpb24YBCABKAkSHAoUcmVzb3VyY2VWZXJzaW9uTWF0Y2gYCiABKAkSFgoOdGltZW91dFNlY29uZHMYBSABKAMSDQoFbGltaXQYByABKAMSEAoIY29udGludWUYCCABKAkSGQoRc2VuZEluaXRpYWxFdmVudHMYCyABKAgi8QEKEk1hbmFnZWRGaWVsZHNFbnRyeRIPCgdtYW5hZ2VyGAEgASgJEhEKCW9wZXJhdGlvbhgCIAEoCRISCgphcGlWZXJzaW9uGAMgASgJEjgKBHRpbWUYBCABKAsyKi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuVGltZRISCgpmaWVsZHNUeXBlGAYgASgJEkAKCGZpZWxkc1YxGAcgASgLMi4uazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLkZpZWxkc1YxEhMKC3N1YnJlc291cmNlGAggASgJIisKCU1pY3JvVGltZRIPCgdzZWNvbmRzGAEgASgDEg0KBW5hbm9zGAIgASgFIv4FCgpPYmplY3RNZXRhEgwKBG5hbWUYASABKAkSFAoMZ2VuZXJhdGVOYW1lGAIgASgJEhEKCW5hbWVzcGFjZRgDIAEoCRIQCghzZWxmTGluaxgEIAEoCRILCgN1aWQYBSABKAkSFwoPcmVzb3VyY2VWZXJzaW9uGAYgASgJEhIKCmdlbmVyYXRpb24YByABKAMSRQoRY3JlYXRpb25UaW1lc3RhbXAYCCABKAsyKi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuVGltZRJFChFkZWxldGlvblRpbWVzdGFtcBgJIAEoCzIqLms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5UaW1lEiIKGmRlbGV0aW9uR3JhY2VQZXJpb2RTZWNvbmRzGAogASgDEkwKBmxhYmVscxgLIAMoCzI8Lms4cy5pby5hcGltYWNoaW5lcnkucGtnLmFwaXMubWV0YS52MS5PYmplY3RNZXRhLkxhYmVsc0VudHJ5ElYKC2Fubm90YXRpb25zGAwgAygLMkEuazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLk9iamVjdE1ldGEuQW5ub3RhdGlvbnNFbnRyeRJNCg9vd25lclJlZmVyZW5jZXMYDSADKAsyNC5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuT3duZXJSZWZlcmVuY2USEgoKZmluYWxpemVycxgOIAMoCRJPCg1tYW5hZ2VkRmllbGRzGBEgAygLMjguazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLk1hbmFnZWRGaWVsZHNFbnRyeRotCgtMYWJlbHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGjIKEEFubm90YXRpb25zRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJ9Cg5Pd25lclJlZmVyZW5jZRISCgphcGlWZXJzaW9uGAUgASgJEgwKBGtpbmQYASABKAkSDAoEbmFtZRgDIAEoCRILCgN1aWQYBCABKAkSEgoKY29udHJvbGxlchgGIAEoCBIaChJibG9ja093bmVyRGVsZXRpb24YByABKAgiWwoVUGFydGlhbE9iamVjdE1ldGFkYXRhEkIKCG1ldGFkYXRhGAEgASgLMjAuazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLk9iamVjdE1ldGEiqQEKGVBhcnRpYWxPYmplY3RNZXRhZGF0YUxpc3QSQAoIbWV0YWRhdGEYASABKAsyLi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuTGlzdE1ldGESSgoFaXRlbXMYAiADKAsyOy5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuUGFydGlhbE9iamVjdE1ldGFkYXRhIgcKBVBhdGNoIlwKDFBhdGNoT3B0aW9ucxIOCgZkcnlSdW4YASADKAkSDQoFZm9yY2UYAiABKAgSFAoMZmllbGRNYW5hZ2VyGAMgASgJEhcKD2ZpZWxkVmFsaWRhdGlvbhgEIAEoCSI1Cg1QcmVjb25kaXRpb25zEgsKA3VpZBgBIAEoCRIXCg9yZXNvdXJjZVZlcnNpb24YAiABKAkiGgoJUm9vdFBhdGhzEg0KBXBhdGhzGAEgAygJIkYKGVNlcnZlckFkZHJlc3NCeUNsaWVudENJRFISEgoKY2xpZW50Q0lEUhgBIAEoCRIVCg1zZXJ2ZXJBZGRyZXNzGAIgASgJIs8BCgZTdGF0dXMSQAoIbWV0YWRhdGEYASABKAsyLi5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuTGlzdE1ldGESDgoGc3RhdHVzGAIgASgJEg8KB21lc3NhZ2UYAyABKAkSDgoGcmVhc29uGAQgASgJEkQKB2RldGFpbHMYBSABKAsyMy5rOHMuaW8uYXBpbWFjaGluZXJ5LnBrZy5hcGlzLm1ldGEudjEuU3RhdHVzRGV0YWlscxIMCgRjb2RlGAYgASgFIj0KC1N0YXR1c0NhdXNlEg4KBnJlYXNvbhgBIAEoCRIPCgdtZXNzYWdlGAIgASgJEg0KBWZpZWxkGAMgASgJIqUBCg1TdGF0dXNEZXRhaWxzEgwKBG5hbWUYASABKAkSDQoFZ3JvdXAYAiABKAkSDAoEa2luZBgDIAEoCRILCgN1aWQYBiABKAkSQQoGY2F1c2VzGAQgAygLMjEuazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cuYXBpcy5tZXRhLnYxLlN0YXR1c0NhdXNlEhkKEXJldHJ5QWZ0ZXJTZWNvbmRzGAUgASgFIiUKDFRhYmxlT3B0aW9ucxIVCg1pbmNsdWRlT2JqZWN0GAEgASgJIiYKBFRpbWUSDwoHc2Vjb25kcxgBIAEoAxINCgVuYW5vcxgCIAEoBSIrCglUaW1lc3RhbXASDwoHc2Vjb25kcxgBIAEoAxINCgVuYW5vcxgCIAEoBSIsCghUeXBlTWV0YRIMCgRraW5kGAEgASgJEhIKCmFwaVZlcnNpb24YAiABKAkiTgoNVXBkYXRlT3B0aW9ucxIOCgZkcnlSdW4YASADKAkSFAoMZmllbGRNYW5hZ2VyGAIgASgJEhcKD2ZpZWxkVmFsaWRhdGlvbhgDIAEoCSIWCgVWZXJicxINCgVpdGVtcxgBIAMoCSJZCgpXYXRjaEV2ZW50EgwKBHR5cGUYASABKAkSPQoGb2JqZWN0GAIgASgLMi0uazhzLmlvLmFwaW1hY2hpbmVyeS5wa2cucnVudGltZS5SYXdFeHRlbnNpb25CJlokazhzLmlvL2FwaW1hY2hpbmVyeS9wa2cvYXBpcy9tZXRhL3Yx", [file_k8s_io_apimachinery_pkg_runtime_generated, file_k8s_io_apimachinery_pkg_runtime_schema_generated]);
 
 /**
  * APIGroup contains the name, the supported versions, and the preferred version
@@ -556,6 +556,25 @@ export type DeleteOptions = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Delete
    * @generated from field: repeated string dryRun = 5;
    */
   dryRun: string[];
+
+  /**
+   * if set to true, it will trigger an unsafe deletion of the resource in
+   * case the normal deletion flow fails with a corrupt object error.
+   * A resource is considered corrupt if it can not be retrieved from
+   * the underlying storage successfully because of a) its data can
+   * not be transformed e.g. decryption failure, or b) it fails
+   * to decode into an object.
+   * NOTE: unsafe deletion ignores finalizer constraints, skips
+   * precondition checks, and removes the object from the storage.
+   * WARNING: This may potentially break the cluster if the workload
+   * associated with the resource being unsafe-deleted relies on normal
+   * deletion flow. Use only if you REALLY know what you are doing.
+   * The default value is false, and the user must opt in to enable it
+   * +optional
+   *
+   * @generated from field: optional bool ignoreStoreReadErrorWithClusterBreakingPotential = 6;
+   */
+  ignoreStoreReadErrorWithClusterBreakingPotential: boolean;
 };
 
 /**
@@ -587,6 +606,48 @@ export const DurationSchema: GenMessage<Duration> = /*@__PURE__*/
   messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 9);
 
 /**
+ * FieldSelectorRequirement is a selector that contains values, a key, and an operator that
+ * relates the key and values.
+ *
+ * @generated from message k8s.io.apimachinery.pkg.apis.meta.v1.FieldSelectorRequirement
+ */
+export type FieldSelectorRequirement = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.FieldSelectorRequirement"> & {
+  /**
+   * key is the field selector key that the requirement applies to.
+   *
+   * @generated from field: optional string key = 1;
+   */
+  key: string;
+
+  /**
+   * operator represents a key's relationship to a set of values.
+   * Valid operators are In, NotIn, Exists, DoesNotExist.
+   * The list of operators may grow in the future.
+   *
+   * @generated from field: optional string operator = 2;
+   */
+  operator: string;
+
+  /**
+   * values is an array of string values.
+   * If the operator is In or NotIn, the values array must be non-empty.
+   * If the operator is Exists or DoesNotExist, the values array must be empty.
+   * +optional
+   * +listType=atomic
+   *
+   * @generated from field: repeated string values = 3;
+   */
+  values: string[];
+};
+
+/**
+ * Describes the message k8s.io.apimachinery.pkg.apis.meta.v1.FieldSelectorRequirement.
+ * Use `create(FieldSelectorRequirementSchema)` to create a new message.
+ */
+export const FieldSelectorRequirementSchema: GenMessage<FieldSelectorRequirement> = /*@__PURE__*/
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 10);
+
+/**
  * FieldsV1 stores a set of fields in a data structure like a Trie, in JSON format.
  *
  * Each key is either a '.' representing the field itself, and will always map to an empty set,
@@ -616,7 +677,7 @@ export type FieldsV1 = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.FieldsV1"> 
  * Use `create(FieldsV1Schema)` to create a new message.
  */
 export const FieldsV1Schema: GenMessage<FieldsV1> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 10);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 11);
 
 /**
  * GetOptions is the standard query options to the standard REST get call.
@@ -642,7 +703,7 @@ export type GetOptions = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.GetOption
  * Use `create(GetOptionsSchema)` to create a new message.
  */
 export const GetOptionsSchema: GenMessage<GetOptions> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 11);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 12);
 
 /**
  * GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying
@@ -669,7 +730,7 @@ export type GroupKind = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.GroupKind"
  * Use `create(GroupKindSchema)` to create a new message.
  */
 export const GroupKindSchema: GenMessage<GroupKind> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 12);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 13);
 
 /**
  * GroupResource specifies a Group and a Resource, but does not force a version.  This is useful for identifying
@@ -696,7 +757,7 @@ export type GroupResource = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.GroupR
  * Use `create(GroupResourceSchema)` to create a new message.
  */
 export const GroupResourceSchema: GenMessage<GroupResource> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 13);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 14);
 
 /**
  * GroupVersion contains the "group" and the "version", which uniquely identifies the API.
@@ -722,7 +783,7 @@ export type GroupVersion = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.GroupVe
  * Use `create(GroupVersionSchema)` to create a new message.
  */
 export const GroupVersionSchema: GenMessage<GroupVersion> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 14);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 15);
 
 /**
  * GroupVersion contains the "group/version" and "version" string of a version.
@@ -752,7 +813,7 @@ export type GroupVersionForDiscovery = Message<"k8s.io.apimachinery.pkg.apis.met
  * Use `create(GroupVersionForDiscoverySchema)` to create a new message.
  */
 export const GroupVersionForDiscoverySchema: GenMessage<GroupVersionForDiscovery> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 15);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 16);
 
 /**
  * GroupVersionKind unambiguously identifies a kind.  It doesn't anonymously include GroupVersion
@@ -784,7 +845,7 @@ export type GroupVersionKind = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Gro
  * Use `create(GroupVersionKindSchema)` to create a new message.
  */
 export const GroupVersionKindSchema: GenMessage<GroupVersionKind> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 16);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 17);
 
 /**
  * GroupVersionResource unambiguously identifies a resource.  It doesn't anonymously include GroupVersion
@@ -816,7 +877,7 @@ export type GroupVersionResource = Message<"k8s.io.apimachinery.pkg.apis.meta.v1
  * Use `create(GroupVersionResourceSchema)` to create a new message.
  */
 export const GroupVersionResourceSchema: GenMessage<GroupVersionResource> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 17);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 18);
 
 /**
  * A label selector is a label query over a set of resources. The result of matchLabels and
@@ -852,7 +913,7 @@ export type LabelSelector = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.LabelS
  * Use `create(LabelSelectorSchema)` to create a new message.
  */
 export const LabelSelectorSchema: GenMessage<LabelSelector> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 18);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 19);
 
 /**
  * A label selector requirement is a selector that contains values, a key, and an operator that
@@ -894,7 +955,7 @@ export type LabelSelectorRequirement = Message<"k8s.io.apimachinery.pkg.apis.met
  * Use `create(LabelSelectorRequirementSchema)` to create a new message.
  */
 export const LabelSelectorRequirementSchema: GenMessage<LabelSelectorRequirement> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 19);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 20);
 
 /**
  * List holds a list of objects, which may not be known by the server.
@@ -924,7 +985,7 @@ export type List = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.List"> & {
  * Use `create(ListSchema)` to create a new message.
  */
 export const ListSchema: GenMessage<List> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 20);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 21);
 
 /**
  * ListMeta describes metadata that synthetic resources must have, including lists and
@@ -989,7 +1050,7 @@ export type ListMeta = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"> 
  * Use `create(ListMetaSchema)` to create a new message.
  */
 export const ListMetaSchema: GenMessage<ListMeta> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 21);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 22);
 
 /**
  * ListOptions is the query options to a standard REST list call.
@@ -1150,7 +1211,7 @@ export type ListOptions = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.ListOpti
  * Use `create(ListOptionsSchema)` to create a new message.
  */
 export const ListOptionsSchema: GenMessage<ListOptions> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 22);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 23);
 
 /**
  * ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource
@@ -1231,7 +1292,7 @@ export type ManagedFieldsEntry = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.M
  * Use `create(ManagedFieldsEntrySchema)` to create a new message.
  */
 export const ManagedFieldsEntrySchema: GenMessage<ManagedFieldsEntry> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 23);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 24);
 
 /**
  * MicroTime is version of Time with microsecond level precision.
@@ -1268,7 +1329,7 @@ export type MicroTime = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.MicroTime"
  * Use `create(MicroTimeSchema)` to create a new message.
  */
 export const MicroTimeSchema: GenMessage<MicroTime> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 24);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 25);
 
 /**
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects
@@ -1504,7 +1565,7 @@ export type ObjectMeta = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMet
  * Use `create(ObjectMetaSchema)` to create a new message.
  */
 export const ObjectMetaSchema: GenMessage<ObjectMeta> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 25);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 26);
 
 /**
  * OwnerReference contains enough information to let you identify an owning
@@ -1575,7 +1636,7 @@ export type OwnerReference = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Owner
  * Use `create(OwnerReferenceSchema)` to create a new message.
  */
 export const OwnerReferenceSchema: GenMessage<OwnerReference> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 26);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 27);
 
 /**
  * PartialObjectMetadata is a generic representation of any object with ObjectMeta. It allows clients
@@ -1600,7 +1661,7 @@ export type PartialObjectMetadata = Message<"k8s.io.apimachinery.pkg.apis.meta.v
  * Use `create(PartialObjectMetadataSchema)` to create a new message.
  */
 export const PartialObjectMetadataSchema: GenMessage<PartialObjectMetadata> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 27);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 28);
 
 /**
  * PartialObjectMetadataList contains a list of objects containing only their metadata
@@ -1631,7 +1692,7 @@ export type PartialObjectMetadataList = Message<"k8s.io.apimachinery.pkg.apis.me
  * Use `create(PartialObjectMetadataListSchema)` to create a new message.
  */
 export const PartialObjectMetadataListSchema: GenMessage<PartialObjectMetadataList> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 28);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 29);
 
 /**
  * Patch is provided to give a concrete name and type to the Kubernetes PATCH request body.
@@ -1646,7 +1707,7 @@ export type Patch = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Patch"> & {
  * Use `create(PatchSchema)` to create a new message.
  */
 export const PatchSchema: GenMessage<Patch> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 29);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 30);
 
 /**
  * PatchOptions may be provided when patching an API object.
@@ -1721,7 +1782,7 @@ export type PatchOptions = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.PatchOp
  * Use `create(PatchOptionsSchema)` to create a new message.
  */
 export const PatchOptionsSchema: GenMessage<PatchOptions> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 30);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 31);
 
 /**
  * Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
@@ -1751,7 +1812,7 @@ export type Preconditions = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Precon
  * Use `create(PreconditionsSchema)` to create a new message.
  */
 export const PreconditionsSchema: GenMessage<Preconditions> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 31);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 32);
 
 /**
  * RootPaths lists the paths available at root.
@@ -1774,7 +1835,7 @@ export type RootPaths = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.RootPaths"
  * Use `create(RootPathsSchema)` to create a new message.
  */
 export const RootPathsSchema: GenMessage<RootPaths> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 32);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 33);
 
 /**
  * ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.
@@ -1803,7 +1864,7 @@ export type ServerAddressByClientCIDR = Message<"k8s.io.apimachinery.pkg.apis.me
  * Use `create(ServerAddressByClientCIDRSchema)` to create a new message.
  */
 export const ServerAddressByClientCIDRSchema: GenMessage<ServerAddressByClientCIDR> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 33);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 34);
 
 /**
  * Status is a return value for calls that don't return other objects.
@@ -1875,7 +1936,7 @@ export type Status = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Status"> & {
  * Use `create(StatusSchema)` to create a new message.
  */
 export const StatusSchema: GenMessage<Status> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 34);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 35);
 
 /**
  * StatusCause provides more information about an api.Status failure, including
@@ -1924,7 +1985,7 @@ export type StatusCause = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.StatusCa
  * Use `create(StatusCauseSchema)` to create a new message.
  */
 export const StatusCauseSchema: GenMessage<StatusCause> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 35);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 36);
 
 /**
  * StatusDetails is a set of additional properties that MAY be set by the
@@ -2000,7 +2061,7 @@ export type StatusDetails = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Status
  * Use `create(StatusDetailsSchema)` to create a new message.
  */
 export const StatusDetailsSchema: GenMessage<StatusDetails> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 36);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 37);
 
 /**
  * TableOptions are used when a Table is requested by the caller.
@@ -2025,7 +2086,7 @@ export type TableOptions = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.TableOp
  * Use `create(TableOptionsSchema)` to create a new message.
  */
 export const TableOptionsSchema: GenMessage<TableOptions> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 37);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 38);
 
 /**
  * Time is a wrapper around time.Time which supports correct
@@ -2064,7 +2125,7 @@ export type Time = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Time"> & {
  * Use `create(TimeSchema)` to create a new message.
  */
 export const TimeSchema: GenMessage<Time> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 38);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 39);
 
 /**
  * Timestamp is a struct that is equivalent to Time, but intended for
@@ -2099,7 +2160,7 @@ export type Timestamp = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Timestamp"
  * Use `create(TimestampSchema)` to create a new message.
  */
 export const TimestampSchema: GenMessage<Timestamp> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 39);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 40);
 
 /**
  * TypeMeta describes an individual object in an API response or request
@@ -2140,7 +2201,7 @@ export type TypeMeta = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.TypeMeta"> 
  * Use `create(TypeMetaSchema)` to create a new message.
  */
 export const TypeMetaSchema: GenMessage<TypeMeta> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 40);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 41);
 
 /**
  * UpdateOptions may be provided when updating an API object.
@@ -2202,7 +2263,7 @@ export type UpdateOptions = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Update
  * Use `create(UpdateOptionsSchema)` to create a new message.
  */
 export const UpdateOptionsSchema: GenMessage<UpdateOptions> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 41);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 42);
 
 /**
  * Verbs masks the value so protobuf can generate
@@ -2226,7 +2287,7 @@ export type Verbs = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.Verbs"> & {
  * Use `create(VerbsSchema)` to create a new message.
  */
 export const VerbsSchema: GenMessage<Verbs> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 42);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 43);
 
 /**
  * Event represents a single event to a watched resource.
@@ -2260,5 +2321,5 @@ export type WatchEvent = Message<"k8s.io.apimachinery.pkg.apis.meta.v1.WatchEven
  * Use `create(WatchEventSchema)` to create a new message.
  */
 export const WatchEventSchema: GenMessage<WatchEvent> = /*@__PURE__*/
-  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 43);
+  messageDesc(file_k8s_io_apimachinery_pkg_apis_meta_v1_generated, 44);
 

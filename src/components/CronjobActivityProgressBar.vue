@@ -1,5 +1,5 @@
 <template>
-  <span class="Progress" v-if="show">
+  <span class="Progress" id="cronjob-activity-progress-bar" v-if="show">
     <span class="Progress-item" :style="activityStyle(index, cronjob)" v-for="(cronjob, index) in cronjobs"></span>
 
   </span>
