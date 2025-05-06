@@ -1792,12 +1792,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@primer/octicons@npm:^19.10.0":
-  version: 19.10.0
-  resolution: "@primer/octicons@npm:19.10.0"
+"@primer/octicons@npm:^19.15.1":
+  version: 19.15.1
+  resolution: "@primer/octicons@npm:19.15.1"
   dependencies:
     object-assign: "npm:^4.1.1"
-  checksum: 10c0/0553ce43d7362a4991e39436d50d59fa7dce50ba23016edd52f89fce5f27e07b148d6db2f5acd7bbca6b52b830cb54055f8a1bafb71b0731fa5560e68e0230a5
+  checksum: 10c0/9572dfbac302ed588eee408bd869549f295a1f9afa47eb7844fd1b38a6cea59f52d48f7d61f1e73b44c27c1527cf18c2c442660e61d5e361819941cc5f2cd1bc
   languageName: node
   linkType: hard
 
@@ -7974,7 +7974,7 @@ __metadata:
     "@connectrpc/connect-web": "npm:^2.0.0"
     "@grpc/grpc-js": "npm:^1.13.3"
     "@originjs/vite-plugin-commonjs": "npm:^1.0.3"
-    "@primer/octicons": "npm:^19.10.0"
+    "@primer/octicons": "npm:^19.15.1"
     "@testing-library/vue": "npm:^8.1.0"
     "@vitejs/plugin-vue": "npm:^5.2.3"
     "@vitest/coverage-v8": "npm:^3.1.2"
