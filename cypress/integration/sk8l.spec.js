@@ -243,3 +243,21 @@ describe('/jobs/:namespace', () => {
         });
     });
 });
+
+describe('DashboardAnnotations Test', () => {
+  it('Opens and closes the Dashboard modal', () => {
+    cy.visit('https://sk8l-ui:8001/');
+    cy.contains('a', 'Dashboard').click();
+
+    // cy.get('.modal-container')
+    //   .should('be.visible')
+    //   .and('contain.text', 'sk8l-grafana-annotations.json')
+
+    cy.contains('sk8l-grafana-annotations.json');
+    cy.get('.close-modal').click();
+    cy.contains('sk8l-grafana-annotations.json').should('not.exist');
+
+    // cy.get('.modal-container')
+    //   .should('not.exist')
+  });
+});
