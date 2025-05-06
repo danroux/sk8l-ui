@@ -66,7 +66,7 @@ export default {
       );
     },
     getDashboardAnnotations: async function() {
-      var request = create(DashboardAnnotationsRequestSchema({}));
+      var request = create(DashboardAnnotationsRequestSchema, {});
       const that = this;
 
       await Sk8lCronjobClient.getDashboardAnnotations(
