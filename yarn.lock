@@ -872,10 +872,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:^2.2.5":
-  version: 2.2.5
-  resolution: "@bufbuild/protobuf@npm:2.2.5"
-  checksum: 10c0/bd4f7b0e76c47ec656204cfe3f9a9413c4027cf36c1c9be23dccb8c880ad8e9da610133376848b2011904e8d89fdda5e7f4870b51a1417d037bdc0fbe4e74cf5
+"@bufbuild/protobuf@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "@bufbuild/protobuf@npm:2.3.0"
+  checksum: 10c0/ddd628ffa86fa9a64f7a434a13ebb73200a43ecbecc36001d8d73534c281cecaf2b4ec890a12810ac54302ae10a9fee794b438db91af54e268f8d6cdcdb82a49
   languageName: node
   linkType: hard
 
@@ -7969,7 +7969,7 @@ __metadata:
   dependencies:
     "@achrinza/node-ipc": "npm:^10.1.11"
     "@babel/core": "npm:^7.26.10"
-    "@bufbuild/protobuf": "npm:^2.2.5"
+    "@bufbuild/protobuf": "npm:^2.3.0"
     "@connectrpc/connect": "npm:^2.0.2"
     "@connectrpc/connect-web": "npm:^2.0.0"
     "@grpc/grpc-js": "npm:^1.13.3"
