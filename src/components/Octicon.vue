@@ -11,8 +11,8 @@
        viewBox="0 0 16 16"
        version="1.1"
        :width="octiconWidth()"
-       class="octicon octicon-people"
-       :class="customClass"
+       class="octicon"
+       :class="[`octicon-${name}`, customClass]"
        v-html="octicons()">
   </svg>
 </template>
