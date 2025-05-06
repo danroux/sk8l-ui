@@ -7992,7 +7992,7 @@ __metadata:
     happy-dom: "npm:^17.4.4"
     jest: "npm:^29.7.0"
     luxon: "npm:^3.6.1"
-    rollup: "npm:^4.40.0"
+    rollup: "npm:^4.40.2"
     sass: "npm:^1.86.3"
     simple-statistics: "npm:^7.8.3"
     typescript: "npm:4.9.5"
