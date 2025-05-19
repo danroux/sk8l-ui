@@ -1,3 +1,31 @@
+## v0.18.0 (May 19, 2025)
+
+ENHANCEMENTS:
+
+* ci/dependabot: docker:(deps): bump cypress/included from 14.3.0 to 14.3.1 [[GH-269](https://github.com/danroux/sk8l-ui/issues/269)]
+* ci/dependabot: docker:(deps): bump cypress/included from 14.3.1 to 14.3.2 [[GH-274](https://github.com/danroux/sk8l-ui/issues/274)]
+* ci/dependabot: gha:(deps): bump engineerd/setup-kind from 0.5.0 to 0.6.2 [[GH-222](https://github.com/danroux/sk8l-ui/issues/222)]
+* ci/dependabot: npm:(deps): bump @primer/octicons from 19.10.0 to 19.15.1 [[GH-241](https://github.com/danroux/sk8l-ui/issues/241)]
+* ci/dependabot: npm:(deps): bump rollup from 4.39.0 to 4.40.0 [[GH-266](https://github.com/danroux/sk8l-ui/issues/266)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 9.24.0 to 9.25.0 [[GH-270](https://github.com/danroux/sk8l-ui/issues/270)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 9.25.0 to 9.25.1 [[GH-272](https://github.com/danroux/sk8l-ui/issues/272)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 9.25.1 to 9.26.0 [[GH-284](https://github.com/danroux/sk8l-ui/issues/284)]
+* ci/dependabot: npm:(deps-dev): bump vite from 6.2.6 to 6.3.0 [[GH-265](https://github.com/danroux/sk8l-ui/issues/265)]
+* ci/k8s: Increase kind version, update supported versions and test against them.
+
+    * Add support && tests for k8s v1.30.4 && v1.31.0
+    * Removed tests && end our support for no longer supported k8s versions
+      - v1.26.x
+      - v1.27.x
+      - v1.28.x
+    * kind: Add networkPolicy:false to sk8l-values. kind v0.24.0 ships with Out-of-the-box support for network policy via sigs.k8s.io/kube-network-policies.
+    * Update README.md [[GH-273](https://github.com/danroux/sk8l-ui/issues/273)]
+* js/vue.js: Improve status display for jobs with sidecars containers && setup vitest [[GH-278](https://github.com/danroux/sk8l-ui/issues/278)]
+
+BUG FIXES:
+
+* js: Fix typo in DashboardAnnotationsModal#getDashboardAnnotations [[GH-285](https://github.com/danroux/sk8l-ui/issues/285)]
+
 ## v0.17.0 (April 16, 2025)
 
 ENHANCEMENTS:
