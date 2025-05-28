@@ -1,6 +1,6 @@
 <template>
   <!-- https://primer.style/css/components/labels#labels -->
-  <span class="Label mr-1 Label--accent Label--inline" v-if="status == 'Active'">Active></span>
+  <span class="Label mr-1 Label--accent Label--inline" v-if="status == 'Active'">Active</span>
   <span class="Label mr-1 Label--success Label--inline" v-if="status == 'Succeeded'">Success</span>
   <span class="Label mr-1 Label--danger Label--inline" v-if="status == 'Failed'">Failed</span>
   <span class="Label mr-1 Label--danger Label--inline" v-if="status == 'Failing'">Failing</span>
