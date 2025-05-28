@@ -1,14 +1,14 @@
 ```release-note:enhancement
-ci/dependabot: docker:(deps): bump cypress/included from 14.3.2 to 14.3.3
+ci/dependabot: docker:(deps): bump cypress/included from 14.3.2 to 14.4.0
 
-docker:(deps): bump cypress/included from 14.3.2 to 14.3.3
+docker:(deps): bump cypress/included from 14.3.2 to 14.4.0
 
-Bumps cypress/included from 14.3.2 to 14.3.3.
+Bumps cypress/included from 14.3.2 to 14.4.0.
 
 ---
 updated-dependencies:
 - dependency-name: cypress/included
-  dependency-version: 14.3.3
+  dependency-version: 14.4.0
   dependency-type: direct:production
   update-type: version-update:semver-patch
 ...
