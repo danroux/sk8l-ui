@@ -22,7 +22,7 @@
     "factory-girl-ts": "^2.3.1",
     "google-protobuf": "^3.21.4",
     "grpc-web": "^1.5.0",
-    "happy-dom": "^17.4.4",
+    "happy-dom": "^17.4.6",
     "luxon": "^3.6.1",
     "rollup": "^4.40.0",
     "simple-statistics": "^7.8.3",
