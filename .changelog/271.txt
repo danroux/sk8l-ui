@@ -1,17 +1,17 @@
 ```release-note:enhancement
 ci/dependabot: npm:(deps-dev): bump sass from 1.86.3 to 1.97.3
 
-npm:(deps-dev): bump sass from 1.86.3 to 1.87.0
+npm:(deps-dev): bump sass from 1.86.3 to 1.97.3
 
-Bumps [sass](https://github.com/sass/dart-sass) from 1.86.3 to 1.87.0.
+Bumps [sass](https://github.com/sass/dart-sass) from 1.86.3 to 1.97.3.
 - [Release notes](https://github.com/sass/dart-sass/releases)
 - [Changelog](https://github.com/sass/dart-sass/blob/main/CHANGELOG.md)
-- [Commits](https://github.com/sass/dart-sass/compare/1.86.3...1.87.0)
+- [Commits](https://github.com/sass/dart-sass/compare/1.86.3...1.97.3)
 
 ---
 updated-dependencies:
 - dependency-name: sass
-  dependency-version: 1.87.0
+  dependency-version: 1.97.3
   dependency-type: direct:development
   update-type: version-update:semver-minor
 ...
