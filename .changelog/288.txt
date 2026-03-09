@@ -1,0 +1,17 @@
+```release-note:enhancement
+ci/dependabot: docker:(deps): bump node from 22.14.0-bookworm-slim to 24.0.0-bookworm-slim
+
+docker:(deps): bump node
+
+Bumps node from 22.14.0-bookworm-slim to 24.0.0-bookworm-slim.
+
+---
+updated-dependencies:
+- dependency-name: node
+  dependency-version: 24.0.0-bookworm-slim
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
