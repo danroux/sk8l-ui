@@ -1,0 +1,16 @@
+```release-note:enhancement
+ci/dependabot: docker:(deps): bump devcontainers/typescript-node from 1-22-bookworm to 2-20-bookworm
+
+docker:(deps): bump devcontainers/typescript-node
+
+Bumps devcontainers/typescript-node from 1-22-bookworm to 2-20-bookworm.
+
+---
+updated-dependencies:
+- dependency-name: devcontainers/typescript-node
+  dependency-version: 2-20-bookworm
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
