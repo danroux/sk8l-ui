@@ -1,16 +1,16 @@
 ```release-note:enhancement
-ci/dependabot: gha:(deps): bump actions/setup-node from 4 to 5
+ci/dependabot: gha:(deps): bump actions/setup-node from 4 to 6
 
-gha:(deps): bump actions/setup-node from 4 to 5
+gha:(deps): bump actions/setup-node from 4 to 6
 
-Bumps [actions/setup-node](https://github.com/actions/setup-node) from 4 to 5.
+Bumps [actions/setup-node](https://github.com/actions/setup-node) from 4 to 6.
 - [Release notes](https://github.com/actions/setup-node/releases)
-- [Commits](https://github.com/actions/setup-node/compare/v4...v5)
+- [Commits](https://github.com/actions/setup-node/compare/v4...v6)
 
 ---
 updated-dependencies:
 - dependency-name: actions/setup-node
-  dependency-version: '5'
+  dependency-version: '6'
   dependency-type: direct:production
   update-type: version-update:semver-major
 ...
