@@ -6724,10 +6724,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:^3.6.1":
-  version: 3.6.1
-  resolution: "luxon@npm:3.6.1"
-  checksum: 10c0/906d57a9dc4d1de9383f2e9223e378c298607c1b4d17b6657b836a3cd120feb1c1de3b5d06d846a3417e1ca764de8476e8c23b3cd4083b5cdb870adcb06a99d5
+"luxon@npm:^3.7.2":
+  version: 3.7.2
+  resolution: "luxon@npm:3.7.2"
+  checksum: 10c0/ed8f0f637826c08c343a29dd478b00628be93bba6f068417b1d8896b61cb61c6deacbe1df1e057dbd9298334044afa150f9aaabbeb3181418ac8520acfdc2ae2
   languageName: node
   linkType: hard
 
@@ -8246,7 +8246,7 @@ __metadata:
     grpc-web: "npm:^2.0.2"
     happy-dom: "npm:^20.8.3"
     jest: "npm:^29.7.0"
-    luxon: "npm:^3.6.1"
+    luxon: "npm:^3.7.2"
     rollup: "npm:^4.59.0"
     sass: "npm:^1.97.3"
     simple-statistics: "npm:^7.8.3"
