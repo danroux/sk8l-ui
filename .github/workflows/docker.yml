@@ -31,7 +31,7 @@ jobs:
     name: sk8l-ui:dev-${{ inputs.image_tag }}
     if: ${{ github.event_name == 'workflow_call' && inputs.image_tag || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
           submodules: recursive
@@ -62,7 +62,7 @@ jobs:
     name: sk8l-ui:dev-main@${{ github.sha }}
     if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
           submodules: recursive
@@ -93,7 +93,7 @@ jobs:
     name: sk8l-ui:pre-main@${{ github.sha }}
     if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
           submodules: recursive
@@ -124,7 +124,7 @@ jobs:
     name: sk8l-ui:pre-${{ inputs.image_tag }}
     if: ${{ github.event_name == 'workflow_call' && inputs.image_tag || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
           submodules: recursive
@@ -154,7 +154,7 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
       - name: Checkout - set env
@@ -184,7 +184,7 @@ jobs:
     needs: [sk8l-ui-dev-img]
     if: ${{ github.event_name == 'workflow_call' && inputs.image_tag || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
           submodules: recursive
