@@ -1,10 +1,14 @@
 FROM node:24.0.0-bookworm-slim AS deps
 
+LABEL org.opencontainers.image.source=https://github.com/danroux/sk8l-ui
+LABEL org.opencontainers.image.description="sk8l-ui/connect image"
+LABEL org.opencontainers.image.licenses=MIT
+
 WORKDIR /usr/app/src
 
 RUN npm install -g npm@11.3.0
-RUN npm install -g @bufbuild/buf@^1.52.1 @bufbuild/protoc-gen-es@^2.2.5 && \
-    npm install -g @connectrpc/connect@^2.0.2 @bufbuild/protobuf@^2.2.5
+RUN npm install -g @bufbuild/buf@^1.52.1 @bufbuild/protoc-gen-es@2.11.0 && \
+    npm install -g @connectrpc/connect@^2.0.2 @bufbuild/protobuf@^2.11.0
 
 COPY buf.gen.yaml .
 
