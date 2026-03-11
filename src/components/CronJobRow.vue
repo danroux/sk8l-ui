@@ -33,10 +33,10 @@
           <Octicon name="north-star" /> {{ cronJob.namespace }}
         </span>
         <span class="mr-2 cronjob-completions">
-          <Octicon name="stack" />{{ cronJob.spec.jobTemplate.spec.completions || "1" }}
+          <Octicon name="stack" />{{ cronJob.jobs[0]?.spec?.completions || "1" }}
         </span>
         <span class="mr-2 cronjob-parallelism">
-          <Octicon name="versions" /> {{ cronJob.spec.jobTemplate.spec.parallelism || "1" }}
+          <Octicon name="versions" /> {{ cronJob.jobs[0]?.spec?.parallelism || "1" }}
         </span>
         <span class="mr-2 cronjob-creation-time">
           <Octicon name="sun" /> {{ cronJob.creationTimestamp }}
@@ -54,7 +54,7 @@
               <Octicon name="calendar" /> {{ lux1(cronJob.lastSuccessfulTime) }}
             </span>
             <span class="mr-2 cronjob-completion-time">
-              <Octicon name="goal" /> {{ luxs(Number(lastSucceeded.status.completionTime.seconds)) }}
+              <Octicon name="goal" /> {{ lux1(lastSucceeded.status.completionTime) }}
             </span>
           </template>
         </template>
@@ -141,7 +141,7 @@ export default {
       }
 
       let finishedAt = possible.terminationReasons.find((first) => first).terminationDetails.finishedAt;
-      finishedAt = Number(finishedAt.seconds);
+      finishedAt = DateTime.fromISO(finishedAt).toSeconds();
       const dt = DateTime.fromSeconds(finishedAt);
       return dt;
     },
@@ -170,10 +170,10 @@ export default {
             lastTransitionTime = this.lastFailed.failure_condition.lastTransitionTime;
           } else {
             let finishedAt = possible.terminationReasons.find((first) => first).terminationDetails.finishedAt;
-            finishedAt = Number(finishedAt.seconds);
+            finishedAt = DateTime.fromISO(finishedAt).toSeconds();
             lastTransitionTime = DateTime.fromSeconds(finishedAt);
           }
-        const completionTime = this.lastSucceeded.status.completion_time;
+          const completionTime = this.lastSucceeded.status.completionTime;
 
         return lastTransitionTime > completionTime;
       }

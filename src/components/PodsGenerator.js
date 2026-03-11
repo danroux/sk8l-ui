@@ -15,12 +15,12 @@ const PodsGenerator = {
       pod.name = jobPod.metadata.name;
       pod.jobName = jobPod.metadata.labels['job-name'];
       pod.uid = jobPod.metadata.uid;
-      pod.startTime = Number(jobPod.status.startTime.seconds);
-      pod.finishedAt = jobPod.finishedat;
-      pod.podIPs = jobPod.status.podIPs.map((ip) => ip.ip);
+      pod.startTime = DateTime.fromISO(jobPod.status.startTime).toSeconds();
+      pod.finishedAt = jobPod.finishedAt;
+      pod.podIPs = jobPod.status.podIPs;
       pod.podIP = jobPod.status.podIP;
       pod.hostIP = jobPod.status.hostIP;
-      pod.nodeName = jobPod.spec.nodename;
+      pod.nodeName = jobPod.spec.nodeName;
       pod.containerStatuses = this.containerStatuses(jobPod.status.containerStatuses);
       pod.initContainerStatuses = this.containerStatuses(jobPod.status.initContainerStatuses);
       pod.ephemeralContainerStatuses = this.containerStatuses(jobPod.status.ephemeralContainerStatuses);
