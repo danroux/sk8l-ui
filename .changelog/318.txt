@@ -1,0 +1,3 @@
+```release-note:improvement
+docker: Switch deps to alpine/remove extra yarn install/add yarn cache mount
+```

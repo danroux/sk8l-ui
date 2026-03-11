@@ -1,23 +1,22 @@
 # https://hub.docker.com/_/node/tags?page=1&name=bookworm-slim <- look for vulnerabilities
 # https://hub.docker.com/_/node/tags?name=22.14
 # https://github.com/primer/octicons/blob/main/package.json
-FROM node:24.0.0-bookworm-slim AS deps
+FROM node:24.0.0-alpine3.21 AS deps
 
-RUN groupadd --system --gid 101 nginx \
-    && useradd --system --gid nginx --create-home --home /home/nginx --comment "nginx user" --shell /bin/bash --uid 101 nginx \
+RUN addgroup --system --gid 101 nginx \
+    && adduser --system --ingroup nginx --home /home/nginx --shell /bin/bash --uid 101 nginx \
     && chown -R 101:101 /home/nginx
-
-WORKDIR /home/nginx
 ENV npm_config_cache=/home/nginx/node_modules/.cache
+WORKDIR /home/nginx
 COPY package*.json yarn.lock .yarnrc.yml .
 
 RUN node -p "process.arch" \
     && echo $TARGETPLATFORM && echo $TARGETOS && echo $TARGETARCH
-RUN mkdir -p $(pwd)/node_modules/.cache  \
-    && npm install -g npm@11.3.0 \
+RUN mkdir -p $(pwd)/node_modules/.cache \
     && corepack enable \
-    && yarn config set --home enableTelemetry 0 \
-    && yarn install
+    && yarn config set --home enableTelemetry 0
+RUN --mount=type=cache,target=/home/nginx/.yarn/cache \
+    yarn install
 
 # https://hub.docker.com/_/node/tags?name=22.14
 # https://hub.docker.com/r/arm64v8/node/tags
@@ -35,23 +34,13 @@ WORKDIR /usr/app
 RUN mkdir -p /app_tmp/ \
     && echo "#!/bin/sh" > /app_tmp/replace-env-vars.sh \
     && chmod +x /app_tmp/replace-env-vars.sh
-
 RUN addgroup -g 101 nginx \
     && adduser -u 101 -G nginx -s /bin/sh -D nginx
-
 RUN chown -R 101:101 $(pwd)
-
 COPY --chown=101:101 --from=deps /home/nginx/node_modules/ ./node_modules
 COPY --chown=101:101 --from=deps /home/nginx/package*.json /home/nginx/yarn.lock /home/nginx/.yarnrc.yml .
-
-RUN npm install -g npm@11.3.0 \
-    && corepack enable \
-    && yarn config set --home enableTelemetry 0 \
-    && yarn install
 # RUN npm config set cache /usr/app/.node_modules_cache --global
-
-RUN chown -R 101:101 $(pwd)/.yarn
-
+RUN if [ -d "$(pwd)/.yarn" ]; then chown -R 101:101 $(pwd)/.yarn; fi
 COPY --chown=101:101 . .
 
 EXPOSE 8001
