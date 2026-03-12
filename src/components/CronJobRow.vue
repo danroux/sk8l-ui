@@ -90,7 +90,7 @@ export default {
       return cronstrue.toString(this.cronJob.definition);
     },
     duration(t) {
-      return Duration.fromObject({ seconds: t }).rescale().toHuman({ unitDisplay: 'short' });
+      return Duration.fromObject({ seconds: Number(t) }).rescale().toHuman({ unitDisplay: 'short' });
     },
   },
   computed: {
@@ -137,13 +137,10 @@ export default {
     lastFailureTime() {
       const possible = this.lastFailed;
       if (possible.failureCondition) {
-        return lastTransitionTime = this.lastFailed.failureCondition.lastTransitionTime;
+        return DateTime.fromISO(this.lastFailed.failureCondition.lastTransitionTime).toSeconds();
       }
-
-      let finishedAt = possible.terminationReasons.find((first) => first).terminationDetails.finishedAt;
-      finishedAt = DateTime.fromISO(finishedAt).toSeconds();
-      const dt = DateTime.fromSeconds(finishedAt);
-      return dt;
+      const finishedAt = possible.terminationReasons.find((first) => first).terminationDetails.finishedAt;
+      return DateTime.fromISO(finishedAt).toSeconds();
     },
     lastFailed() {
       const sgt = this.failed;
