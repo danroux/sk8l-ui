@@ -17,22 +17,18 @@ describe('JobRow', () => {
       spec: {
         completions: 1,
         parallelism: 1,
-        suspend: false,
-        template: {
-          spec: {
-              initContainers: [1,2],
-          },
-        }
+        suspend: false
       },
       status: {
         active: 1,
         succeeded: true,
-        startTime: { seconds: 1620211200 },
-        completionTime: { seconds: 1620211300 },
+        startTime: DateTime.fromSeconds(1620211200).toISO(),
+        completionTime: DateTime.fromSeconds(1620211300).toISO(),
       },
       pods: [],
       durationInS: 100,
       succeeded: false,
+      withSidecarContainers: false
     };
 
     wrapper = mount(JobRow, {

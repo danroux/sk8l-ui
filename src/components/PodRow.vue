@@ -26,7 +26,7 @@
     <div class="color-fg-muted f6 mt-2">
       <StatusProp :propText="status" />
 
-      <span class="mr-2"><Octicon name="sparkle-fill" /> {{ luxs(pod.startTime) }}</span>
+      <span class="mr-2"><Octicon name="sparkle-fill" /> {{ lux1(pod.startTime) }}</span>
       <span class="mr-2" v-if="pod.finishedAt"><Octicon name="goal" /> {{ lux1(pod.finishedAt) }}</span>
       <span class="mr-2"><Octicon name="apps" /> Node: {{ pod.nodeName }}</span>
       <span class="mr-2"><Octicon name="server" /> Host: {{ pod.hostIP }}</span>
@@ -78,9 +78,6 @@ export default {
     },
   },
   methods: {
-    luxs(t) {
-      return DateTime.fromSeconds(t).toRelative();
-    },
     lux1(t) {
       return DateTime.fromISO(t).toRelative();
     },

@@ -136,8 +136,8 @@ export default {
     },
     lastFailureTime() {
       const possible = this.lastFailed;
-      if (possible.failure_condition) {
-        return lastTransitionTime = this.lastFailed.failure_condition.lastTransitionTime;
+      if (possible.failureCondition) {
+        return lastTransitionTime = this.lastFailed.failureCondition.lastTransitionTime;
       }
 
       let finishedAt = possible.terminationReasons.find((first) => first).terminationDetails.finishedAt;
@@ -166,8 +166,8 @@ export default {
       var lastTransitionTime;
       if (this.lastSucceeded && this.lastFailed) {
           const possible = this.lastFailed;
-          if (this.lastFailed.failure_condition) {
-            lastTransitionTime = this.lastFailed.failure_condition.lastTransitionTime;
+          if (this.lastFailed.failureCondition) {
+            lastTransitionTime = this.lastFailed.failureCondition.lastTransitionTime;
           } else {
             let finishedAt = possible.terminationReasons.find((first) => first).terminationDetails.finishedAt;
             finishedAt = DateTime.fromISO(finishedAt).toSeconds();

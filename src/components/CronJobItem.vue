@@ -12,20 +12,20 @@
     <td style="max-width: 400px;">
       <div style="white-space: nowrap; overflow-x: scroll;">{{ cronJob.command }}</div>
     </td>
-    <td>{{ lux1(cronJob.last_schedule_time) }}</td>
-    <td>{{ lux1(cronJob.last_successful_time) }}</td>
-    <td>{{ lux1(cronJob.creation_timestamp) }}</td>
+    <td>{{ lux1(cronJob.lastScheduleTime) }}</td>
+    <td>{{ lux1(cronJob.lastsuccessfulTime) }}</td>
+    <td>{{ lux1(cronJob.creationTimestamp) }}</td>
     <td>{{ cronJob.definition }}</td>
     <td>{{ cronJob.active }}</td>
-    <td>{{ cronJob.last_duration }}</td>
-    <td>{{ cronJob.current_duration }}</td>
+    <td>{{ cronJob.lastDuration }}</td>
+    <td>{{ cronJob.currentDuration }}</td>
     <td>
       <JobPodList :cronjob="cronJob" :job-pods="cronJob.jobsPod" />
     </td>
     <td>
     </td>
     <td>cronJob.jobs</td>
-    <td>cronJob.running_jobs</td>
+    <td>cronJob.runningJobs</td>
   </tr>
 </template>
 

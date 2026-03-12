@@ -34,8 +34,8 @@ export default {
     sortedJobs() {
       const jobsCopy = [...this.jobs];
       return jobsCopy.sort((a, b) => {
-        if (a.status.completion_time < b.status.completion_time) return -1;
-        if (a.status.completion_time > b.status.completion_time) return 1;
+        if (a.status.completionTime < b.status.completionTime) return -1;
+        if (a.status.completionTime > b.status.completionTime) return 1;
         return 0;
       }).reverse();
     },
