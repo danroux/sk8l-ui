@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@achrinza/node-ipc": "^10.1.11",
-    "@grpc/grpc-js": "^1.13.3",
+    "@grpc/grpc-js": "^1.14.3",
     "@primer/octicons": "^19.15.1",
     "@testing-library/vue": "^8.1.0",
     "@vitest/coverage-v8": "^4.0.18",
