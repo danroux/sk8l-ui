@@ -2042,7 +2042,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/estree@npm:1.0.7, @types/estree@npm:^1.0.0, @types/estree@npm:^1.0.6":
+"@types/estree@npm:1.0.8":
+  version: 1.0.8
+  resolution: "@types/estree@npm:1.0.8"
+  checksum: 10c0/39d34d1afaa338ab9763f37ad6066e3f349444f9052b9676a7cc0252ef9485a41c6d81c9c4e0d26e9077993354edf25efc853f3224dd4b447175ef62bdcc86a5
+  languageName: node
+  linkType: hard
+
+"@types/estree@npm:^1.0.0, @types/estree@npm:^1.0.6":
   version: 1.0.7
   resolution: "@types/estree@npm:1.0.7"
   checksum: 10c0/be815254316882f7c40847336cd484c3bc1c3e34f710d197160d455dc9d6d050ffbf4c3bc76585dba86f737f020ab20bdb137ebe0e9116b0c86c7c0342221b8c
@@ -7847,17 +7854,17 @@ __metadata:
   linkType: hard
 
 "rollup@npm:@rollup/wasm-node@*":
-  version: 4.40.0
-  resolution: "@rollup/wasm-node@npm:4.40.0"
+  version: 4.59.0
+  resolution: "@rollup/wasm-node@npm:4.59.0"
   dependencies:
-    "@types/estree": "npm:1.0.7"
+    "@types/estree": "npm:1.0.8"
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 10c0/dfbcee725210be04d3aa793f31524f0b6691c0676514186334432e5483bf7b87d25b0a69515c421b0f9652ded0cb712058050aae1b17b0d55ad2176d69a698fb
+  checksum: 10c0/219f6534f95745e80b329c217cd13c11c215471b31ed26c4d978568dfa88df1badb30b6e91846888948f33b101e0da38e226fd2a8de88d21f79ee5563d63dbe9
   languageName: node
   linkType: hard
 
