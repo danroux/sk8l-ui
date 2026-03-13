@@ -28,7 +28,7 @@ permissions:
 jobs:
   sk8l-ui-dev-img:
     runs-on: ubuntu-latest
-    name: sk8l-ui:dev-${{ inputs.image_tag }}
+    name: sk8l-ui:dev-${{ inputs.image_tag }} (${{ matrix.platform }})
     if: ${{ github.event_name == 'workflow_call' && inputs.image_tag || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
     # Each platform builds natively in parallel(Avoid slow QEMU emulation)
     strategy:
@@ -103,7 +103,7 @@ jobs:
             $(printf '${{ vars.GHCR_SK8L_UI_IMAGE_NAME }}@sha256:%s ' *)
   sk8l-ui-dev-main-img:
     runs-on: ubuntu-latest
-    name: sk8l-ui:dev-main@${{ github.sha }}
+    name: sk8l-ui:dev-main@${{ github.sha }} (${{ matrix.platform }})
     if: github.ref == 'refs/heads/main'
     # Build matrix. Each platform builds natively in parallel(avoid slow QEMU emulation)
     strategy:
@@ -175,7 +175,7 @@ jobs:
             $(printf '${{ vars.GHCR_SK8L_UI_IMAGE_NAME }}@sha256:%s ' *)
   sk8l-ui-pre-main-img:
     runs-on: ubuntu-latest
-    name: sk8l-ui:pre-main@${{ github.sha }}
+    name: sk8l-ui:pre-main@${{ github.sha }} (${{ matrix.platform }})
     if: github.ref == 'refs/heads/main'
     # Each platform builds natively in parallel(Avoid slow QEMU emulation)
     strategy:
@@ -247,7 +247,7 @@ jobs:
             $(printf '${{ vars.GHCR_SK8L_UI_IMAGE_NAME }}@sha256:%s ' *)
   sk8l-ui-pre-pr-img:
     runs-on: ubuntu-latest
-    name: sk8l-ui:pre-${{ inputs.image_tag }}
+    name: sk8l-ui:pre-${{ inputs.image_tag }} (${{ matrix.platform }})
     if: ${{ github.event_name == 'workflow_call' && inputs.image_tag || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
     # Each platform builds natively in parallel(Avoid slow QEMU emulation)
     strategy:
@@ -319,6 +319,7 @@ jobs:
             $(printf '${{ vars.GHCR_SK8L_UI_IMAGE_NAME }}@sha256:%s ' *)
   sk8l-ui-production-img:
     runs-on: ubuntu-latest
+    name: sk8l-ui:production (${{ matrix.platform }})
     if: startsWith(github.ref, 'refs/tags/')
     # Each platform builds natively in parallel(Avoid slow QEMU emulation)
     strategy:
