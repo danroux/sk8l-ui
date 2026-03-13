@@ -12,7 +12,7 @@
 
       <div class="TimelineItem-body mt-n1" v-if="pod.pod.FinishedAt">
         <div class="text-small color-fg-muted dashboard-changelog-timestamp">
-          <RelativeTime :target="pod.pod.FinishedAt.seconds" />
+          <RelativeTime :target="pod.pod.FinishedAt" />
         </div>
         <span>{{ pod.pod.metadata.name }}</span>
       </div>
@@ -49,8 +49,8 @@ export default {
     },
     sortedPods() {
       return this.pods.toSorted((a, b) => {
-        if (Number(a.pod.FinishedAt.seconds) < Number(b.pod.FinishedAt.seconds)) return 1;
-        if (Number(a.pod.FinishedAt.seconds) > Number(b.pod.FinishedAt.seconds)) return -1;
+        if (a.pod.FinishedAt < b.pod.FinishedAt) return 1;
+        if (a.pod.FinishedAt > b.pod.FinishedAt) return -1;
         return 0;
       }).slice(0, 20);
     },

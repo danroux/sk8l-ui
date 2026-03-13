@@ -12,20 +12,20 @@
     <td style="max-width: 400px;">
       <div style="white-space: nowrap; overflow-x: scroll;">{{ cronJob.command }}</div>
     </td>
-    <td>{{ lux1(cronJob.last_schedule_time) }}</td>
-    <td>{{ lux1(cronJob.last_successful_time) }}</td>
-    <td>{{ lux1(cronJob.creation_timestamp) }}</td>
+    <td>{{ lux1(cronJob.lastScheduleTime) }}</td>
+    <td>{{ lux1(cronJob.lastsuccessfulTime) }}</td>
+    <td>{{ lux1(cronJob.creationTimestamp) }}</td>
     <td>{{ cronJob.definition }}</td>
     <td>{{ cronJob.active }}</td>
-    <td>{{ cronJob.last_duration }}</td>
-    <td>{{ cronJob.current_duration }}</td>
+    <td>{{ cronJob.lastDuration }}</td>
+    <td>{{ cronJob.currentDuration }}</td>
     <td>
       <JobPodList :cronjob="cronJob" :job-pods="cronJob.jobsPod" />
     </td>
     <td>
     </td>
     <td>cronJob.jobs</td>
-    <td>cronJob.running_jobs</td>
+    <td>cronJob.runningJobs</td>
   </tr>
 </template>
 
@@ -59,13 +59,13 @@ export default {
         const pod = {};
         pod.namespace = jobPod.metadata.namespace;
         pod.name = jobPod.metadata.name;
-        pod.jobName = Object.fromEntries(jobPod.metadata.labelsMap)['job-name'];
+        pod.jobName = jobPod.metadata.labels['job-name'];
         pod.uid = jobPod.metadata.uid;
-        pod.startTime = jobPod.status.starttime.seconds;
-        pod.podIPs = jobPod.status.podIps.map((ip) => ip.ip);
-        pod.podIP = jobPod.status.podip;
-        pod.hostIP = jobPod.status.hostip;
-        pod.nodeName = jobPod.spec.nodename;
+        pod.startTime = DateTime.fromISO(jobPod.status.startTime).toSeconds();
+        pod.podIPs = jobPod.status.podIPs;
+        pod.podIP = jobPod.status.podIP;
+        pod.hostIP = jobPod.status.hostIP;
+        pod.nodeName = jobPod.spec.nodeName;
         pod.containerStatuses = that.containerStatuses(vm, jobPod.status.containerStatuses);
         pod.started = pod.containerStatuses.filter((status) => status.state === 'running');
         pod.failing = pod.containerStatuses.filter((status) => status.reason === 'Error');

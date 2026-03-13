@@ -33,10 +33,10 @@
           <Octicon name="north-star" /> {{ cronJob.namespace }}
         </span>
         <span class="mr-2 cronjob-completions">
-          <Octicon name="stack" />{{ cronJob.spec.jobTemplate.spec.completions || "1" }}
+          <Octicon name="stack" />{{ cronJob.jobs[0]?.spec?.completions || "1" }}
         </span>
         <span class="mr-2 cronjob-parallelism">
-          <Octicon name="versions" /> {{ cronJob.spec.jobTemplate.spec.parallelism || "1" }}
+          <Octicon name="versions" /> {{ cronJob.jobs[0]?.spec?.parallelism || "1" }}
         </span>
         <span class="mr-2 cronjob-creation-time">
           <Octicon name="sun" /> {{ cronJob.creationTimestamp }}
@@ -54,7 +54,7 @@
               <Octicon name="calendar" /> {{ lux1(cronJob.lastSuccessfulTime) }}
             </span>
             <span class="mr-2 cronjob-completion-time">
-              <Octicon name="goal" /> {{ luxs(Number(lastSucceeded.status.completionTime.seconds)) }}
+              <Octicon name="goal" /> {{ lux1(lastSucceeded.status.completionTime) }}
             </span>
           </template>
         </template>
@@ -90,7 +90,7 @@ export default {
       return cronstrue.toString(this.cronJob.definition);
     },
     duration(t) {
-      return Duration.fromObject({ seconds: t }).rescale().toHuman({ unitDisplay: 'short' });
+      return Duration.fromObject({ seconds: Number(t) }).rescale().toHuman({ unitDisplay: 'short' });
     },
   },
   computed: {
@@ -136,14 +136,11 @@ export default {
     },
     lastFailureTime() {
       const possible = this.lastFailed;
-      if (possible.failure_condition) {
-        return lastTransitionTime = this.lastFailed.failure_condition.lastTransitionTime;
+      if (possible.failureCondition) {
+        return DateTime.fromISO(this.lastFailed.failureCondition.lastTransitionTime).toSeconds();
       }
-
-      let finishedAt = possible.terminationReasons.find((first) => first).terminationDetails.finishedAt;
-      finishedAt = Number(finishedAt.seconds);
-      const dt = DateTime.fromSeconds(finishedAt);
-      return dt;
+      const finishedAt = possible.terminationReasons.find((first) => first).terminationDetails.finishedAt;
+      return DateTime.fromISO(finishedAt).toSeconds();
     },
     lastFailed() {
       const sgt = this.failed;
@@ -166,14 +163,14 @@ export default {
       var lastTransitionTime;
       if (this.lastSucceeded && this.lastFailed) {
           const possible = this.lastFailed;
-          if (this.lastFailed.failure_condition) {
-            lastTransitionTime = this.lastFailed.failure_condition.lastTransitionTime;
+          if (this.lastFailed.failureCondition) {
+            lastTransitionTime = this.lastFailed.failureCondition.lastTransitionTime;
           } else {
             let finishedAt = possible.terminationReasons.find((first) => first).terminationDetails.finishedAt;
-            finishedAt = Number(finishedAt.seconds);
+            finishedAt = DateTime.fromISO(finishedAt).toSeconds();
             lastTransitionTime = DateTime.fromSeconds(finishedAt);
           }
-        const completionTime = this.lastSucceeded.status.completion_time;
+          const completionTime = this.lastSucceeded.status.completionTime;
 
         return lastTransitionTime > completionTime;
       }

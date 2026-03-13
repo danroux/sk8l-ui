@@ -88,10 +88,10 @@
               <div class="BorderGrid-cell">
                 <h2 class="f4 mb-2">Spec</h2>
                 <div class="text-small color-fg-muted">
-                  <Octicon :name="specIcon" class="mr-1" /> Completions {{ cronJob.spec.jobTemplate.spec.completions || "1" }}
+                  <Octicon :name="specIcon" class="mr-1" /> Completions {{ cronJob.jobs[0]?.spec?.completions || "1" }}
                 </div>
                 <div class="text-small color-fg-muted mt-2">
-                  <Octicon :name="specIcon" class="mr-1" /> Parallelism {{ cronJob.spec.jobTemplate.spec.parallelism || "1" }}
+                  <Octicon :name="specIcon" class="mr-1" /> Parallelism {{ cronJob.jobs[0]?.spec?.parallelism || "1" }}
                 </div>
                 <div class="text-small color-fg-muted mt-2">
                   <Octicon :name="specIcon" class="mr-1" /> concurrencyPolicy {{ cronJob.spec.concurrencyPolicy }}

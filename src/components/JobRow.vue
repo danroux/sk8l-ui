@@ -45,7 +45,7 @@
         <Octicon name="strikethrough" /> {{ job.spec.suspend }}
       </span>
       <span class="mr-2 job-start-time">
-        <Octicon name="sparkle-fill" /> {{ luxs(job.status.startTime.seconds) }}
+        <Octicon name="sparkle-fill" /> {{ lux1(job.status.startTime) }}
       </span>
       <span class="mr-2 job-duration-time">
         <Octicon name="stopwatch" /> {{ duration(job.durationInS) }}
@@ -54,12 +54,12 @@
         <Octicon name="x-circle-fill" /> {{ luxs(lastFailureTime) }}
       </span>
       <span class="mr-2 job-completion-time" v-if="job.status.succeeded && job.status.completionTime">
-        <Octicon name="goal" /> {{ luxs(job.status.completionTime.seconds) }}
+        <Octicon name="goal" /> {{ lux1(job.status.completionTime) }}
       </span>
       <span class="mr-2 job-with-sidecar" v-if="job.withSidecarContainers">
         <Octicon name="columns" />
       </span>
-      <span class="mr-2 job-with-init-containers" v-if="job.spec.template.spec.initContainers.length > 0">
+      <span class="mr-2 job-with-init-containers" v-if="job.pods.some(p => p.spec.initContainers.length > 0)">
         <Octicon name="rows" /> {{ job.withSidecarContainers }}
       </span>
     </div>
@@ -129,14 +129,14 @@ export default {
       // when it failed
       if (this.job.failureCondition) {
           if (this.job.failed) {
-              let lastTransitionTime = this.job.failureCondition.lastTransitionTime.seconds;
+              let lastTransitionTime = DateTime.fromISO(this.job.failureCondition.lastTransitionTime).toSeconds();
               return lastTransitionTime;
           }
       }
 
       // while is failing
-      const finishedAt = this.job.terminationReasons.find((first) => first).terminationDetails.finishedAt.seconds;
-      return finishedAt;
+      const finishedAt = this.job.terminationReasons.find((first) => first).terminationDetails.finishedAt;
+      return DateTime.fromISO(finishedAt).toSeconds();
     },
     pods(vm) {
       return PodsGenerator.pods(vm.job.pods);
@@ -147,7 +147,7 @@ export default {
       return DateTime.fromSeconds(Number(t)).toRelative();
     },
     lux1(t) {
-      return DateTime.fromISO(Number(t)).toRelative();
+      return DateTime.fromISO(t).toRelative();
     },
     duration(t) {
       return Duration.fromObject({ seconds: Number(t) }).rescale().toHuman({ unitDisplay: 'short' });

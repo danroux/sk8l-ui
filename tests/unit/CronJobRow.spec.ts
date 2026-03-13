@@ -11,8 +11,6 @@ import {
   jobStatusCompletedFactory,
   jobStatusRunningFactory,
   jobSpecFactory,
-  jobFactory,
-  jobTemplateSpecFactory,
   cronJobSpecFactory,
   jobResponseFactory,
   cronJobResponseFactory,
@@ -29,7 +27,6 @@ describe('CronjobRow', () => {
   let jobStatusCompleted: ReturnType<typeof jobStatusCompletedFactory.build>;
   let jobStatusRunning: ReturnType<typeof jobStatusRunningFactory.build>;
   let myJobSpec: ReturnType<typeof jobSpecFactory.build>;
-  let jobTemplateSpec: ReturnType<typeof jobTemplateSpecFactory.build>;
   let cronJobSpec: ReturnType<typeof cronJobSpecFactory.build>;
   let cronJobResponse: ReturnType<typeof cronJobResponseFactory.build>;
   let job1: ReturnType<typeof jobResponseFactory.build>;
@@ -47,18 +44,10 @@ describe('CronjobRow', () => {
 
     myJobSpec = await jobSpecFactory.build();
 
-    jobTemplateSpec = await jobTemplateSpecFactory.build({
-      metadata: { name: 'daily-job', namespace: 'sk8l', labels: { app: 'batch-processor' } },
-      spec: myJobSpec,
-    });
-
     cronJobSpec = await cronJobSpecFactory.build({
       schedule: '0 2 * * *',
-      timeZone: 'UTC',
-      startingDeadlineSeconds: BigInt(60),
       concurrencyPolicy: 'Forbid',
       suspend: false,
-      jobTemplate: jobTemplateSpec,
       successfulJobsHistoryLimit: 3,
       failedJobsHistoryLimit: 1,
     });

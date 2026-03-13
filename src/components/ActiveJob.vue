@@ -5,13 +5,13 @@
     <td>{{ activeJob.namespace }}</td>
     <td>{{ activeJob.uuid }}</td>
     <td>{{ activeJob.generation }}</td>
-    <td>{{ lux1(activeJob.creation_timestamp) }}</td>
+    <td>{{ lux1(activeJob.creationTimestamp) }}</td>
     <td>{{ activeJob.status.active }}</td>
     <td>{{ activeJob.status.failed }}</td>
     <td>{{ lux1(activeJob.status.startTime) }}</td>
-    <td>{{ lux1(activeJob.status.completion_time) }}</td>
+    <td>{{ lux1(activeJob.status.completionTime) }}</td>
     <td>{{ activeJob.duration }}</td>
-    <td>{{ activeJob.duration_in_s }}</td>
+    <td>{{ activeJob.durationInS }}</td>
     <td>{{ activeJob.status }}</td>
   </tr>
 </template>
