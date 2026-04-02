@@ -3666,12 +3666,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cronstrue@npm:^3.13.0":
-  version: 3.13.0
-  resolution: "cronstrue@npm:3.13.0"
+"cronstrue@npm:^3.14.0":
+  version: 3.14.0
+  resolution: "cronstrue@npm:3.14.0"
   bin:
     cronstrue: bin/cli.js
-  checksum: 10c0/41db889264521c95def7998d4fa33959f8cdc2bb83795fab54c0ecfb047ab52a8cfb33cef2b657b4223a6fb1e09776da396134de2f399d7028a3bbe285b3ebd0
+  checksum: 10c0/6a45a60a5ba6ef8c3f686ee213f0a5a989ad4123da8175d2892c92615bbb8abfd83d06e2f8d64e4097c03e4d4abd94650f4f58aa1255da435bba3f69ff5a79aa
   languageName: node
   linkType: hard
 
@@ -8354,7 +8354,7 @@ __metadata:
     "@vue/test-utils": "npm:^2.4.6"
     "@vue/vue3-jest": "npm:^29.2.6"
     babel-jest: "npm:^30.3.0"
-    cronstrue: "npm:^3.13.0"
+    cronstrue: "npm:^3.14.0"
     eslint: "npm:^10.1.0"
     eslint-plugin-import: "npm:^2.32.0"
     eslint-plugin-vue: "npm:^10.8.0"
