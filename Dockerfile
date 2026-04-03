@@ -15,6 +15,8 @@ RUN node -p "process.arch" \
 RUN mkdir -p $(pwd)/node_modules/.cache \
     && corepack enable \
     && yarn config set --home enableTelemetry 0
+# Yarn's default is 50. Lower this (e.g., to 15) if QEMU crashes on ARM64 builds in the future.
+ENV YARN_NETWORK_CONCURRENCY=50
 RUN --mount=type=cache,target=/home/nginx/.yarn/cache \
     yarn install
 

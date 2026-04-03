@@ -10,7 +10,8 @@
     "test-sa": "vitest --standalone",
     "test-cov": "vitest --coverage",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore",
-    "serveprod": "pm2 serve --no-daemon dist 1337"
+    "serveprod": "pm2 serve --no-daemon dist 1337",
+    "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@achrinza/node-ipc": "^10.1.11",
@@ -37,15 +38,20 @@
     "@connectrpc/connect": "^2.1.1",
     "@connectrpc/connect-web": "^2.1.1",
     "@originjs/vite-plugin-commonjs": "^1.0.3",
+    "@types/luxon": "^3.7.1",
+    "@types/node": "^25.5.2",
     "@vitejs/plugin-vue": "^6.0.5",
+    "@vue/eslint-config-typescript": "^14.7.0",
     "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.9.1",
     "eslint": "^10.2.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-vue": "^10.8.0",
     "eslint-plugin-vuejs-accessibility": "^2.5.0",
     "sass": "^1.99.0",
     "vite": "^7.3.1",
-    "vue-eslint-parser": "^10.4.0"
+    "vue-eslint-parser": "^10.4.0",
+    "vue-tsc": "^3.2.6"
   },
   "eslintConfig": {
     "root": true,
@@ -55,7 +61,8 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "@vue/airbnb"
+      "@vue/airbnb",
+      "@vue/eslint-config-typescript"
     ],
     "parserOptions": {},
     "rules": {
