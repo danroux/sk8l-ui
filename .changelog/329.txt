@@ -1,17 +1,17 @@
 ```release-note:enhancement
 ci/dependabot: npm:(deps): bump rollup from 4.59.0 to 4.60.1
 
-npm:(deps): bump rollup from 4.59.0 to 4.60.0
+npm:(deps): bump rollup from 4.59.0 to 4.60.1
 
-Bumps [rollup](https://github.com/rollup/rollup) from 4.59.0 to 4.60.0.
+Bumps [rollup](https://github.com/rollup/rollup) from 4.59.0 to 4.60.1.
 - [Release notes](https://github.com/rollup/rollup/releases)
 - [Changelog](https://github.com/rollup/rollup/blob/master/CHANGELOG.md)
-- [Commits](https://github.com/rollup/rollup/compare/v4.59.0...v4.60.0)
+- [Commits](https://github.com/rollup/rollup/compare/v4.59.0...v4.60.1)
 
 ---
 updated-dependencies:
 - dependency-name: rollup
-  dependency-version: 4.60.0
+  dependency-version: 4.60.1
   dependency-type: direct:production
   update-type: version-update:semver-minor
 ...
