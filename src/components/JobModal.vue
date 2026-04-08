@@ -21,7 +21,7 @@
   </ModalContainer>
 </template>
 
-<script>
+<script lang="ts">
 import ModalContainer from '@/components/ModalContainer.vue';
 import Octicon from '@/components/Octicon.vue';
 
@@ -41,13 +41,13 @@ export default {
     };
   },
   methods: {
-    getJobYAML: async function(jobNamespace, jobName) {
+    getJobYAML: async function(jobNamespace: string, jobName: string): Promise<void> {
       var request = create(JobRequestSchema, { jobNamespace: jobNamespace, jobName: jobName });
       const that = this;
 
       await Sk8lCronjobClient.getJobYAML(
         request,
-        (err, response) => {
+        (err: any, response: any) => {
           if (!err) {
             that.modalBody = response.job;
             that.modalHeader = `Job: ${jobName}`;

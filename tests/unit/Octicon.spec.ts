@@ -44,7 +44,7 @@ describe('Octicon.vue', () => {
           .match(/<path[^>]*>.*?<\/path>/g) || []
       const renderedPaths = svg.element.innerHTML
       // each expected path is contained in the svg innerHTML
-      expectedPaths.forEach(pathStr => {
+        expectedPaths.forEach((pathStr: string) => {
           expect(renderedPaths).toContain(pathStr)
       })
     })

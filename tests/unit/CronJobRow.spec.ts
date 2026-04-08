@@ -1,3 +1,4 @@
+import type { CronjobResponse } from '@/types/kubernetes';
 import { shallowMount, mount } from '@vue/test-utils';
 import { render, screen } from '@testing-library/vue'
 import CronJobRow from '@/components/CronJobRow.vue';
@@ -20,17 +21,17 @@ import {
 import StatusProp from '@/components/StatusProp.vue';
 
 describe('CronjobRow', () => {
-  let exampleUncountedTerminatedPods: ReturnType<typeof uncountedTerminatedPodsFactory.build>;
-  let exampleJobConditionComplete: ReturnType<typeof jobConditionCompleteFactory.build>;
-  let exampleJobConditionRunning: ReturnType<typeof jobConditionRunningFactory.build>;
-  let exampleJobConditionFailed: ReturnType<typeof jobConditionFailedFactory.build>;
-  let jobStatusCompleted: ReturnType<typeof jobStatusCompletedFactory.build>;
-  let jobStatusRunning: ReturnType<typeof jobStatusRunningFactory.build>;
-  let myJobSpec: ReturnType<typeof jobSpecFactory.build>;
-  let cronJobSpec: ReturnType<typeof cronJobSpecFactory.build>;
-  let cronJobResponse: ReturnType<typeof cronJobResponseFactory.build>;
-  let job1: ReturnType<typeof jobResponseFactory.build>;
-  let job2: ReturnType<typeof jobResponseFactory.build>;
+  let exampleUncountedTerminatedPods: Awaited<ReturnType<typeof uncountedTerminatedPodsFactory.build>>;
+  let exampleJobConditionComplete: Awaited<ReturnType<typeof jobConditionCompleteFactory.build>>;
+  let exampleJobConditionRunning: Awaited<ReturnType<typeof jobConditionRunningFactory.build>>;
+  let exampleJobConditionFailed: Awaited<ReturnType<typeof jobConditionFailedFactory.build>>;
+  let jobStatusCompleted: Awaited<ReturnType<typeof jobStatusCompletedFactory.build>>;
+  let jobStatusRunning: Awaited<ReturnType<typeof jobStatusRunningFactory.build>>;
+  let myJobSpec: Awaited<ReturnType<typeof jobSpecFactory.build>>;
+  let cronJobSpec: Awaited<ReturnType<typeof cronJobSpecFactory.build>>;
+  let cronJobResponse: CronjobResponse;
+  let job1: Awaited<ReturnType<typeof jobResponseFactory.build>>;
+  let job2: Awaited<ReturnType<typeof jobResponseFactory.build>>;
 
   beforeAll(async () => {
     exampleUncountedTerminatedPods = await uncountedTerminatedPodsFactory.build();
@@ -79,7 +80,7 @@ describe('CronjobRow', () => {
       jobs: [job1, job2],
       failed: false,
       active: true,
-    });
+    }) as CronjobResponse;
   });
 
   let container: ReturnType<typeof mount>;

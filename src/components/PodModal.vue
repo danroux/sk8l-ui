@@ -21,7 +21,7 @@
   </ModalContainer>
 </template>
 
-<script>
+<script lang="ts">
 import ModalContainer from '@/components/ModalContainer.vue';
 import Octicon from '@/components/Octicon.vue';
 
@@ -41,13 +41,13 @@ export default {
     };
   },
   methods: {
-    getPodYAML: async function(podNamespace, podName) {
+    getPodYAML: async function(podNamespace: string, podName: string): Promise<void> {
       var request = create(PodRequestSchema, { podNamespace: podNamespace, podName: podName });
       const that = this;
 
       await Sk8lCronjobClient.getPodYAML(
         request,
-        (err, response) => {
+        (err: any, response: any) => {
           if (!err) {
             that.modalBody = response.pod;
             that.modalHeader = `Pod: ${podName}`;

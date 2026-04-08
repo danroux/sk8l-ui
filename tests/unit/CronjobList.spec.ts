@@ -6,6 +6,7 @@ import CronjobsTimeline from '@/components/CronjobsTimeline.vue';
 import CronjobActivityProgressBar from '@/components/CronjobActivityProgressBar.vue';
 import CronJobRow from '@/components/CronJobRow.vue';
 import router from '@/router';
+import type { JobSpec, JobTemplateSpec, CronJobSpec, CronjobResponse } from '@/types/kubernetes';
 
 describe('CronjobList', () => {
   const myJobSpec: JobSpec = {

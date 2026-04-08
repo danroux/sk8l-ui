@@ -21,7 +21,7 @@
   </ModalContainer>
 </template>
 
-<script>
+<script lang="ts">
 import Octicon from '@/components/Octicon.vue';
 import ModalContainer from '@/components/ModalContainer.vue';
 
@@ -41,13 +41,13 @@ export default {
     };
   },
   methods: {
-    getCronjobYAML: async function(namespace, name) {
+    getCronjobYAML: async function(namespace: string, name: string): Promise<void> {
       var request = create(CronjobRequestSchema, { cronjobName: name, cronjobNamespace: namespace });
       const that = this;
 
       await Sk8lCronjobClient.getCronjobYAML(
         request,
-        (err, response) => {
+        (err: any, response: any) => {
           if (!err) {
             that.modalBody = response.cronjob;
             that.modalHeader = `Cronjob: ${name}`;

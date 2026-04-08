@@ -1,13 +1,14 @@
 // npm install vue-router
 // <!-- https://www.jsdelivr.com/package/npm/vue-router -->
 // <script src="https://cdn.jsdelivr.net/npm/vue-router@4.2/dist/vue-router.global.min.js"></script>
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import JobPodListView from '../views/JobPodListView.vue';
 import JobListView from '../views/JobListView.vue';
 import CronJob from '../components/CronJob.vue';
 
-const routes = [
+// 1. We type the array using RouteRecordRaw
+const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
@@ -25,15 +26,18 @@ const routes = [
     name: 'cronDetails',
   },
   {
-    path: '/cronjob/:namespace/:cronjobName/pods/', component: JobPodListView, props: true, name: 'jobPodList',
+    path: '/cronjob/:namespace/:cronjobName/pods/',
+    component: JobPodListView,
+    props: true,
+    name: 'jobPodList',
   },
   {
     path: '/about',
     name: 'about',
     // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
+    // this generates a separate chunk for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+    component: () => import('../views/AboutView.vue'),
   },
   // {
   //   path: '/:pathMatch(.*)',

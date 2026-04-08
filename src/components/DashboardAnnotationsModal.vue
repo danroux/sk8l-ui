@@ -29,7 +29,7 @@
   </ModalContainer>
 </template>
 
-<script>
+<script lang="ts">
 import ModalContainer from '@/components/ModalContainer.vue';
 import Octicon from '@/components/Octicon.vue';
 
@@ -55,7 +55,7 @@ export default {
 
       await Sk8lCronjobClient.getDashboardAnnotations(
         request,
-        (err, response) => {
+        (err: any, response: any) => {
           if (!err) {
             navigator.clipboard.writeText(response.annotations);
           } else {
@@ -65,13 +65,13 @@ export default {
         }
       );
     },
-    getDashboardAnnotations: async function() {
+    getDashboardAnnotations: async function(): Promise<void> {
       var request = create(DashboardAnnotationsRequestSchema, {});
       const that = this;
 
       await Sk8lCronjobClient.getDashboardAnnotations(
         request,
-        (err, response) => {
+        (err: any, response: any) => {
           if (!err) {
             that.modalBody = response.annotations;
             that.modalHeader = `sk8l-grafana-annotations.json`;
