@@ -28,7 +28,7 @@ import Octicon from '@/components/Octicon.vue';
 import { create } from "@bufbuild/protobuf";
 import {PodRequestSchema,
        PodYAMLResponseSchema} from '@/components/protos/sk8l_pb.ts';
-import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
+import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.ts';
 
 export default {
   name: 'PodModal',
@@ -47,7 +47,7 @@ export default {
 
       await Sk8lCronjobClient.getPodYAML(
         request,
-        (err: any, response: any) => {
+        (err, response) => {
           if (!err) {
             that.modalBody = response.pod;
             that.modalHeader = `Pod: ${podName}`;

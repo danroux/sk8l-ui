@@ -28,7 +28,7 @@ import Octicon from '@/components/Octicon.vue';
 import { create } from "@bufbuild/protobuf";
 import {JobRequestSchema,
        JobYAMLResponseSchema} from '@/components/protos/sk8l_pb.ts';
-import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
+import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.ts';
 
 export default {
   name: 'JobModal',
@@ -47,7 +47,7 @@ export default {
 
       await Sk8lCronjobClient.getJobYAML(
         request,
-        (err: any, response: any) => {
+        (err, response) => {
           if (!err) {
             that.modalBody = response.job;
             that.modalHeader = `Job: ${jobName}`;

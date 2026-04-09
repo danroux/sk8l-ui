@@ -28,7 +28,7 @@ import ModalContainer from '@/components/ModalContainer.vue';
 import { create } from "@bufbuild/protobuf";
 import {CronjobRequestSchema,
        CronjobYAMLResponseSchema} from '@/components/protos/sk8l_pb.ts';
-import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
+import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.ts';
 
 export default {
   name: 'CronjobModal',
@@ -47,7 +47,7 @@ export default {
 
       await Sk8lCronjobClient.getCronjobYAML(
         request,
-        (err: any, response: any) => {
+        (err, response) => {
           if (!err) {
             that.modalBody = response.cronjob;
             that.modalHeader = `Cronjob: ${name}`;

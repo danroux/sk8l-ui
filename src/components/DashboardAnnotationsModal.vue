@@ -36,7 +36,7 @@ import Octicon from '@/components/Octicon.vue';
 import { create } from "@bufbuild/protobuf";
 import {DashboardAnnotationsRequestSchema,
        DashboardAnnotationsResponseSchema} from '@/components/protos/sk8l_pb.ts';
-import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
+import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.ts';
 
 export default {
   name: 'DashboardAnnotationsModal',
@@ -55,7 +55,7 @@ export default {
 
       await Sk8lCronjobClient.getDashboardAnnotations(
         request,
-        (err: any, response: any) => {
+        (err, response) => {
           if (!err) {
             navigator.clipboard.writeText(response.annotations);
           } else {
