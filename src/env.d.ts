@@ -1,12 +1,17 @@
 /// <reference types="vite/client" />
 
+interface ImportMetaEnv {
+  readonly VITE_SK8L_API_URL: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
 declare module '*.vue' {
-  // During migration, treat unmigrated Vue imports as 'any'
-  // to prevent strict template slot/prop errors.
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const component: any;
+  import type { DefineComponent } from 'vue';
+  const component: DefineComponent<{}, {}, any>;
   export default component;
 }
 
 declare module '@primer/octicons';
-declare module '@/components/Sk8lCronjobClient.js';
