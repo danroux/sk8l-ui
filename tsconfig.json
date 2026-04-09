@@ -8,9 +8,12 @@
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "composite": true,
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["vite/client", "vitest/globals"]
+    "types": ["vite/client", "vitest/globals"],
+     "moduleResolution": "bundler",
+    "ignoreDeprecations": "6.0"
   }
 }
