@@ -1,7 +1,7 @@
 // const {Timestamp} = require('google-protobuf/google/protobuf/timestamp_pb');
 // https://github.com/protobufjs/protobuf.js/issues/437
 // Define the shape of our processed container status
-interface ProcessedContainerStatus {
+export interface ProcessedContainerStatus {
   state: string;
   reason?: string;
 }
