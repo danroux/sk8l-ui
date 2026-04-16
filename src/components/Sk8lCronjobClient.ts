@@ -2,7 +2,7 @@ import { Cronjob } from "./protos/sk8l_pb.ts";
 import { createCallbackClient } from "@connectrpc/connect";
 import { createGrpcWebTransport } from "@connectrpc/connect-web";
 
-let sk8lApiURL = import.meta.env.VITE_SK8L_API_URL;
+const sk8lApiURL: string = (import.meta.env.VITE_SK8L_API_URL as string) || "";
 
 // A transport for clients using the Connect protocol with fetch()
 const transport = createGrpcWebTransport({

@@ -17,26 +17,45 @@
   </Teleport>
 </template>
 
-<script>
-import { computed, Teleport } from 'vue';
+<script lang="ts">
+import { computed, defineComponent } from 'vue';
 import Modal from '@/components/Modal.vue';
 import Octicon from '@/components/Octicon.vue';
 
-export default {
+export default defineComponent({
   name: 'ModalContainer',
+  components: {
+    Modal,
+    Octicon,
+  },
+  props: {
+    showModal: {
+      type: Boolean,
+      required: true,
+    },
+    body: {
+      type: String,
+      required: true,
+    },
+    modalHeader: {
+      type: String,
+      required: true,
+    },
+    headerActionContent: {
+      type: String,
+      required: false,
+    },
+  },
   emits: ['closeModal'],
-  props: ['showModal', 'body', 'modalHeader', 'headerActionContent'],
   provide() {
     return {
       body: computed(() => this.body),
     };
   },
   methods: {
-  },
-  components: {
-    Modal,
-    Octicon,
-    Teleport,
-  },
-};
+    clickAction() {
+      // Stub method for the default slot button click, if needed
+    }
+  }
+});
 </script>
