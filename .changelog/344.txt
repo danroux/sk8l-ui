@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps): bump happy-dom from 20.8.9 to 20.9.0
+
+npm:(deps): bump happy-dom from 20.8.9 to 20.9.0
+
+Bumps [happy-dom](https://github.com/capricorn86/happy-dom) from 20.8.9 to 20.9.0.
+- [Release notes](https://github.com/capricorn86/happy-dom/releases)
+- [Commits](https://github.com/capricorn86/happy-dom/compare/v20.8.9...v20.9.0)
+
+---
+updated-dependencies:
+- dependency-name: happy-dom
+  dependency-version: 20.9.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
