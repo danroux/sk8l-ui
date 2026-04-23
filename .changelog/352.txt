@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps): bump vue-router from 5.0.4 to 5.0.6
+
+npm:(deps): bump vue-router from 5.0.4 to 5.0.6
+
+Bumps [vue-router](https://github.com/vuejs/router) from 5.0.4 to 5.0.6.
+- [Release notes](https://github.com/vuejs/router/releases)
+- [Commits](https://github.com/vuejs/router/compare/v5.0.4...v5.0.6)
+
+---
+updated-dependencies:
+- dependency-name: vue-router
+  dependency-version: 5.0.6
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
