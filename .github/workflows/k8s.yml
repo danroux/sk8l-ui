@@ -31,16 +31,18 @@ jobs:
     strategy:
       matrix:
         k8s:
-          - version: v1.32.2
-            image: "kindest/node:v1.32.2@sha256:f226345927d7e348497136874b6d207e0b32cc52154ad8323129352923a3142f"
-          - version: v1.31.6
-            image: "kindest/node:v1.31.6@sha256:28b7cbb993dfe093c76641a0c95807637213c9109b761f1d422c2400e22b8e87"
-          - version: v1.30.10
-            image: "kindest/node:v1.30.10@sha256:4de75d0e82481ea846c0ed1de86328d821c1e6a6a91ac37bf804e5313670e507"
-          - version: v1.29.14
-            image: "kindest/node:v1.29.14@sha256:8703bd94ee24e51b778d5556ae310c6c0fa67d761fae6379c8e0bb480e6fea29"
+          - version: v1.35.0
+            image: "kindest/node:v1.35.0@sha256:452d707d4862f52530247495d180205e029056831160e22870e37e3f6c1ac31f"
+          - version: v1.34.3
+            image: "kindest/node:v1.34.3@sha256:08497ee19eace7b4b5348db5c6a1591d7752b164530a36f855cb0f2bdcbadd48"
+          - version: v1.33.7
+            image: "kindest/node:v1.33.7@sha256:d26ef333bdb2cbe9862a0f7c3803ecc7b4303d8cea8e814b481b09949d353040"
+          - version: v1.32.11
+            image: "kindest/node:v1.32.11@sha256:5fc52d52a7b9574015299724bd68f183702956aa4a2116ae75a63cb574b35af8"
+          - version: v1.31.14
+            image: "kindest/node:v1.31.14@sha256:6f86cf509dbb42767b6e79debc3f2c32e4ee01386f0489b3b2be24b0a55aac2b"
         kind:
-          - version: "v0.27.0"
+          - version: "v0.31.0"
     uses: ./.github/workflows/k8s-test.yml
     with:
       image_tag: ${{ github.event.pull_request.number }}-${{ matrix.k8s.version }}
