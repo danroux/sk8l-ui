@@ -1,0 +1,3 @@
+```release-note:enhancement
+deps/k8s: update k8s/kind versions to test against
+```
