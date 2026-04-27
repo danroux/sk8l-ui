@@ -16,7 +16,7 @@
   "dependencies": {
     "@achrinza/node-ipc": "^10.1.11",
     "@grpc/grpc-js": "^1.14.3",
-    "@primer/octicons": "^19.22.0",
+    "@primer/octicons": "^19.25.0",
     "@testing-library/vue": "^8.1.0",
     "@vitest/coverage-v8": "^4.1.5",
     "cronstrue": "^3.14.0",
