@@ -1,0 +1,20 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps): bump rollup from 4.60.2 to 4.60.3
+
+npm:(deps): bump rollup from 4.60.2 to 4.60.3
+
+Bumps [rollup](https://github.com/rollup/rollup) from 4.60.2 to 4.60.3.
+- [Release notes](https://github.com/rollup/rollup/releases)
+- [Changelog](https://github.com/rollup/rollup/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/rollup/rollup/compare/v4.60.2...v4.60.3)
+
+---
+updated-dependencies:
+- dependency-name: rollup
+  dependency-version: 4.60.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
