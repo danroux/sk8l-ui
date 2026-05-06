@@ -1,131 +1,87 @@
-<style scoped>
-  textarea{
-    resize: none;
-    margin-top: -2px;
-    padding-left: 92px;
-    width: calc(100% - 70px);
-    background-color: #fff;
-    color: #000;
-    position: absolute;
-    border: medium;
-    tab-size: 8;
-    outline: none;
-    overflow: auto hidden;
-    height: 35680px;
-    font-size: 12px;
-    line-height: 20px;
-    overflow-wrap: normal;
-    white-space: pre;
-
-    background-color: unset;
-    position: relative;
-    width: calc(100% - 15px);
-  }
-
-  textarea, .line-numbers {
-    font-family: ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace !important;
-  }
-
-  .Box-header {
-    height: 46px;
-    padding: 10px;
-  }
-
-  button {
-    background: none;
-    border: 0px;
-  }
-
-  button:hover {
-    background: inherit;
-  }
-
-  .line-numbers {
-    position: absolute;
-    width: 92px;
-    background: white;
-    height: 200px;
-    text-align: center;
-    line-height: 20px;
-    font-size: 12px;
-    z-index: 100;
-  }
-
-  .line-number {
-    color: rgb(110, 119, 129);
-  }
-</style>
-
 <template>
   <Transition name="modal">
-    <div v-if="show" class="modal-mask">
-      <div class="modal-container">
-        <div class="Box">
-          <div class="Box-header">
-            <div class="d-table col-12">
-              <div class="col-11 d-table-cell">
-                <span class="Box-title">
-                  <slot name="header">default header</slot>
-                </span>
-              </div>
+    <div v-if="show" class="modal-mask" @click="$emit('close')">
+      <div class="modal-container Box color-shadow-large" @click.stop>
 
-              <div class="col-1 d-table-cell">
-                <div slot="top-right" style="text-align: right;">
-                  <slot name="headerActionContent"></slot>
-                  <button class="close-modal" @click="$emit('close')">
-                    <Octicon name="x" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal-body">
-            <slot name="body">
-              <div class="line-numbers" :style="textareaStyle()" v-if="body">
-                <div class="line-number" v-for="number in noOfLines()">
-                  {{ number }}
-                </div>
-              </div>
-              <textarea :style="textareaStyle()" >{{ body }}</textarea>
-            </slot>
-          </div>
-
-          <div class="modal-footer" v-if="false">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button"
-                      @click="$emit('close')">
-                OK
-              </button>
-            </slot>
+        <div class="modal-header Box-header d-flex flex-items-center">
+          <h3 class="Box-title flex-auto">
+            <slot name="header">Modal Header</slot>
+          </h3>
+          <div class="d-flex flex-items-center">
+            <slot name="headerActionContent"></slot>
+            <button class="btn-octicon m-0 ml-2" type="button" @click="$emit('close')">
+              <Octicon name="x" />
+            </button>
           </div>
         </div>
+
+        <div class="modal-body p-0">
+          <slot name="body">
+            <YamlViewer />
+          </slot>
+        </div>
+
+        <div class="modal-footer Box-footer text-right">
+          <slot name="footer">
+            <button class="btn btn-primary" @click="$emit('close')">Close</button>
+          </slot>
+        </div>
+
       </div>
     </div>
   </Transition>
 </template>
 
-<script>
+<script setup lang="ts">
 import Octicon from '@/components/Octicon.vue';
-import { Transition } from 'vue';
+import YamlViewer from '@/components/YamlViewer.vue';
 
-export default {
-  name: 'Modal',
-  props: ['show'],
-  inject: ['body'],
-  methods: {
-      noOfLines() {
-          return this.body.split("\n").length;
-      },
-      textareaStyle() {
-          const height = (this.noOfLines() * 20) + 20;
-          return `height: ${height}px;`;
-      }
-  },
-  components: {
-    Octicon,
-    Transition,
-  },
-};
+defineProps<{
+  show: boolean;
+}>();
+
+defineEmits(['close']);
 </script>
+
+<style scoped>
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.modal-container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  background-color: var(--color-canvas-default);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  transition: all 0.3s ease;
+}
+
+.modal-body {
+  margin: 0;
+  flex: 1;
+  overflow: hidden; /* YamlViewer handles its own scroll */
+  display: flex;
+}
+
+/* Vue Transition Effects */
+.modal-enter-from { opacity: 0; }
+.modal-leave-to { opacity: 0; }
+
+.modal-enter-from .modal-container,
+.modal-leave-to .modal-container {
+  transform: scale(1.1);
+}
+</style>
