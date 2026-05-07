@@ -33,14 +33,29 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue';
 import Octicon from '@/components/Octicon.vue';
 import YamlViewer from '@/components/YamlViewer.vue';
 
-defineProps<{
+const props = defineProps<{
   show: boolean;
 }>();
 
-defineEmits(['close']);
+const emit = defineEmits(['close']);
+
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.key === 'Escape' && props.show) {
+    emit('close');
+  }
+};
+
+onMounted(() => {
+  document.addEventListener('keydown', handleKeydown);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeydown);
+});
 </script>
 
 <style scoped>
