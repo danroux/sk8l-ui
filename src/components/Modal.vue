@@ -9,7 +9,10 @@
           </h3>
           <div class="d-flex flex-items-center">
             <slot name="headerActionContent"></slot>
-            <button class="btn-octicon m-0 ml-2" type="button" @click="$emit('close')">
+            <button
+              class="btn-octicon m-0 ml-2"
+              type="button" @click="$emit('close')"
+              data-testid="modal-close-x">
               <Octicon name="x" />
             </button>
           </div>
@@ -23,7 +26,10 @@
 
         <div class="modal-footer Box-footer text-right">
           <slot name="footer">
-            <button class="btn btn-primary" @click="$emit('close')">Close</button>
+            <button
+              class="btn btn-primary"
+              @click="$emit('close')"
+              data-testid="modal-close-footer">Close</button>
           </slot>
         </div>
 

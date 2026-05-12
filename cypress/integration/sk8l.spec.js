@@ -254,7 +254,7 @@ describe('DashboardAnnotations Test', () => {
     //   .and('contain.text', 'sk8l-grafana-annotations.json')
 
     cy.contains('sk8l-grafana-annotations.json');
-    cy.get('.close-modal').click();
+    cy.get('[data-testid="modal-close-x"]').click();
     cy.contains('sk8l-grafana-annotations.json').should('not.exist');
 
     // cy.get('.modal-container')
