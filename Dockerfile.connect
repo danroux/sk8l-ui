@@ -1,4 +1,4 @@
-FROM node:24.0.0-bookworm-slim AS deps
+FROM node:26.1.0-bookworm-slim AS deps
 
 LABEL org.opencontainers.image.source=https://github.com/danroux/sk8l-ui
 LABEL org.opencontainers.image.description="sk8l-ui/connect image"
