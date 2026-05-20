@@ -40,7 +40,7 @@ jobs:
           fetch-depth: 0
           submodules: recursive
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@18ce135bb5112fa8ce4ed6c17ab05699d7f3a5e0 # v3.11.0
       - name: Login to ghcr.io
@@ -115,7 +115,7 @@ jobs:
           fetch-depth: 0
           submodules: recursive
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@18ce135bb5112fa8ce4ed6c17ab05699d7f3a5e0 # v3.11.0
       - name: Login to ghcr.io
@@ -187,7 +187,7 @@ jobs:
           fetch-depth: 0
           submodules: recursive
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@18ce135bb5112fa8ce4ed6c17ab05699d7f3a5e0 # v3.11.0
       - name: Login to ghcr.io
@@ -259,7 +259,7 @@ jobs:
           fetch-depth: 0
           submodules: recursive
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@18ce135bb5112fa8ce4ed6c17ab05699d7f3a5e0 # v3.11.0
       - name: Login to ghcr.io
@@ -332,7 +332,7 @@ jobs:
       - name: Checkout - set env
         run: echo "IMAGE_TAG=$(make version)" >> $GITHUB_ENV
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@18ce135bb5112fa8ce4ed6c17ab05699d7f3a5e0 # v3.11.0
       - name: Login to Docker Hub
@@ -403,7 +403,7 @@ jobs:
       - name: Checkout - set env
         run: echo "IMAGE_TAG=$(make version)" >> $GITHUB_ENV
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@18ce135bb5112fa8ce4ed6c17ab05699d7f3a5e0 # v3.11.0
       - name: Login to ghcr.io
