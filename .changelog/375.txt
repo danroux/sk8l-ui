@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: gha:(deps): bump docker/setup-qemu-action from 3 to 4
+
+gha:(deps): bump docker/setup-qemu-action from 3 to 4
+
+Bumps [docker/setup-qemu-action](https://github.com/docker/setup-qemu-action) from 3 to 4.
+- [Release notes](https://github.com/docker/setup-qemu-action/releases)
+- [Commits](https://github.com/docker/setup-qemu-action/compare/v3...v4)
+
+---
+updated-dependencies:
+- dependency-name: docker/setup-qemu-action
+  dependency-version: '4'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
