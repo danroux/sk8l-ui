@@ -82,7 +82,7 @@ jobs:
     if: ${{ github.event_name == 'workflow_call' && inputs.image_tag || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
     steps:
       - name: Download digests
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: /tmp/digests/sk8l-ui-dev
           pattern: digests-sk8l-ui-dev-*
@@ -153,7 +153,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Download digests
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: /tmp/digests/sk8l-ui-dev-main
           pattern: digests-sk8l-ui-dev-main-*
@@ -225,7 +225,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Download digests
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: /tmp/digests/sk8l-ui-pre-main
           pattern: digests-sk8l-ui-pre-main-*
@@ -297,7 +297,7 @@ jobs:
     if: ${{ github.event_name == 'workflow_call' && inputs.image_tag || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
     steps:
       - name: Download digests
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: /tmp/digests/sk8l-ui-pre-pr
           pattern: digests-sk8l-ui-pre-pr-*
@@ -371,7 +371,7 @@ jobs:
       - name: Checkout - set env
         run: echo "IMAGE_TAG=$(make version)" >> $GITHUB_ENV
       - name: Download digests
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: /tmp/digests/sk8l-ui-production
           pattern: digests-sk8l-ui-production-*

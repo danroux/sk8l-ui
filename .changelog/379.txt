@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: gha:(deps): bump actions/download-artifact from 4 to 8
+
+gha:(deps): bump actions/download-artifact from 4 to 8
+
+Bumps [actions/download-artifact](https://github.com/actions/download-artifact) from 4 to 8.
+- [Release notes](https://github.com/actions/download-artifact/releases)
+- [Commits](https://github.com/actions/download-artifact/compare/v4...v8)
+
+---
+updated-dependencies:
+- dependency-name: actions/download-artifact
+  dependency-version: '8'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
