@@ -1,0 +1,3 @@
+```release-note:bug
+ci/k8s: Replace broken engineerd/setup-kind action with helm/kind-action
+```
