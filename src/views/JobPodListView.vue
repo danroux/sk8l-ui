@@ -19,71 +19,65 @@ import WiderHeader from '@/components/WiderHeader.vue';
 // import axios, { isCancel, AxiosError } from 'axios';
 
 import { create } from "@bufbuild/protobuf";
-import {CronjobPodsRequestSchema,
-       CronjobPodsResponseSchema} from '@/components/protos/sk8l_pb.ts';
+import { CronjobPodsRequestSchema } from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
+import { Code, ConnectError } from "@connectrpc/connect";
 
 export default {
   name: 'JobPodListView',
   props: ['namespace', 'cronjobName'],
-  // eslint-disable-next-line
-  // beforeRouteEnter(to, from, next) {
-  //   next((vm) => {
-  //     // need to cancel this when navigating to other pages
-  //     vm.rootIntervalId = setInterval(vm.getData, 10000, vm);
-  //   });
-  // },
-  // eslint-disable-next-line
   beforeRouteLeave(to, from) {
-    // called when the route that renders this component is about to be navigated away from.
-    // As with `beforeRouteUpdate`, it has access to `this` component instance.
-    this.stream();
+    this.cancelStream();
+  },
+  beforeUnmount() {
+    this.cancelStream();
+    window.removeEventListener('beforeunload', this.cancelStream);
   },
   data() {
     return {
       componentKey: 20,
       pods: [],
       cronjob: null,
+      stream: null,
     };
   },
   methods: {
+    cancelStream() {
+      if (typeof this.stream === 'function') {
+        const cancel = this.stream;
+        this.stream = null;
+        cancel();
+      }
+    },
     responseJobPods() {
-      // return this.response && this.response['cronjobs'] && this.response['cronjobs'].length > 0;
       return this.pods && this.pods.length > 0;
     },
-    getCronjobPods(app, request) {
-      let str = Sk8lCronjobClient.getCronjobPods(
+    getCronjobPods(request) {
+      return Sk8lCronjobClient.getCronjobPods(
         request,
         (response, err) => {
           if (!err) {
-            app.pods = response.pods.reverse();
-            app.cronjob = response.cronjob;
+            this.pods = response.pods.reverse();
+            this.cronjob = response.cronjob;
           } else {
             console.log("requestErr: ", err, response);
           }
         },
         (err) => {
           if (err) {
+            if (err instanceof ConnectError && err.code === Code.Canceled) {
+              return;
+            }
             console.log("onError: ", err);
           }
         }
       );
-
-      return str;
     },
-    leaving(event) {
-      // window.addEventListener('beforeunload', this.handler)
-      // https://laracasts.com/discuss/channels/vue/detect-page-refreshchange-in-vue
-      // window.onblur = this.leaving;
-      this.stream();
-    }
   },
   mounted() {
-    window.onbeforeunload = this.leaving;
-    var request = create(CronjobPodsRequestSchema, { cronjobName: this.cronjobName, cronjobNamespace: this.namespace });
-    const app = this;
-
-    app.stream = this.getCronjobPods(app, request);
+    window.addEventListener('beforeunload', this.cancelStream);
+    const request = create(CronjobPodsRequestSchema, { cronjobName: this.cronjobName, cronjobNamespace: this.namespace });
+    this.stream = this.getCronjobPods(request);
   },
   components: {
     LogoHeader,

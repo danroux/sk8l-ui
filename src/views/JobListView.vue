@@ -16,64 +16,63 @@ import LogoHeader from '@/components/LogoHeader.vue';
 import RootBlankSlate from '@/views/RootBlankSlate.vue';
 
 import { create } from "@bufbuild/protobuf";
-import {JobsRequestSchema,
-       JobsResponseSchema} from '@/components/protos/sk8l_pb.ts';
+import { JobsRequestSchema } from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
-import {ConnectError} from "@connectrpc/connect";
+import { Code, ConnectError } from "@connectrpc/connect";
 
 export default {
   name: 'JobListView',
-  // eslint-disable-next-line
   beforeRouteLeave(to, from) {
-    // called when the route that renders this component is about to be navigated away from.
-    // As with `beforeRouteUpdate`, it has access to `this` component instance.
-    // this.stream.cancel();
-    this.stream();
+    this.cancelStream();
+  },
+  beforeUnmount() {
+    this.cancelStream();
+    window.removeEventListener('beforeunload', this.cancelStream);
   },
   data() {
     return {
       componentKey: 20,
       namespace: import.meta.env.VITE_SK8L_K8_NAMESPACE,
       jobs: [],
+      stream: null,
     };
   },
   methods: {
+    cancelStream() {
+      if (typeof this.stream === 'function') {
+        const cancel = this.stream;
+        this.stream = null;
+        cancel();
+      }
+    },
     responseJobs() {
-      // return this.response && this.response['cronjobs'] && this.response['cronjobs'].length > 0;
       return this.jobs && this.jobs.length > 0;
     },
-    async getJobs(app, request) {
-      let str = Sk8lCronjobClient.getJobs(
+    getJobs(request) {
+      return Sk8lCronjobClient.getJobs(
         request,
         (response, err) => {
           if (!err) {
-            app.jobs = response.jobs;
+            this.jobs = response.jobs;
           } else {
             console.log("requestErr: ", err, response);
           }
         },
         (err) => {
           if (err) {
+            if (err instanceof ConnectError && err.code === Code.Canceled) {
+              return;
+            }
             console.log("onError: ", err);
           }
         }
       );
-
-      return str;
     },
-    leaving(event) {
-      // window.addEventListener('beforeunload', this.handler)
-      // https://laracasts.com/discuss/channels/vue/detect-page-refreshchange-in-vue
-      // window.onblur = this.leaving;
-      this.stream();
-    }
   },
-  async mounted() {
-    window.onbeforeunload = this.leaving;
-    var request = create(JobsRequestSchema, {});
-    const app = this;
-
-    app.stream = await this.getJobs(app, request);
+  mounted() {
+    window.addEventListener('beforeunload', this.cancelStream);
+    const request = create(JobsRequestSchema, {});
+    this.stream = this.getJobs(request);
   },
   components: {
     CronjobListHeader,

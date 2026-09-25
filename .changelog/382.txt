@@ -1,0 +1,9 @@
+```
+js: Cancel active gRPC streams and clean up lifecycle hooks on navigation
+
+Fix connection leaks when navigating between views that caused browser socket exhaustion (HTTP/1.1 6-connection limit) and stalled subsequent requests:
+- Add `:key="$route.fullPath"` to `<router-view>` in App.vue to ensure proper teardown and remounting on route/parameter updates
+- Implement safe `cancelStream()` and invoke it in both `beforeRouteLeave` and `beforeUnmount` hooks across HomeView, CronJob, JobListView, and JobPodListView
+- Unregister `beforeunload` window event listeners on component unmount
+- Filter out `Code.Canceled` Connect errors during navigation teardown
+```
