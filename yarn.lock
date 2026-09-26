@@ -130,12 +130,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@connectrpc/connect@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@connectrpc/connect@npm:2.1.1"
+"@connectrpc/connect@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@connectrpc/connect@npm:2.2.0"
   peerDependencies:
     "@bufbuild/protobuf": ^2.7.0
-  checksum: 10c0/7a9f2330c6025e09322ed75b9baf12fd4307e4c7db7a09f6523cd03b35aad86dcf119e2f5e1f5d45ab636956f3fe1dd11cc7c6953b80591fc7cac8675845d3b0
+  checksum: 10c0/f03a5a8c74d74a9016027280173f44d983f69e9b999dcad47520c2dd474be2289bd33b22e1e374173dc919c6ffb1ab5886464d6c279bca26ff2432231bdf0915
   languageName: node
   linkType: hard
 
@@ -5855,7 +5855,7 @@ __metadata:
   dependencies:
     "@achrinza/node-ipc": "npm:^10.1.11"
     "@bufbuild/protobuf": "npm:^2.12.0"
-    "@connectrpc/connect": "npm:^2.1.1"
+    "@connectrpc/connect": "npm:^2.2.0"
     "@connectrpc/connect-web": "npm:^2.1.1"
     "@grpc/grpc-js": "npm:^1.14.3"
     "@originjs/vite-plugin-commonjs": "npm:^1.0.3"
