@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: gha:(deps): bump actions/setup-node from 6 to 7
+
+gha:(deps): bump actions/setup-node from 6 to 7
+
+Bumps [actions/setup-node](https://github.com/actions/setup-node) from 6 to 7.
+- [Release notes](https://github.com/actions/setup-node/releases)
+- [Commits](https://github.com/actions/setup-node/compare/v6...v7)
+
+---
+updated-dependencies:
+- dependency-name: actions/setup-node
+  dependency-version: '7'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
