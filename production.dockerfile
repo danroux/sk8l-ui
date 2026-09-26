@@ -14,9 +14,11 @@ COPY package*.json yarn.lock .yarnrc.yml .
 
 RUN node -p "process.arch" \
     && echo $TARGETPLATFORM && echo $TARGETOS && echo $TARGETARCH
-RUN corepack enable \
+RUN npm install -g --force corepack \
+    && corepack enable \
     && yarn config set --home enableTelemetry 0 \
     && yarn install --immutable --check-cache
+
 # USER 1000:3000
 # Error: EACCES: permission denied, mkdir '/usr/app/node_modules/.cache'
 # RUN mkdir -p /usr/app/node_modules/.cache \
