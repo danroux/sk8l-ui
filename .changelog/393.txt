@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps-dev): bump @types/luxon from 3.7.1 to 3.7.5
+
+npm:(deps-dev): bump @types/luxon from 3.7.1 to 3.7.5
+
+Bumps [@types/luxon](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/luxon) from 3.7.1 to 3.7.5.
+- [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+- [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/luxon)
+
+---
+updated-dependencies:
+- dependency-name: "@types/luxon"
+  dependency-version: 3.7.5
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
