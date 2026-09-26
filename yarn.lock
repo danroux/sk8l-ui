@@ -5842,10 +5842,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-statistics@npm:^7.8.3":
-  version: 7.8.9
-  resolution: "simple-statistics@npm:7.8.9"
-  checksum: 10c0/2d5e9398c7ffca739a2b858396f74c3ddae8f21233a303ae64a28d84af40d456622135546976cd76b983a9b9612d4b579ed44b32d1290043b224e31fdb61ddf9
+"simple-statistics@npm:^7.12.0":
+  version: 7.12.0
+  resolution: "simple-statistics@npm:7.12.0"
+  checksum: 10c0/b64697f58a80279f4a71b0d8d8a6b369325752ff2bacfb2177c99676eaebe70254a7cd31fa0a3d063298c9567cb77fa1d5d1d316018e4054b830d9766e9d462c
   languageName: node
   linkType: hard
 
@@ -5880,7 +5880,7 @@ __metadata:
     luxon: "npm:^3.7.2"
     rollup: "npm:^4.60.3"
     sass: "npm:^1.99.0"
-    simple-statistics: "npm:^7.8.3"
+    simple-statistics: "npm:^7.12.0"
     typescript: "npm:^6.0.3"
     uplot: "npm:^1.6.32"
     vite: "npm:^7.3.1"
