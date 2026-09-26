@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps-dev): bump @vue/eslint-config-typescript from 14.7.0 to 14.9.0
+
+npm:(deps-dev): bump @vue/eslint-config-typescript from 14.7.0 to 14.9.0
+
+Bumps [@vue/eslint-config-typescript](https://github.com/vuejs/eslint-config-typescript) from 14.7.0 to 14.9.0.
+- [Release notes](https://github.com/vuejs/eslint-config-typescript/releases)
+- [Commits](https://github.com/vuejs/eslint-config-typescript/compare/v14.7.0...v14.9.0)
+
+---
+updated-dependencies:
+- dependency-name: "@vue/eslint-config-typescript"
+  dependency-version: 14.9.0
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
