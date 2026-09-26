@@ -132,26 +132,24 @@ import WiderHeader from '@/components/WiderHeader.vue';
 import cronstrue from 'cronstrue';
 
 import { create } from "@bufbuild/protobuf";
-import {CronjobRequestSchema,
-       CronjobResponseSchema} from '@/components/protos/sk8l_pb.ts';
+import { CronjobRequestSchema } from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
+import { Code, ConnectError } from "@connectrpc/connect";
 
 export default {
   name: 'CronJob',
-  // beforeRouteEnter(to, from, next) {
-  //   next((vm) => {
-  //     vm.getData(vm);
-  //     // vm.cronJobIntervalId = setInterval(vm.getData, 10000);
-  //   });
-  // },
   beforeRouteLeave(to, from) {
-    // called when the route that renders this component is about to be navigated away from.
-    this.stream();
+    this.cancelStream();
+  },
+  beforeUnmount() {
+    this.cancelStream();
+    window.removeEventListener('beforeunload', this.cancelStream);
   },
   data() {
     return {
       cronJob: null,
       cronJobs: [],
+      stream: null,
     };
   },
   props: ['namespace', 'name'],
@@ -173,44 +171,44 @@ export default {
     },
   },
   methods: {
+    cancelStream() {
+      if (typeof this.stream === 'function') {
+        const cancel = this.stream;
+        this.stream = null;
+        cancel();
+      }
+    },
     lux1(t) {
       return DateTime.fromISO(t).toRelative();
     },
     schedule() {
       return cronstrue.toString(this.cronJob.definition);
     },
-    getCronjob(app, request) {
-      let str = Sk8lCronjobClient.getCronjob(
+    getCronjob(request) {
+      return Sk8lCronjobClient.getCronjob(
         request,
         (response, err) => {
           if (!err) {
-            app.cronJob = response;
+            this.cronJob = response;
           } else {
             console.log("requestErr: ", err, response);
           }
         },
         (err) => {
           if (err) {
+            if (err instanceof ConnectError && err.code === Code.Canceled) {
+              return;
+            }
             console.log("onError: ", err);
           }
         }
       );
-
-      return str;
     },
-    leaving(event) {
-      // window.addEventListener('beforeunload', this.handler)
-      // https://laracasts.com/discuss/channels/vue/detect-page-refreshchange-in-vue
-      // window.onblur = this.leaving;
-      this.stream();
-    }
   },
   mounted() {
-    window.onbeforeunload = this.leaving;
-    var request = create(CronjobRequestSchema, { cronjobName: this.name, cronjobNamespace: this.namespace});
-    const app = this;
-
-    app.stream = this.getCronjob(app, request);
+    window.addEventListener('beforeunload', this.cancelStream);
+    const request = create(CronjobRequestSchema, { cronjobName: this.name, cronjobNamespace: this.namespace });
+    this.stream = this.getCronjob(request);
   },
   components: {
     // Chart,

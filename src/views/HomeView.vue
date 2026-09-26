@@ -17,74 +17,63 @@ import LogoHeader from '@/components/LogoHeader.vue';
 import RootBlankSlate from '@/views/RootBlankSlate.vue';
 
 import { create } from "@bufbuild/protobuf";
-import {CronjobsRequestSchema,
-       CronjobsResponseSchema} from '@/components/protos/sk8l_pb.ts';
+import { CronjobsRequestSchema } from '@/components/protos/sk8l_pb.ts';
 import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
-import {ConnectError} from "@connectrpc/connect";
+import { Code, ConnectError } from "@connectrpc/connect";
 
 export default {
   name: 'HomeView',
-  // eslint-disable-next-line
-  // beforeRouteEnter(to, from, next) {
-  //   next((vm) => {
-  //     // access to component public instance via `vm`
-  //     // need to cancel this when navigating to other pages
-  //     // eslint-disable-next-line
-  //     vm.getData(vm);
-  //     vm.rootIntervalId = setInterval(vm.getData, 10000, vm);
-  //   });
-  // },
-  // eslint-disable-next-line
   beforeRouteLeave(to, from) {
-    // called when the route that renders this component is about to be navigated away from.
-    // As with `beforeRouteUpdate`, it has access to `this` component instance.
-    // this.stream.cancel();
-    this.stream();
+    this.cancelStream();
+  },
+  beforeUnmount() {
+    this.cancelStream();
+    window.removeEventListener('beforeunload', this.cancelStream);
   },
   data() {
     return {
       componentKey: 20,
       namespace: import.meta.env.VITE_SK8L_K8_NAMESPACE,
       cronjobs: [],
+      stream: null,
     };
   },
   methods: {
+    cancelStream() {
+      if (typeof this.stream === 'function') {
+        const cancel = this.stream;
+        this.stream = null;
+        cancel();
+      }
+    },
     responseCronJobs() {
-      // return this.response && this.response['cronjobs'] && this.response['cronjobs'].length > 0;
       return this.cronjobs && this.cronjobs.length > 0;
     },
-    async getCronjobs(app, request) {
-      let str = Sk8lCronjobClient.getCronjobs(
+    getCronjobs(request) {
+      return Sk8lCronjobClient.getCronjobs(
         request,
         (response, err) => {
           if (!err) {
-            app.cronjobs = response.cronjobs;
+            this.cronjobs = response.cronjobs;
           } else {
             console.log("requestErr: ", err, response);
           }
         },
         (err) => {
           if (err) {
+            if (err instanceof ConnectError && err.code === Code.Canceled) {
+              return;
+            }
             console.log("onError: ", err);
           }
         }
       );
-
-      return str;
     },
-    leaving(event) {
-      // window.addEventListener('beforeunload', this.handler)
-      // https://laracasts.com/discuss/channels/vue/detect-page-refreshchange-in-vue
-      // window.onblur = this.leaving;
-      this.stream();
-    }
   },
-  async mounted() {
-    window.onbeforeunload = this.leaving;
-    var request = create(CronjobsRequestSchema, {});
-    const app = this;
-
-    app.stream = await this.getCronjobs(app, request);
+  mounted() {
+    window.addEventListener('beforeunload', this.cancelStream);
+    const request = create(CronjobsRequestSchema, {});
+    this.stream = this.getCronjobs(request);
   },
   components: {
     CronjobList,
