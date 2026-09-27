@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: npm:(deps-dev): bump typescript from 6.0.3 to 7.0.2
+
+npm:(deps-dev): bump typescript from 6.0.3 to 7.0.2
+
+Bumps [typescript](https://github.com/microsoft/TypeScript) from 6.0.3 to 7.0.2.
+- [Release notes](https://github.com/microsoft/TypeScript/releases)
+- [Commits](https://github.com/microsoft/TypeScript/compare/v6.0.3...v7.0.2)
+
+---
+updated-dependencies:
+- dependency-name: typescript
+  dependency-version: 7.0.2
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
