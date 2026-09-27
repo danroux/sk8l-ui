@@ -1,7 +1,7 @@
 # https://hub.docker.com/_/node/tags?page=1&name=bookworm-slim <- look for vulnerabilities
 # https://hub.docker.com/_/node/tags?name=22.14
 # https://github.com/primer/octicons/blob/main/package.json
-FROM node:24.0.0-alpine3.21 AS deps
+FROM node:25.2.1-alpine3.21 AS deps
 
 RUN addgroup --system --gid 101 nginx \
     && adduser --system --ingroup nginx --home /home/nginx --shell /bin/bash --uid 101 nginx \
@@ -13,6 +13,7 @@ COPY package*.json yarn.lock .yarnrc.yml .
 RUN node -p "process.arch" \
     && echo $TARGETPLATFORM && echo $TARGETOS && echo $TARGETARCH
 RUN mkdir -p $(pwd)/node_modules/.cache \
+    && npm install -g --force corepack \
     && corepack enable \
     && yarn config set --home enableTelemetry 0
 # Yarn's default is 50. Lower this (e.g., to 15) if QEMU crashes on ARM64 builds in the future.
@@ -22,7 +23,7 @@ RUN --mount=type=cache,target=/home/nginx/.yarn/cache \
 
 # https://hub.docker.com/_/node/tags?name=22.14
 # https://hub.docker.com/r/arm64v8/node/tags
-FROM --platform=${TARGETPLATFORM} node:24.0.0-alpine3.21 AS release
+FROM --platform=${TARGETPLATFORM} node:25.2.1-alpine3.21 AS release
 
 LABEL org.opencontainers.image.source=https://github.com/danroux/sk8l-ui
 LABEL org.opencontainers.image.description="sk8l-ui dev image"

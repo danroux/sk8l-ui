@@ -1,0 +1,19 @@
+```release-note:enhancement
+ci/dependabot: docker:(deps): bump node base images in Dockerfile and Dockerfile.connect
+
+Bumps node from 24.0.0-bookworm-slim to 26.10.0-bookworm-slim.
+Bumps node from 24.0.0-alpine3.21 to node:25.2.1-alpine3.21
+
+Install corepack globally via npm before running `corepack enable`. In Node 25+, Corepack was unbundled from the official Node.js
+distribution, causing `corepack: not found` during the image build.
+
+---
+updated-dependencies:
+- dependency-name: node
+  dependency-version: 26.10.0-bookworm-slim
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
