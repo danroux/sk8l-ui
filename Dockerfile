@@ -13,6 +13,7 @@ COPY package*.json yarn.lock .yarnrc.yml .
 RUN node -p "process.arch" \
     && echo $TARGETPLATFORM && echo $TARGETOS && echo $TARGETARCH
 RUN mkdir -p $(pwd)/node_modules/.cache \
+    && npm install -g --force corepack \
     && corepack enable \
     && yarn config set --home enableTelemetry 0
 # Yarn's default is 50. Lower this (e.g., to 15) if QEMU crashes on ARM64 builds in the future.
