@@ -3795,10 +3795,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-protobuf@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "google-protobuf@npm:4.0.2"
-  checksum: 10c0/9f1bc666522747610edbe1b7bfaed447b597e6c2f7d9522c98ca4707255d1f4946c4db7e902a5950921090360a28f96d29a4272d6e476f7d33cf9393c861ad98
+"google-protobuf@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "google-protobuf@npm:4.0.3"
+  checksum: 10c0/a11d47784da4f773d6611bd8d7d8e7efaefb3e444e1d41291ef5318f6d54bdee7755a39f1e5666e3082d77a6e183866eaf7d3e5a169cad4a96cb100f3a0aa377
   languageName: node
   linkType: hard
 
@@ -5874,7 +5874,7 @@ __metadata:
     eslint-plugin-vue: "npm:^10.9.0"
     eslint-plugin-vuejs-accessibility: "npm:^2.5.0"
     factory-girl-ts: "npm:^2.3.1"
-    google-protobuf: "npm:^4.0.2"
+    google-protobuf: "npm:^4.0.3"
     grpc-web: "npm:^2.0.2"
     happy-dom: "npm:^20.9.0"
     luxon: "npm:^3.7.2"
