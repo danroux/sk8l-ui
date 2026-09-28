@@ -1,37 +1,43 @@
 <script setup lang="ts">
-import { ref, onMounted, watch, inject, type Ref } from 'vue';
-import { createHighlighter, type Highlighter } from 'shiki';
+import { ref, onMounted, watch, inject, computed, type Ref } from 'vue';
+import { getHighlighter } from '@/utils/highlighter';
+
+const props = withDefaults(defineProps<{
+  lang?: string;
+}>(), {
+  lang: undefined,
+});
 
 const body = inject<Ref<string>>('body');
+const injectedLang = inject<Ref<string>>('lang');
+const currentLang = computed(() => props.lang || injectedLang?.value || 'yaml');
+
 const highlightedHtml = ref('<div class="p-3">Initializing highlighter...</div>');
-let highlighter: Highlighter | null = null;
 
-const initHighlighter = async () => {
-  if (highlighter) return;
-  highlighter = await createHighlighter({
-    themes: ['github-light'],
-    langs: ['yaml'],
-  });
-};
-
-const updateHighlight = () => {
-  if (highlighter && body?.value) {
-    highlightedHtml.value = highlighter.codeToHtml(body.value, {
-      lang: 'yaml',
-      theme: 'github-light'
-    });
-  } else if (!body?.value) {
+const updateHighlight = async () => {
+  if (!body?.value) {
     highlightedHtml.value = '<div class="p-3 text-gray-light">No content available.</div>';
+    return;
+  }
+
+  try {
+    const highlighter = await getHighlighter();
+    highlightedHtml.value = highlighter.codeToHtml(body.value, {
+      lang: currentLang.value,
+      theme: 'github-light',
+    });
+  } catch (error) {
+    console.error('Failed to highlight syntax:', error);
+    highlightedHtml.value = `<pre class="p-3"><code>${body.value}</code></pre>`;
   }
 };
 
 onMounted(async () => {
-  await initHighlighter();
-  updateHighlight();
+  await updateHighlight();
 });
 
-// Re-highlight if the user switches pods/jobs while the modal is open
-watch(() => body?.value, () => {
+// Re-highlight if body or language changes
+watch([() => body?.value, currentLang], () => {
   updateHighlight();
 });
 </script>

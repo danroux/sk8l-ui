@@ -6,7 +6,7 @@
   </slot>
 
   <Teleport to="body">
-    <Modal :show="showModal" @close="$emit('closeModal')">
+    <Modal :show="showModal" :lang="lang" @close="$emit('closeModal')">
       <template #header>
         <span>{{ modalHeader }}</span>
       </template>
@@ -45,11 +45,16 @@ export default defineComponent({
       type: String,
       required: false,
     },
+    lang: {
+      type: String,
+      default: 'yaml',
+    },
   },
   emits: ['closeModal'],
   provide() {
     return {
       body: computed(() => this.body),
+      lang: computed(() => this.lang || 'yaml'),
     };
   },
   methods: {

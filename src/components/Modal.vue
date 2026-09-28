@@ -1,7 +1,7 @@
 <template>
   <Transition name="modal">
     <div v-if="show" class="modal-mask" @click="$emit('close')">
-      <div class="modal-container Box color-shadow-large" @click.stop>
+      <div class="modal-container Box color-shadow-large" role="dialog" aria-modal="true" @click.stop>
 
         <div class="modal-header Box-header d-flex flex-items-center">
           <h3 class="Box-title flex-auto">
@@ -20,7 +20,7 @@
 
         <div class="modal-body p-0">
           <slot name="body">
-            <YamlViewer />
+            <YamlViewer :lang="lang" />
           </slot>
         </div>
 
@@ -39,13 +39,17 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue';
+import { defineAsyncComponent, onUnmounted, watch } from 'vue';
 import Octicon from '@/components/Octicon.vue';
-import YamlViewer from '@/components/YamlViewer.vue';
 
-const props = defineProps<{
+const YamlViewer = defineAsyncComponent(() => import('@/components/YamlViewer.vue'));
+
+const props = withDefaults(defineProps<{
   show: boolean;
-}>();
+  lang?: string;
+}>(), {
+  lang: 'yaml',
+});
 
 const emit = defineEmits(['close']);
 
@@ -55,9 +59,17 @@ const handleKeydown = (event: KeyboardEvent) => {
   }
 };
 
-onMounted(() => {
-  document.addEventListener('keydown', handleKeydown);
-});
+watch(
+  () => props.show,
+  (isOpen) => {
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeydown);
+    } else {
+      document.removeEventListener('keydown', handleKeydown);
+    }
+  },
+  { immediate: true }
+);
 
 onUnmounted(() => {
   document.removeEventListener('keydown', handleKeydown);
