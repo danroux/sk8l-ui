@@ -51,16 +51,43 @@ export default defineComponent({
     },
   },
   emits: ['closeModal'],
+  data() {
+    return {
+      // Snapshot of body taken when the modal opens. Prevents streaming re-renders
+      // from the parent reflashing or re-highlighting the open modal's content.
+      displayedBody: '' as string,
+    };
+  },
+  watch: {
+    showModal: {
+      immediate: true,
+      handler(isOpen: boolean) {
+        if (isOpen) {
+          // Capture a snapshot of body at open time; ignore subsequent prop updates
+          this.displayedBody = this.body;
+        } else {
+          // Reset on close so the next open always picks up fresh data
+          this.displayedBody = '';
+        }
+      },
+    },
+    body(newBody: string) {
+      if (this.showModal && (!this.displayedBody || this.displayedBody === '') && newBody) {
+        this.displayedBody = newBody;
+      }
+    },
+  },
   provide() {
     return {
-      body: computed(() => this.body),
+      body: computed(() => this.displayedBody),
       lang: computed(() => this.lang || 'yaml'),
     };
   },
   methods: {
     clickAction() {
       // Stub method for the default slot button click, if needed
-    }
-  }
+    },
+  },
 });
+
 </script>
