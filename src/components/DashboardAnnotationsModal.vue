@@ -10,6 +10,7 @@
   <ModalContainer :show-modal="showDashboardAnnotationsModal"
                   :body="modalBody"
                   :modal-header="modalHeader"
+                  lang="json"
                   @close-modal="closeDashboardAnnotationsModal()">
 
     <template #headerActionContent>
@@ -75,13 +76,13 @@ export default {
           if (!err) {
             that.modalBody = response.annotations;
             that.modalHeader = `sk8l-grafana-annotations.json`;
+            that.showDashboardAnnotationsModal = true;
           } else {
             console.log(`Unexpected error for getDashboardAnnotations: code = ${err.code}` +
             `, message = "${err.message}"`);
           }
         }
       );
-      this.showDashboardAnnotationsModal = true;
     },
     closeDashboardAnnotationsModal() {
       this.showDashboardAnnotationsModal = false;

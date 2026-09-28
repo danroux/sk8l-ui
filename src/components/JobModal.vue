@@ -51,13 +51,13 @@ export default {
           if (!err) {
             that.modalBody = response.job;
             that.modalHeader = `Job: ${jobName}`;
+            that.showJobModal = true;
           } else {
-            console.log(`Unexpected error for getJobYaml: code = ${err.code}` +
+            console.log(`Unexpected error for getJobYAML: code = ${err.code}` +
             `, message = "${err.message}"`);
           }
         }
       );
-      this.showJobModal = true;
     },
     closeJobModal() {
       this.showJobModal = false;

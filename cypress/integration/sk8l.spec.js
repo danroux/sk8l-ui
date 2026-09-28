@@ -260,4 +260,13 @@ describe('DashboardAnnotations Test', () => {
     // cy.get('.modal-container')
     //   .should('not.exist')
   });
+
+  it('Closes the Dashboard modal when pressing Escape', () => {
+    cy.visit('https://sk8l-ui:8001/');
+    cy.contains('a', 'Dashboard').click();
+
+    cy.contains('sk8l-grafana-annotations.json');
+    cy.get('body').type('{esc}');
+    cy.contains('sk8l-grafana-annotations.json').should('not.exist');
+  });
 });
