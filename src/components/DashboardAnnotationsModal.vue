@@ -75,13 +75,13 @@ export default {
           if (!err) {
             that.modalBody = response.annotations;
             that.modalHeader = `sk8l-grafana-annotations.json`;
+            that.showDashboardAnnotationsModal = true;
           } else {
             console.log(`Unexpected error for getDashboardAnnotations: code = ${err.code}` +
             `, message = "${err.message}"`);
           }
         }
       );
-      this.showDashboardAnnotationsModal = true;
     },
     closeDashboardAnnotationsModal() {
       this.showDashboardAnnotationsModal = false;

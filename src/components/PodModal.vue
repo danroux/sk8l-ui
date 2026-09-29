@@ -42,22 +42,21 @@ export default {
   },
   methods: {
     getPodYAML: async function(podNamespace: string, podName: string): Promise<void> {
-      var request = create(PodRequestSchema, { podNamespace: podNamespace, podName: podName });
-      const that = this;
+      const request = create(PodRequestSchema, { podNamespace, podName });
 
       await Sk8lCronjobClient.getPodYAML(
         request,
         (err, response) => {
           if (!err) {
-            that.modalBody = response.pod;
-            that.modalHeader = `Pod: ${podName}`;
+            this.modalBody = response.pod;
+            this.modalHeader = `Pod: ${podName}`;
+            this.showPodModal = true;
           } else {
             console.log(`Unexpected error for getPodYAML: code = ${err.code}` +
             `, message = "${err.message}"`);
           }
         }
       );
-      this.showPodModal = true;
     },
     closePodModal() {
       this.showPodModal = false;
