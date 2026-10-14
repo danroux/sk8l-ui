@@ -1,0 +1,151 @@
+name: Preview Environment
+
+on:
+  pull_request:
+    types: [labeled, unlabeled, synchronize, closed]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  preview:
+    if: |
+      (github.event.action == 'labeled' && github.event.label.name == 'deploy-preview') ||
+      (github.event.action == 'unlabeled' && github.event.label.name == 'deploy-preview') ||
+      (github.event.action == 'synchronize' && contains(github.event.pull_request.labels.*.name, 'deploy-preview')) ||
+      (github.event.action == 'closed')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sk8l-config
+        uses: actions/checkout@v4
+        with:
+          repository: danroux/sk8l-config
+          token: ${{ secrets.CONFIG_REPO_PAT }}
+          ref: master
+
+      - name: Deploy Preview Manifest
+        if: |
+          (github.event.action == 'labeled' && github.event.label.name == 'deploy-preview') ||
+          (github.event.action == 'synchronize' && contains(github.event.pull_request.labels.*.name, 'deploy-preview'))
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUM="${{ github.event.pull_request.number }}"
+          APP_NAME="sk8l-ui-pr-${PR_NUM}"
+          NAMESPACE="sk8l-ui-pr-${PR_NUM}"
+          FILE="apps/previews/ui-pr-${PR_NUM}.yaml"
+
+          # Leer dinámicamente las versiones estables desde sk8l-config (cero hardcoding)
+          CHART_VERSION=$(yq '.spec.sources[0].targetRevision' apps/sk8l.yaml)
+          STABLE_API_TAG=$(yq '.sk8lApi.imageTag' values/sk8l/values.yaml)
+
+          mkdir -p apps/previews
+          cat <<EOF > "$FILE"
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ${APP_NAME}
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: sk8l
+  sources:
+    - repoURL: ghcr.io/danroux/sk8l
+      chart: sk8l
+      targetRevision: ${CHART_VERSION}
+      helm:
+        releaseName: sk8l
+        valuesObject:
+          namespace:
+            create: false
+            name: ${NAMESPACE}
+          serviceAccount:
+            create: true
+            metadata:
+              name: sk8l
+              namespace: ${NAMESPACE}
+          sk8lUi:
+            image: ghcr.io/danroux/sk8l-ui
+            imageTag: "pre-${PR_NUM}"
+          sk8lApi:
+            image: danroux/sk8l-api
+            imageTag: "${STABLE_API_TAG}"
+          service:
+            type: ClusterIP
+          uiService:
+            type: ClusterIP
+          configMaps:
+            ui:
+              vite_sk8l_api_url: "https://localhost:9080"
+    - repoURL: https://github.com/danroux/sk8l-config.git
+      targetRevision: master
+      path: manifests/preview-pki
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ${NAMESPACE}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - SkipDryRunOnMissingResource=true
+  ignoreDifferences:
+    - kind: ServiceAccount
+      name: sk8l
+      jsonPointers:
+        - /create
+        - /secrets
+        - /imagePullSecrets
+EOF
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$FILE"
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(preview): deploy preview for sk8l-ui PR #${PR_NUM}"
+            git pull --rebase origin master
+            git push origin master
+
+            if [ "${{ github.event.action }}" = "labeled" ]; then
+              gh pr comment "${PR_NUM}" --repo "${{ github.repository }}" --body "🚀 **Preview environment deployed!**
+
+- **Namespace**: \`${NAMESPACE}\`
+- **ArgoCD App**: \`${APP_NAME}\`
+- **Chart Version**: \`${CHART_VERSION}\`
+- **UI (PR)**: \`ghcr.io/danroux/sk8l-ui:pre-${PR_NUM}\`
+- **API (Stable)**: \`danroux/sk8l-api:${STABLE_API_TAG}\`
+
+Para acceder vía port-forward:
+\`\`\`bash
+kubectl port-forward -n ${NAMESPACE} svc/sk8l-ui 8001:8001 9080:9080
+\`\`\`
+UI: https://localhost:8001" || true
+            fi
+          fi
+
+      - name: Teardown Preview Manifest
+        if: |
+          (github.event.action == 'unlabeled' && github.event.label.name == 'deploy-preview') ||
+          (github.event.action == 'closed')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUM="${{ github.event.pull_request.number }}"
+          NAMESPACE="sk8l-ui-pr-${PR_NUM}"
+          FILE="apps/previews/ui-pr-${PR_NUM}.yaml"
+
+          if [ -f "$FILE" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git rm "$FILE"
+            git commit -m "chore(preview): teardown preview for sk8l-ui PR #${PR_NUM}"
+            git pull --rebase origin master
+            git push origin master
+
+            gh pr comment "${PR_NUM}" --repo "${{ github.repository }}" --body "🧹 **Preview environment destroyed.** Namespace \`${NAMESPACE}\` ha sido eliminado." || true
+          fi
