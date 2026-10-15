@@ -10,6 +10,7 @@
   <ModalContainer :show-modal="showDashboardAnnotationsModal"
                   :body="modalBody"
                   :modal-header="modalHeader"
+                  lang="json"
                   @close-modal="closeDashboardAnnotationsModal()">
 
     <template #headerActionContent>
