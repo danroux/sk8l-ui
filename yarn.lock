@@ -3816,10 +3816,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"grpc-web@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "grpc-web@npm:2.0.2"
-  checksum: 10c0/89c9a31275dc750fcee57b5c01601aa607885ee8dae9ec3d91f5a36891a4a69abcf441237e2e80e62a75f329d49c11d055fcd6e4c9b05b98c50f21950d3f22c6
+"grpc-web@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "grpc-web@npm:2.1.1"
+  checksum: 10c0/972548074f778eb78ecc5ec4b3cb30182e7c68dd7648c51e11a8a91ed9faa8e544b1377d95876e0d5bcdd5b6df78131cd808823c1d55cfa31f508f0d5ebc5147
   languageName: node
   linkType: hard
 
@@ -5875,7 +5875,7 @@ __metadata:
     eslint-plugin-vuejs-accessibility: "npm:^2.5.0"
     factory-girl-ts: "npm:^2.3.1"
     google-protobuf: "npm:^4.0.2"
-    grpc-web: "npm:^2.0.2"
+    grpc-web: "npm:^2.1.1"
     happy-dom: "npm:^20.9.0"
     luxon: "npm:^3.7.2"
     rollup: "npm:^4.60.3"

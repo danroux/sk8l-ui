@@ -59,7 +59,7 @@ jobs:
             git push origin master
 
             if [ "${{ github.event.action }}" = "labeled" ]; then
-              COMMENT_BODY=$(printf "🚀 **Preview environment deployed!**\n\n- **Namespace**: \`%s\`\n- **ArgoCD App**: \`%s\`\n- **Chart Version**: \`%s\`\n- **UI (PR)**: \`ghcr.io/danroux/sk8l-ui:pre-%s\`\n- **API (Stable)**: \`danroux/sk8l-api:%s\`\n\nPara acceder vía port-forward:\n\`\`\`bash\nkubectl port-forward -n %s svc/sk8l-ui 8081:80\n\`\`\`\nUI: http://localhost:8081" \
+              COMMENT_BODY=$(printf "🚀 **Preview environment deployed!**\n\n- **Namespace**: \`%s\`\n- **ArgoCD App**: \`%s\`\n- **Chart Version**: \`%s\`\n- **UI (PR)**: \`ghcr.io/danroux/sk8l-ui:pre-%s\`\n- **API (Stable)**: \`danroux/sk8l-api:%s\`\n\nPara acceder vía port-forward:\n\`\`\`bash\nkubectl port-forward -n %s svc/sk8l-ui 8001:8001 9080:9080\n\`\`\`\nUI: https://localhost:8001" \
                 "${NAMESPACE}" "${APP_NAME}" "${CHART_VERSION}" "${PR_NUM}" "${STABLE_API_TAG}" "${NAMESPACE}")
               gh pr comment "${PR_NUM}" --repo "${{ github.repository }}" --body "${COMMENT_BODY}" || true
             fi
