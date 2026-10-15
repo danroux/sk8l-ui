@@ -48,8 +48,8 @@ watch([() => body?.value, currentLang], () => {
 </script>
 
 <template>
-  <div class="yaml-viewer-wrapper">
-    <div class="yaml-viewer-toolbar">
+  <div class="code-viewer-wrapper">
+    <div class="code-viewer-toolbar">
       <button
         class="wrap-toggle"
         :class="{ active: wordWrap }"
@@ -68,7 +68,7 @@ watch([() => body?.value, currentLang], () => {
 </template>
 
 <style>
-.yaml-viewer-wrapper {
+.code-viewer-wrapper {
   width: 100%;
   background-color: #ffffff;
   overflow: hidden;
@@ -78,7 +78,7 @@ watch([() => body?.value, currentLang], () => {
   border-radius: 6px;
 }
 
-.yaml-viewer-toolbar {
+.code-viewer-toolbar {
   display: flex;
   justify-content: flex-end;
   align-items: center;

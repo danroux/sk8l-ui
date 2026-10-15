@@ -20,7 +20,7 @@
 
         <div class="modal-body p-0">
           <slot name="body">
-            <YamlViewer :lang="lang" />
+            <CodeViewer :lang="lang" />
           </slot>
         </div>
 
@@ -42,7 +42,7 @@
 import { defineAsyncComponent, onUnmounted, watch } from 'vue';
 import Octicon from '@/components/Octicon.vue';
 
-const YamlViewer = defineAsyncComponent(() => import('@/components/YamlViewer.vue'));
+const CodeViewer = defineAsyncComponent(() => import('@/components/CodeViewer.vue'));
 
 const props = withDefaults(defineProps<{
   show: boolean;
@@ -105,7 +105,7 @@ onUnmounted(() => {
 .modal-body {
   margin: 0;
   flex: 1;
-  overflow: hidden; /* YamlViewer handles its own scroll */
+  overflow: hidden; /* CodeViewer handles its own scroll */
   display: flex;
 }
 
