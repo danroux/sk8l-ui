@@ -1,3 +1,118 @@
+## v0.19.0 (October 16, 2026)
+
+ENHANCEMENTS:
+
+* ci/dependabot: docker:(deps): bump cypress/included from 14.3.2 to 14.4.0 [[GH-289](https://github.com/danroux/sk8l-ui/issues/289)]
+* ci/dependabot: docker:(deps): bump cypress/included from 14.4.0 to 14.4.1 [[GH-291](https://github.com/danroux/sk8l-ui/issues/291)]
+* ci/dependabot: docker:(deps): bump cypress/included from 14.4.1 to 16.1.0 [[GH-386](https://github.com/danroux/sk8l-ui/issues/386)]
+* ci/dependabot: docker:(deps): bump devcontainers/typescript-node from 1-22-bookworm to 2-20-bookworm [[GH-293](https://github.com/danroux/sk8l-ui/issues/293)]
+* ci/dependabot: docker:(deps): bump devcontainers/typescript-node from 4-24-bookworm to 5-26-bookworm [[GH-387](https://github.com/danroux/sk8l-ui/issues/387)]
+* ci/dependabot: docker:(deps): bump node base images in Dockerfile and Dockerfile.connect [[GH-402](https://github.com/danroux/sk8l-ui/issues/402)]
+* ci/dependabot: docker:(deps): bump node from 22.14.0-bookworm-slim to 24.0.0-bookworm-slim [[GH-288](https://github.com/danroux/sk8l-ui/issues/288)]
+* ci/dependabot: gha:(deps): bump actions/checkout from 4.2.2 to 5.0.0 [[GH-295](https://github.com/danroux/sk8l-ui/issues/295)]
+* ci/dependabot: gha:(deps): bump actions/setup-node from 4 to 6 [[GH-297](https://github.com/danroux/sk8l-ui/issues/297)]
+* ci/dependabot: gha:(deps): bump actions/setup-node from 6 to 7 [[GH-390](https://github.com/danroux/sk8l-ui/issues/390)]
+* ci/dependabot: gha:(deps): bump actions/upload-artifact from 4 to 5 [[GH-298](https://github.com/danroux/sk8l-ui/issues/298)]
+* ci/dependabot: gha:(deps): bump azure/setup-helm from 4.3.0 to 4.3.1 [[GH-296](https://github.com/danroux/sk8l-ui/issues/296)]
+* ci/dependabot: gha:(deps): bump docker/build-push-action from 6.15.0 to 6.16.0 [[GH-276](https://github.com/danroux/sk8l-ui/issues/276)]
+* ci/dependabot: gha:(deps): bump docker/login-action from 3.4.0 to 3.5.0 [[GH-294](https://github.com/danroux/sk8l-ui/issues/294)]
+* ci/dependabot: gha:(deps): bump docker/setup-buildx-action from 3.10.0 to 3.11.0 [[GH-292](https://github.com/danroux/sk8l-ui/issues/292)]
+* ci/dependabot: npm:(deps): bump @grpc/grpc-js from 1.13.3 to 1.14.3 [[GH-316](https://github.com/danroux/sk8l-ui/issues/316)]
+* ci/dependabot: npm:(deps): bump @grpc/grpc-js from 1.14.3 to 1.14.5 [[GH-405](https://github.com/danroux/sk8l-ui/issues/405)]
+* ci/dependabot: npm:(deps): bump @primer/octicons from 19.15.1 to 19.22.0 [[GH-315](https://github.com/danroux/sk8l-ui/issues/315)]
+* ci/dependabot: npm:(deps): bump @primer/octicons from 19.23.1 to 19.25.0 [[GH-326](https://github.com/danroux/sk8l-ui/issues/326)]
+* ci/dependabot: npm:(deps): bump @vitest/coverage-v8 from 3.1.2 to 3.1.3 [[GH-286](https://github.com/danroux/sk8l-ui/issues/286)]
+* ci/dependabot: npm:(deps): bump @vitest/coverage-v8 from 4.0.18 to 4.1.0 [[GH-320](https://github.com/danroux/sk8l-ui/issues/320)]
+* ci/dependabot: npm:(deps): bump @vitest/coverage-v8 from 4.1.0 to 4.1.1 [[GH-331](https://github.com/danroux/sk8l-ui/issues/331)]
+* ci/dependabot: npm:(deps): bump @vitest/coverage-v8 from 4.1.2 to 4.1.3 [[GH-340](https://github.com/danroux/sk8l-ui/issues/340)]
+* ci/dependabot: npm:(deps): bump @vitest/coverage-v8 from 4.1.4 to 4.1.5 [[GH-350](https://github.com/danroux/sk8l-ui/issues/350)]
+* ci/dependabot: npm:(deps): bump cronstrue from 2.59.0 to 2.60.0 [[GH-282](https://github.com/danroux/sk8l-ui/issues/282)]
+* ci/dependabot: npm:(deps): bump cronstrue from 3.13.0 to 3.14.0 [[GH-327](https://github.com/danroux/sk8l-ui/issues/327)]
+* ci/dependabot: npm:(deps): bump google-protobuf from 3.21.4 to 4.0.2 [[GH-322](https://github.com/danroux/sk8l-ui/issues/322)]
+* ci/dependabot: npm:(deps): bump grpc-web from 1.5.0 to 2.0.2 [[GH-307](https://github.com/danroux/sk8l-ui/issues/307)]
+* ci/dependabot: npm:(deps): bump happy-dom from 17.4.4 to 20.8.3 [[GH-283](https://github.com/danroux/sk8l-ui/issues/283)]
+* ci/dependabot: npm:(deps): bump happy-dom from 20.8.3 to 20.8.4 [[GH-325](https://github.com/danroux/sk8l-ui/issues/325)]
+* ci/dependabot: npm:(deps): bump happy-dom from 20.8.4 to 20.8.9 [[GH-334](https://github.com/danroux/sk8l-ui/issues/334)]
+* ci/dependabot: npm:(deps): bump happy-dom from 20.8.9 to 20.9.0 [[GH-344](https://github.com/danroux/sk8l-ui/issues/344)]
+* ci/dependabot: npm:(deps): bump luxon from 3.6.1 to 3.7.2 [[GH-303](https://github.com/danroux/sk8l-ui/issues/303)]
+* ci/dependabot: npm:(deps): bump rollup from 4.40.0 to 4.40.1 [[GH-279](https://github.com/danroux/sk8l-ui/issues/279)]
+* ci/dependabot: npm:(deps): bump rollup from 4.40.0 to 4.59.0 [[GH-312](https://github.com/danroux/sk8l-ui/issues/312)]
+* ci/dependabot: npm:(deps): bump rollup from 4.59.0 to 4.60.1 [[GH-329](https://github.com/danroux/sk8l-ui/issues/329)]
+* ci/dependabot: npm:(deps): bump rollup from 4.59.0 to 4.60.1 [[GH-341](https://github.com/danroux/sk8l-ui/issues/341)]
+* ci/dependabot: npm:(deps): bump rollup from 4.60.1 to 4.60.2 [[GH-347](https://github.com/danroux/sk8l-ui/issues/347)]
+* ci/dependabot: npm:(deps): bump rollup from 4.60.2 to 4.60.3 [[GH-361](https://github.com/danroux/sk8l-ui/issues/361)]
+* ci/dependabot: npm:(deps): bump vitest from 3.1.2 to 4.0.18 [[GH-300](https://github.com/danroux/sk8l-ui/issues/300)]
+* ci/dependabot: npm:(deps): bump vitest from 4.0.18 to 4.1.0 [[GH-323](https://github.com/danroux/sk8l-ui/issues/323)]
+* ci/dependabot: npm:(deps): bump vitest from 4.1.0 to 4.1.1 [[GH-330](https://github.com/danroux/sk8l-ui/issues/330)]
+* ci/dependabot: npm:(deps): bump vitest from 4.1.2 to 4.1.3 [[GH-339](https://github.com/danroux/sk8l-ui/issues/339)]
+* ci/dependabot: npm:(deps): bump vitest from 4.1.4 to 4.1.5 [[GH-351](https://github.com/danroux/sk8l-ui/issues/351)]
+* ci/dependabot: npm:(deps): bump vue from 3.5.13 to 3.5.30 [[GH-308](https://github.com/danroux/sk8l-ui/issues/308)]
+* ci/dependabot: npm:(deps): bump vue from 3.5.30 to 3.5.31 [[GH-333](https://github.com/danroux/sk8l-ui/issues/333)]
+* ci/dependabot: npm:(deps): bump vue from 3.5.31 to 3.5.32 [[GH-337](https://github.com/danroux/sk8l-ui/issues/337)]
+* ci/dependabot: npm:(deps): bump vue from 3.5.32 to 3.5.33 [[GH-354](https://github.com/danroux/sk8l-ui/issues/354)]
+* ci/dependabot: npm:(deps): bump vue-router from 4.5.0 to 4.5.1 [[GH-277](https://github.com/danroux/sk8l-ui/issues/277)]
+* ci/dependabot: npm:(deps): bump vue-router from 5.0.3 to 5.0.4 [[GH-328](https://github.com/danroux/sk8l-ui/issues/328)]
+* ci/dependabot: npm:(deps): bump vue-router from 5.0.4 to 5.0.6 [[GH-352](https://github.com/danroux/sk8l-ui/issues/352)]
+* ci/dependabot: npm:(deps-dev): bump @babel/core from 7.26.10 to 7.27.1 [[GH-281](https://github.com/danroux/sk8l-ui/issues/281)]
+* ci/dependabot: npm:(deps-dev): bump @bufbuild/protobuf from 2.11.0 to 2.12.0 [[GH-357](https://github.com/danroux/sk8l-ui/issues/357)]
+* ci/dependabot: npm:(deps-dev): bump @bufbuild/protobuf from 2.12.0 to 2.15.0 [[GH-398](https://github.com/danroux/sk8l-ui/issues/398)]
+* ci/dependabot: npm:(deps-dev): bump @bufbuild/protobuf from 2.2.5 to 2.3.0 [[GH-287](https://github.com/danroux/sk8l-ui/issues/287)]
+* ci/dependabot: npm:(deps-dev): bump @bufbuild/protobuf from 2.3.0 to 2.11.0 [[GH-306](https://github.com/danroux/sk8l-ui/issues/306)]
+* ci/dependabot: npm:(deps-dev): bump @connectrpc/connect from 2.0.2 to 2.1.1 [[GH-301](https://github.com/danroux/sk8l-ui/issues/301)]
+* ci/dependabot: npm:(deps-dev): bump @connectrpc/connect from 2.1.1 to 2.2.0 [[GH-389](https://github.com/danroux/sk8l-ui/issues/389)]
+* ci/dependabot: npm:(deps-dev): bump @connectrpc/connect-web from 2.0.2 to 2.1.1 [[GH-302](https://github.com/danroux/sk8l-ui/issues/302)]
+* ci/dependabot: npm:(deps-dev): bump @types/node from 25.5.2 to 25.6.0 [[GH-345](https://github.com/danroux/sk8l-ui/issues/345)]
+* ci/dependabot: npm:(deps-dev): bump @vitejs/plugin-vue from 5.2.3 to 6.0.4 [[GH-299](https://github.com/danroux/sk8l-ui/issues/299)]
+* ci/dependabot: npm:(deps-dev): bump @vitejs/plugin-vue from 6.0.4 to 6.0.5 [[GH-321](https://github.com/danroux/sk8l-ui/issues/321)]
+* ci/dependabot: npm:(deps-dev): bump @vitejs/plugin-vue from 6.0.5 to 6.0.6 [[GH-343](https://github.com/danroux/sk8l-ui/issues/343)]
+* ci/dependabot: npm:(deps-dev): bump @vue/test-utils from 2.4.6 to 2.4.9 [[GH-356](https://github.com/danroux/sk8l-ui/issues/356)]
+* ci/dependabot: npm:(deps-dev): bump @vue/test-utils from 2.4.9 to 2.4.10 [[GH-358](https://github.com/danroux/sk8l-ui/issues/358)]
+* ci/dependabot: npm:(deps-dev): bump babel-jest from 29.7.0 to 30.2.0 [[GH-304](https://github.com/danroux/sk8l-ui/issues/304)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 10.0.3 to 10.1.0 [[GH-332](https://github.com/danroux/sk8l-ui/issues/332)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 10.1.0 to 10.2.0 [[GH-338](https://github.com/danroux/sk8l-ui/issues/338)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 10.2.0 to 10.2.1 [[GH-348](https://github.com/danroux/sk8l-ui/issues/348)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 10.2.1 to 10.3.0 [[GH-359](https://github.com/danroux/sk8l-ui/issues/359)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 9.26.0 to 10.0.3 [[GH-310](https://github.com/danroux/sk8l-ui/issues/310)]
+* ci/dependabot: npm:(deps-dev): bump eslint-plugin-import from 2.31.0 to 2.32.0 [[GH-314](https://github.com/danroux/sk8l-ui/issues/314)]
+* ci/dependabot: npm:(deps-dev): bump eslint-plugin-vue from 10.0.0 to 10.8.0 [[GH-280](https://github.com/danroux/sk8l-ui/issues/280)]
+* ci/dependabot: npm:(deps-dev): bump eslint-plugin-vue from 10.8.0 to 10.9.0 [[GH-353](https://github.com/danroux/sk8l-ui/issues/353)]
+* ci/dependabot: npm:(deps-dev): bump eslint-plugin-vuejs-accessibility from 2.4.1 to 2.5.0 [[GH-305](https://github.com/danroux/sk8l-ui/issues/305)]
+* ci/dependabot: npm:(deps-dev): bump jest from 29.7.0 to 30.3.0 [[GH-313](https://github.com/danroux/sk8l-ui/issues/313)]
+* ci/dependabot: npm:(deps-dev): bump sass from 1.86.3 to 1.97.3 [[GH-271](https://github.com/danroux/sk8l-ui/issues/271)]
+* ci/dependabot: npm:(deps-dev): bump sass from 1.97.3 to 1.98.0 [[GH-319](https://github.com/danroux/sk8l-ui/issues/319)]
+* ci/dependabot: npm:(deps-dev): bump sass from 1.98.0 to 1.99.0 [[GH-336](https://github.com/danroux/sk8l-ui/issues/336)]
+* ci/dependabot: npm:(deps-dev): bump typescript from 6.0.2 to 6.0.3 [[GH-346](https://github.com/danroux/sk8l-ui/issues/346)]
+* ci/dependabot: npm:(deps-dev): bump vite from 6.3.2 to 7.3.1 [[GH-275](https://github.com/danroux/sk8l-ui/issues/275)]
+* ci/dependabot: npm:(deps-dev): bump vue-eslint-parser from 10.1.3 to 10.4.0 [[GH-311](https://github.com/danroux/sk8l-ui/issues/311)]
+* ci/dependabot: npm:(deps-dev): bump vue-tsc from 3.2.6 to 3.2.7 [[GH-349](https://github.com/danroux/sk8l-ui/issues/349)]
+* ci/dependabot: npm:(deps-dev): bump vue-tsc from 3.2.7 to 3.2.8 [[GH-360](https://github.com/danroux/sk8l-ui/issues/360)]
+* ci: Add on-demand preview environment workflow deploying ephemeral namespaces via ArgoCD [[GH-412](https://github.com/danroux/sk8l-ui/issues/412)]
+* deps/k8s: update k8s/kind versions to test against [[GH-355](https://github.com/danroux/sk8l-ui/issues/355)]
+* js/vue: Add YAML/JSON syntax highlighting and escape-to-close for modals [[GH-385](https://github.com/danroux/sk8l-ui/issues/385)]
+
+IMPROVEMENTS:
+
+* ci: Streamline changelog workflow into single idempotent job [[GH-413](https://github.com/danroux/sk8l-ui/issues/413)]
+* docker: Switch deps to alpine/remove extra yarn install/add yarn cache mount [[GH-318](https://github.com/danroux/sk8l-ui/issues/318)]
+* pb: Regenerate ts protos without k8s imports (protoc-gen-es v2.11.0) [[GH-309](https://github.com/danroux/sk8l-ui/issues/309)]
+
+BUG FIXES:
+
+* ci/k8s: Replace broken engineerd/setup-kind action with helm/kind-action [[GH-383](https://github.com/danroux/sk8l-ui/issues/383)]
+* js: Cancel active gRPC streams and clean up lifecycle hooks on navigation [[GH-384](https://github.com/danroux/sk8l-ui/issues/384)]
+
+  Fix connection leaks when navigating between views that caused browser socket exhaustion (HTTP/1.1 6-connection limit) and stalled subsequent requests:
+  - Add `:key="$route.fullPath"` to `<router-view>` in App.vue to ensure proper teardown and remounting on route/parameter updates
+  - Implement safe `cancelStream()` and invoke it in both `beforeRouteLeave` and `beforeUnmount` hooks across HomeView, CronJob, JobListView, and JobPodListView
+  - Unregister `beforeunload` window event listeners on component unmount
+  - Filter out `Code.Canceled` Connect errors during navigation teardown
+* proto: replace spec.jobTemplate references with CronJobSpecResponse fields [[GH-317](https://github.com/danroux/sk8l-ui/issues/317)]
+
+DEPENDENCIES:
+
+* ci/dependabot: npm:(deps): bump google-protobuf from 4.0.2 to 4.0.3 [[GH-407](https://github.com/danroux/sk8l-ui/issues/407)]
+* ci/dependabot: npm:(deps): bump grpc-web from 2.0.2 to 2.1.1 [[GH-408](https://github.com/danroux/sk8l-ui/issues/408)]
+
 ## v0.18.0 (May 19, 2025)
 
 ENHANCEMENTS:
