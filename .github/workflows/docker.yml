@@ -368,8 +368,11 @@ jobs:
     needs: [sk8l-ui-production-img]
     if: startsWith(github.ref, 'refs/tags/')
     steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
       - name: Checkout - set env
-        run: echo "IMAGE_TAG=$(make version)" >> $GITHUB_ENV
+        run: echo "IMAGE_TAG=${{ github.ref_name }}" >> $GITHUB_ENV
       - name: Download digests
         uses: actions/download-artifact@v4
         with:
