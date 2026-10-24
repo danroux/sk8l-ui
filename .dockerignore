@@ -5,3 +5,9 @@ production.dockerfile
 .yarn
 .git
 Makefile*
+dist
+cypress
+testdata
+tests
+.github
+.changelog
