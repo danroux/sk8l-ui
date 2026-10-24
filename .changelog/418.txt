@@ -1,0 +1,3 @@
+```release-note:bug
+js/vue: Render active jobs at the top of Jobs list and order by newest first
+```
