@@ -6,8 +6,5 @@ production.dockerfile
 .git
 Makefile*
 dist
-cypress
-testdata
-tests
 .github
 .changelog
