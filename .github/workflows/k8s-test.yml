@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           submodules: recursive
@@ -39,7 +39,7 @@ jobs:
           kubectl cluster-info > /dev/null
           kubectl describe node > /dev/null
       - name: Install Helm
-        uses: azure/setup-helm@v4.3.1
+        uses: azure/setup-helm@v5.0.1
         with:
           version: 'v3.13.3'
       - name: Setup certs
@@ -82,7 +82,7 @@ jobs:
           echo "----------------------------"
           curl -vvv http://0.0.0.0:9901/clusters
           exit 1
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         if: failure()
         with:
           name: e2e-job-ss-${{ github.job }}-${{ github.run_number }}-${{ github.run_id }}

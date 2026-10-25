@@ -3,7 +3,7 @@
 
 # https://hub.docker.com/r/microsoft/devcontainers-typescript-node
 # https://mcr.microsoft.com/v2/devcontainers/typescript-node/tags/list
-FROM --platform=${TARGETPLATFORM} mcr.microsoft.com/devcontainers/typescript-node:4-24-bookworm AS build-stage
+FROM node:22-bookworm-slim AS build-stage
 
 ARG TARGETPLATFORM TARGETOS TARGETARCH
 ENV npm_config_cache=/usr/app/node_modules/.cache
@@ -14,26 +14,17 @@ COPY package*.json yarn.lock .yarnrc.yml .
 
 RUN node -p "process.arch" \
     && echo $TARGETPLATFORM && echo $TARGETOS && echo $TARGETARCH
-RUN corepack enable \
-    && yarn config set --home enableTelemetry 0 \
-    && yarn install --immutable --check-cache
-# USER 1000:3000
-# Error: EACCES: permission denied, mkdir '/usr/app/node_modules/.cache'
-# RUN mkdir -p /usr/app/node_modules/.cache \
-#     /usr/app/node_modules/.cache/babel-loader \
-#     /usr/app/node_modules/.cache/eslint
-# RUN mkdir -p /usr/app/.npm
-# RUN npm config set cache /usr/app/.node_modules_cache --global
+RUN npm install -g --force corepack \
+    && corepack enable \
+    && yarn config set --home enableTelemetry 0
+
+ENV YARN_CACHE_FOLDER=/root/.yarn/berry/cache
+RUN --mount=type=cache,target=/root/.yarn/berry/cache \
+    yarn install --immutable
 
 COPY . .
 
 RUN yarn build
-
-# RUN yarn add pm2
-# RUN yarn run serveprod
-
-# CMD ["npx", "yarn", "run", "serveprod"]
-# RUN yarn add serve
 
 FROM nginx:1.25.4-alpine3.18-slim AS production-stage
 LABEL org.opencontainers.image.source=https://github.com/danroux/sk8l-ui

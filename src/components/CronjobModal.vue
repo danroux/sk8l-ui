@@ -51,13 +51,13 @@ export default {
           if (!err) {
             that.modalBody = response.cronjob;
             that.modalHeader = `Cronjob: ${name}`;
+            that.showCronjobModal = true;
           } else {
-            console.log(`Unexpected error for getPodYAML: code = ${err.code}` +
+            console.log(`Unexpected error for getCronjobYAML: code = ${err.code}` +
                         `, message = "${err.message}"`);
           }
         }
       );
-      this.showCronjobModal = true;
     },
     closeCronjobModal() {
       this.showCronjobModal = false;

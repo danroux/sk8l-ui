@@ -10,7 +10,7 @@ help: ## This help.
 
 # Bump these on release
 VERSION_MAJOR ?= 0
-VERSION_MINOR ?= 18
+VERSION_MINOR ?= 19
 VERSION_PATCH ?= 0
 
 WITHOUT ?= $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
@@ -56,7 +56,9 @@ setup-certs: # setup-certs
 	  --namespace cert-manager \
 	  --set app.trust.namespace=sk8l \
 	  --wait
-	kubectl apply -f https://raw.githubusercontent.com/danroux/sk8l-api/main/testdata/sk8l-trust.yml
+	kubectl rollout status deployment/trust-manager -n cert-manager --timeout=120s
+	kubectl wait --for=condition=Ready pod -l app.kubernetes.io/name=trust-manager -n cert-manager --timeout=120s
+	for i in $$(seq 1 10); do kubectl apply -f https://raw.githubusercontent.com/danroux/sk8l-api/main/testdata/sk8l-trust.yml && break || sleep 3; done
 
 install-chart-ci: # install-chart-ci
 	helm repo add sk8l https://sk8l.io/charts

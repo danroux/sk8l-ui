@@ -93,25 +93,22 @@ export default {
   },
   computed: {
     status(vm) {
-      // if (this.job.status.failed > 0) {
-      //   return 'Failed';
-      // }
-      if (vm.pods.failingPods.length > 0) {
-          if (this.job.status.active > 0) {
-            return 'Failing';
-          }
-          return 'Failed';
-      }
       if (this.job.status.active > 0) {
+        if (vm.pods.failingPods.length > 0 || this.job.status.failed > 0 || this.job.failed) {
+          return 'Failing';
+        }
         return 'Active';
+      }
+      if (this.job.failed || this.job.status.failed > 0 || vm.pods.failingPods.length > 0) {
+        return 'Failed';
       }
       if (this.job.succeeded) {
         return 'Succeeded';
       }
     },
     jobStatusClass(vm) {
-      if (vm.pods.failingPods.length > 0) {
-          return 'Box-row--danger';
+      if (vm.pods.failingPods.length > 0 || this.job.status.failed > 0 || this.job.failed) {
+        return 'Box-row--danger';
       }
       // if last execution failed but is no longer active, class is removed and
       // state is not visible anymore.
@@ -120,9 +117,6 @@ export default {
       }
       if (this.job.succeeded === true) {
         return 'Box-row--success';
-      }
-      if (this.job.status.failed > 0) {
-        return 'Box-row--danger';
       }
     },
     lastFailureTime() {
@@ -135,8 +129,9 @@ export default {
       }
 
       // while is failing
-      const finishedAt = this.job.terminationReasons.find((first) => first).terminationDetails.finishedAt;
-      return DateTime.fromISO(finishedAt).toSeconds();
+      const tr = this.job.terminationReasons.find((first) => first);
+      const finishedAt = tr?.terminationDetails?.finishedAt;
+      return finishedAt ? DateTime.fromISO(finishedAt).toSeconds() : 0;
     },
     pods(vm) {
       return PodsGenerator.pods(vm.job.pods);

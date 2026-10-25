@@ -5,3 +5,6 @@ production.dockerfile
 .yarn
 .git
 Makefile*
+dist
+.github
+.changelog
