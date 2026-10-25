@@ -50,7 +50,7 @@ const PodsGenerator = {
 
       // Networking & Nodes
       pod.startTime = jobPod.status?.startTime;
-      pod.finishedAt = jobPod.finishedAt;
+      pod.finishedAt = jobPod.finishedAt || jobPod.FinishedAt;
       pod.podIPs = jobPod.status?.podIPs || [];
       pod.podIP = jobPod.status?.podIP;
       pod.hostIP = jobPod.status?.hostIP;
@@ -101,11 +101,17 @@ const PodsGenerator = {
   },
 
   errorReason(status: ProcessedContainerStatus): boolean {
-    return status.reason === 'Error' || status.reason === "CreateContainerConfigError";
+    return (
+      status.reason === 'Error' ||
+      status.reason === "CreateContainerConfigError" ||
+      status.reason === 'CrashLoopBackOff' ||
+      status.reason === 'ImagePullBackOff' ||
+      status.reason === 'ErrImagePull'
+    );
   },
 
   failingPods(pods: UIWrappedPod[]): UIWrappedPod[] {
-    return pods.filter((pod) => pod.failing.length > 0);
+    return pods.filter((pod) => pod.failing.length > 0 || pod.failed);
   },
 
   waitingPods(pods: UIWrappedPod[]): UIWrappedPod[] {
