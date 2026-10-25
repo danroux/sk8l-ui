@@ -1,0 +1,3 @@
+```release-note:bug
+ci/k8s: Prevent webhook connection refused race condition when applying trust bundle in setup-certs
+```
