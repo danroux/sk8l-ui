@@ -1,3 +1,37 @@
+## v0.20.0 (October 26, 2026)
+
+
+ENHANCEMENTS:
+
+* ci/dependabot: docker:(deps): bump cypress/included from 16.1.0 to 16.1.1 [[GH-409](https://github.com/danroux/sk8l-ui/issues/409)]
+* ci/dependabot: gha:(deps): bump actions/download-artifact from 4 to 7 [[GH-410](https://github.com/danroux/sk8l-ui/issues/410)]
+* ci/dependabot: gha:(deps): bump actions/upload-artifact from 4 to 6 [[GH-411](https://github.com/danroux/sk8l-ui/issues/411)]
+* ci/dependabot: gha:(deps): bump azure/setup-helm from 4.3.1 to 5.0.1 [[GH-396](https://github.com/danroux/sk8l-ui/issues/396)]
+* ci/dependabot: gha:(deps): bump docker/build-push-action from 6.16.0 to 7.4.0 [[GH-388](https://github.com/danroux/sk8l-ui/issues/388)]
+* ci/dependabot: gha:(deps): bump docker/login-action from 3.5.0 to 4.6.0 [[GH-392](https://github.com/danroux/sk8l-ui/issues/392)]
+* ci/dependabot: gha:(deps): bump helm/kind-action from 1.14.0 to 1.15.0 [[GH-391](https://github.com/danroux/sk8l-ui/issues/391)]
+* ci: Automate release preparation workflow and changelog generation [[GH-420](https://github.com/danroux/sk8l-ui/issues/420)]
+
+IMPROVEMENTS:
+
+* docker: Optimize production build stage with node:22-bookworm-slim and yarn cache mount [[GH-417](https://github.com/danroux/sk8l-ui/issues/417)]
+
+BUG FIXES:
+
+* ci/k8s: Prevent webhook connection refused race condition when applying trust bundle in setup-certs [[GH-419](https://github.com/danroux/sk8l-ui/issues/419)]
+* js/vue: Render active jobs at the top of Jobs list and order by newest first [[GH-418](https://github.com/danroux/sk8l-ui/issues/418)]
+
+DEPENDENCIES:
+
+* ci/dependabot: gha:(deps): bump actions/checkout from 4 to 7 [[GH-394](https://github.com/danroux/sk8l-ui/issues/394)]
+* ci/dependabot: gha:(deps): bump docker/setup-buildx-action from 3.11.0 to 4.4.1 [[GH-395](https://github.com/danroux/sk8l-ui/issues/395)]
+* ci/dependabot: npm:(deps): bump @vitest/coverage-v8 from 4.1.5 to 5.0.5 [[GH-414](https://github.com/danroux/sk8l-ui/issues/414)]
+* ci/dependabot: npm:(deps): bump cronstrue from 3.14.0 to 3.32.0 [[GH-406](https://github.com/danroux/sk8l-ui/issues/406)]
+* ci/dependabot: npm:(deps-dev): bump @types/luxon from 3.7.1 to 3.7.6 [[GH-393](https://github.com/danroux/sk8l-ui/issues/393)]
+* ci/dependabot: npm:(deps-dev): bump @vitejs/plugin-vue from 6.0.6 to 6.0.10 [[GH-401](https://github.com/danroux/sk8l-ui/issues/401)]
+* ci/dependabot: npm:(deps-dev): bump @vue/eslint-config-typescript from 14.7.0 to 14.9.0 [[GH-399](https://github.com/danroux/sk8l-ui/issues/399)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 10.3.0 to 10.13.0 [[GH-415](https://github.com/danroux/sk8l-ui/issues/415)]
+
 ## v0.19.0 (October 16, 2026)
 
 ENHANCEMENTS:
