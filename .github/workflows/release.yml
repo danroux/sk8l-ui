@@ -13,29 +13,35 @@ jobs:
   release-notes:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
-          ref: 'main'
-      - name: Get Latest Tag
-        id: latest-tag
+          ref: ${{ github.ref }}
+
+      - name: Determine Tag
+        id: tag
         run: |
-          git fetch --tags
-          latest_tag=$(git tag -l --sort=-v:refname | head -n 1)
-          echo "latest_tag=$latest_tag" >> "$GITHUB_OUTPUT"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          if [ "${{ github.ref_type }}" = "tag" ]; then
+            echo "name=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+          else
+            git fetch --tags
+            LATEST=$(git tag -l --sort=-v:refname | head -n 1)
+            echo "name=$LATEST" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Generate Release Notes
         run: |
           latest_entry=$(sed -n '/^##/,$p' CHANGELOG.md | awk '/^##/ {if (version) {print entry; exit} version=$0} {entry = entry ORS $0}')
           echo "$latest_entry" > release-notes.md
+
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: release-notes
           path: release-notes.md
           retention-days: 1
+
       - name: GH Release
         run: |
-          gh release create "${{ steps.latest-tag.outputs.latest_tag }}" --notes-file release-notes.md --title "${{ steps.latest-tag.outputs.latest_tag }}"
+          gh release create "${{ steps.tag.outputs.name }}" --notes-file release-notes.md --title "${{ steps.tag.outputs.name }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
