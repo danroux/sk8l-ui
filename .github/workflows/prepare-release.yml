@@ -23,13 +23,23 @@ jobs:
           ref: main
 
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0
         with:
           go-version: '1.27.x'
 
-      - name: Install changelog-build & yq
+      - name: Cache changelog-build
+        id: cache-changelog-build
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ~/go/bin/changelog-build
+          key: ${{ runner.os }}-changelog-build-v0.0.0-20260907110944
+
+      - name: Install changelog-build
+        if: steps.cache-changelog-build.outputs.cache-hit != 'true'
+        run: go install github.com/hashicorp/go-changelog/cmd/changelog-build@v0.0.0-20260907110944-10b1aebc564c
+
+      - name: Install yq
         run: |
-          go install github.com/hashicorp/go-changelog/cmd/changelog-build@latest
           if ! command -v yq &> /dev/null; then
             sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
             sudo chmod +x /usr/local/bin/yq
@@ -104,4 +114,4 @@ jobs:
           git push origin "${BRANCH_NAME}" --force
 
           BODY=$(printf "### %s\n\n%s\n\n---\n*Auto-generated release PR by prepare-release workflow.*" "${TITLE}" "${{ steps.changelog.outputs.notes }}")
-          gh pr create --title "${TITLE}" --body "${BODY}" --base main --head "${BRANCH_NAME}" || true
+          gh pr create --title "${TITLE}" --body "${BODY}" --base main --head "${BRANCH_NAME}" --label "pr/no-changelog" || true
