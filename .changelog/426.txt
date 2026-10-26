@@ -1,0 +1,20 @@
+```release-note:dependency
+ci/dependabot: gha:(deps): bump actions/cache from 5.0.5 to 6.1.0
+
+gha:(deps): bump actions/cache from 5.0.5 to 6.1.0
+
+Bumps [actions/cache](https://github.com/actions/cache) from 5.0.5 to 6.1.0.
+- [Release notes](https://github.com/actions/cache/releases)
+- [Changelog](https://github.com/actions/cache/blob/main/RELEASES.md)
+- [Commits](https://github.com/actions/cache/compare/27d5ce7f107fe9357f9df03efb73ab90386fccae...55cc8345863c7cc4c66a329aec7e433d2d1c52a9)
+
+---
+updated-dependencies:
+- dependency-name: actions/cache
+  dependency-version: 6.1.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
