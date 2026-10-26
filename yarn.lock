@@ -6270,10 +6270,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-statistics@npm:^7.8.3":
-  version: 7.8.9
-  resolution: "simple-statistics@npm:7.8.9"
-  checksum: 10c0/2d5e9398c7ffca739a2b858396f74c3ddae8f21233a303ae64a28d84af40d456622135546976cd76b983a9b9612d4b579ed44b32d1290043b224e31fdb61ddf9
+"simple-statistics@npm:^7.12.1":
+  version: 7.12.1
+  resolution: "simple-statistics@npm:7.12.1"
+  checksum: 10c0/391a9eeb960d798a90c8f03fb90eb9774028d843f30eec0f31ee2954bb2c6027609346a7254c4a0134245c2f539495b3a1585677ced886a5a1c54583b31869d7
   languageName: node
   linkType: hard
 
@@ -6309,7 +6309,7 @@ __metadata:
     rollup: "npm:^4.60.3"
     sass: "npm:^1.99.0"
     shiki: "npm:^4.0.2"
-    simple-statistics: "npm:^7.8.3"
+    simple-statistics: "npm:^7.12.1"
     typescript: "npm:^6.0.3"
     uplot: "npm:^1.6.32"
     vite: "npm:^7.3.1"
