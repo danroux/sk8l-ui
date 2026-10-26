@@ -1,0 +1,117 @@
+name: Prepare Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      ui_version:
+        description: 'UI Version (e.g. 0.20.0 or v0.20.0)'
+        required: true
+        default: '0.20.0'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  prepare-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Set up Go
+        uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0
+        with:
+          go-version: '1.27.x'
+
+      - name: Cache changelog-build
+        id: cache-changelog-build
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ~/go/bin/changelog-build
+          key: ${{ runner.os }}-changelog-build-v0.0.0-20260907110944
+
+      - name: Install changelog-build
+        if: steps.cache-changelog-build.outputs.cache-hit != 'true'
+        run: go install github.com/hashicorp/go-changelog/cmd/changelog-build@v0.0.0-20260907110944-10b1aebc564c
+
+      - name: Install yq
+        run: |
+          if ! command -v yq &> /dev/null; then
+            sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+            sudo chmod +x /usr/local/bin/yq
+          fi
+
+      - name: Normalize Version Variables
+        id: vars
+        run: |
+          UI_RAW="${{ github.event.inputs.ui_version }}"
+          UI_NUM="${UI_RAW#v}"
+          UI_TAG="v${UI_NUM}"
+
+          echo "ui_num=${UI_NUM}" >> "$GITHUB_OUTPUT"
+          echo "ui_tag=${UI_TAG}" >> "$GITHUB_OUTPUT"
+
+          IFS='.' read -r UI_MAJOR UI_MINOR UI_PATCH <<< "${UI_NUM}"
+          echo "ui_major=${UI_MAJOR}" >> "$GITHUB_OUTPUT"
+          echo "ui_minor=${UI_MINOR}" >> "$GITHUB_OUTPUT"
+          echo "ui_patch=${UI_PATCH}" >> "$GITHUB_OUTPUT"
+
+      - name: Update Makefile & package.json Versions
+        run: |
+          sed -i -E "s/VERSION_MAJOR \?= [0-9]+/VERSION_MAJOR ?= ${{ steps.vars.outputs.ui_major }}/" Makefile
+          sed -i -E "s/VERSION_MINOR \?= [0-9]+/VERSION_MINOR ?= ${{ steps.vars.outputs.ui_minor }}/" Makefile
+          sed -i -E "s/VERSION_PATCH \?= [0-9]+/VERSION_PATCH ?= ${{ steps.vars.outputs.ui_patch }}/" Makefile
+          sed -i -E 's/"version": "[^"]+"/"version": "${{ steps.vars.outputs.ui_num }}"/' package.json
+
+      - name: Generate Changelog & Update CHANGELOG.md
+        id: changelog
+        run: |
+          LAST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "")
+          echo "Generating notes from ${LAST_TAG} to HEAD"
+
+          RAW_NOTES=$(changelog-build \
+            -last-release "${LAST_TAG}" \
+            -entries-dir .changelog/ \
+            -changelog-template .changelog/changelog.tmpl \
+            -note-template .changelog/note.tmpl \
+            -this-release HEAD)
+
+          chmod +x ci/clean_changelog.sh
+          NOTES=$(echo "${RAW_NOTES}" | ./ci/clean_changelog.sh)
+
+          RELEASE_DATE=$(date '+%B %d, %Y')
+          HEADER="## ${{ steps.vars.outputs.ui_tag }} (${RELEASE_DATE})"
+
+          TEMP_CHANGELOG=$(mktemp)
+          printf "%s\n\n%s\n\n%s" "${HEADER}" "${NOTES}" "$(cat CHANGELOG.md)" > "${TEMP_CHANGELOG}"
+          mv "${TEMP_CHANGELOG}" CHANGELOG.md
+
+          # Save notes for PR description
+          echo "notes<<EOF" >> "$GITHUB_OUTPUT"
+          echo "${NOTES}" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Create Release Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH_NAME="release-${{ steps.vars.outputs.ui_tag }}"
+          TITLE="Release ${{ steps.vars.outputs.ui_tag }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B "${BRANCH_NAME}"
+          git add Makefile CHANGELOG.md package.json
+          MSG_FILE=$(mktemp)
+          printf "%s\n\n%s\n" "${TITLE}" "${{ steps.changelog.outputs.notes }}" > "${MSG_FILE}"
+          git commit -F "${MSG_FILE}"
+          rm -f "${MSG_FILE}"
+          git push origin "${BRANCH_NAME}" --force
+
+          BODY=$(printf "### %s\n\n%s\n\n---\n*Auto-generated release PR by prepare-release workflow.*" "${TITLE}" "${{ steps.changelog.outputs.notes }}")
+          gh pr create --title "${TITLE}" --body "${BODY}" --base main --head "${BRANCH_NAME}" --label "pr/no-changelog" || true

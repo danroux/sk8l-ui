@@ -1,0 +1,3 @@
+```release-note:enhancement
+ci: Automate release preparation workflow and changelog generation
+```
