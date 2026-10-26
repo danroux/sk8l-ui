@@ -1,3 +1,5 @@
 ```release-note:improvement
 ci/k8s: k8s: update KinD to v0.33.0 and k8s test matrix (v1.34 - v1.37)
+
+use tonistiigi/binfmt:latest for modern QEMU ARM64 support
 ```
