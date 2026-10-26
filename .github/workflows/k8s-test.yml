@@ -46,7 +46,6 @@ jobs:
         run: |
           make setup-certs > /dev/null
       - name: Update config files with pre-${{ inputs.image_tag }} image tag
-        if:
         run: |
           pr_image_tag=pre-${{ inputs.pull_request_number }} # ${{ inputs.image_tag }}
           cp testdata/sk8l-values.yml testdata/sk8l-values.yml.bak

@@ -42,8 +42,8 @@ helm upgrade --install [RELEASE_NAME] sk8l/sk8l \
 The Kubernetes community releases minor versions roughly every three months. These are the versions currently supported and tested against.
 
 | Version       | Tested Version |
-| ------------- | ----------------- |
-| v1.32         | v1.32.2           |
-| v1.31         | v1.31.6           |
-| v1.30         | v1.30.10          |
-| v1.29         | v1.29.14          |
+| ------------- | -------------- |
+| v1.37         | v1.37.0        |
+| v1.36         | v1.36.4        |
+| v1.35         | v1.35.8        |
+| v1.34         | v1.34.11       |
