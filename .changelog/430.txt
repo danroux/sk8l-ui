@@ -1,0 +1,20 @@
+```release-note:dependency
+ci/dependabot: npm:(deps): bump @primer/octicons from 19.25.0 to 19.42.0
+
+npm:(deps): bump @primer/octicons from 19.25.0 to 19.42.0
+
+Bumps [@primer/octicons](https://github.com/primer/octicons) from 19.25.0 to 19.42.0.
+- [Release notes](https://github.com/primer/octicons/releases)
+- [Changelog](https://github.com/primer/octicons/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/primer/octicons/compare/v19.25.0...@primer/octicons@19.42.0)
+
+---
+updated-dependencies:
+- dependency-name: "@primer/octicons"
+  dependency-version: 19.41.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
