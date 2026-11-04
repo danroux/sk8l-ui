@@ -7,6 +7,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['22', '24', '26']
+    name: Node ${{ matrix.node-version }} tests
     permissions:
       contents: read
       pull-requests: write
@@ -21,7 +26,7 @@ jobs:
         run: corepack enable
       - uses: actions/setup-node@v7
         with:
-          node-version: '24.14.0'
+          node-version: ${{ matrix.node-version }}
           cache: 'yarn'
           # gha output
           # /usr/local/bin/yarn config get cacheFolder
@@ -42,6 +47,7 @@ jobs:
         run: |
           yarn install --immutable #  --immutable-cache
           yarn test
+          yarn build
       # - name: Report Coverage
       #   uses: davelosert/vitest-coverage-report-action@v2
       #   with:
