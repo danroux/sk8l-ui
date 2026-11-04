@@ -42,7 +42,7 @@
     "@types/node": "^25.6.0",
     "@vitejs/plugin-vue": "^6.0.10",
     "@vue/eslint-config-typescript": "^14.9.0",
-    "@vue/test-utils": "^2.4.10",
+    "@vue/test-utils": "^2.5.1",
     "@vue/tsconfig": "^0.9.1",
     "eslint": "^10.13.0",
     "eslint-plugin-import": "^2.32.0",
