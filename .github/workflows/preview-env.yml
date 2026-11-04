@@ -1,8 +1,8 @@
 name: Preview Environment
 
 on:
-  pull_request:
-    types: [labeled, unlabeled, synchronize, closed]
+  pull_request_target:
+    types: [labeled, unlabeled, closed]
 
 permissions:
   contents: read
@@ -13,7 +13,6 @@ jobs:
     if: |
       (github.event.action == 'labeled' && github.event.label.name == 'deploy-preview') ||
       (github.event.action == 'unlabeled' && github.event.label.name == 'deploy-preview') ||
-      (github.event.action == 'synchronize' && contains(github.event.pull_request.labels.*.name, 'deploy-preview')) ||
       (github.event.action == 'closed')
     runs-on: ubuntu-latest
     steps:
@@ -25,9 +24,7 @@ jobs:
           ref: master
 
       - name: Deploy Preview Manifest
-        if: |
-          (github.event.action == 'labeled' && github.event.label.name == 'deploy-preview') ||
-          (github.event.action == 'synchronize' && contains(github.event.pull_request.labels.*.name, 'deploy-preview'))
+        if: github.event.action == 'labeled' && github.event.label.name == 'deploy-preview'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
