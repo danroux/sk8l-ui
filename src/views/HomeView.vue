@@ -18,7 +18,7 @@ import RootBlankSlate from '@/views/RootBlankSlate.vue';
 
 import { create } from "@bufbuild/protobuf";
 import { CronjobsRequestSchema } from '@/components/protos/sk8l_pb.ts';
-import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
+import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.ts';
 import { Code, ConnectError } from "@connectrpc/connect";
 
 export default {

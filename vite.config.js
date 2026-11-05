@@ -2,9 +2,8 @@
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
-const path = require("path");
-const fs = require('fs');
+import path from 'path'
+import fs from 'fs'
 
 export default defineConfig(({ mode }) => {
   const httpsConfig = mode === "development"
@@ -15,12 +14,7 @@ export default defineConfig(({ mode }) => {
     : {};
 
   return {
-    plugins: [vue(), viteCommonjs()],
-    build: {
-      commonjsOptions: {
-        transformMixedEsModules: true,
-      }
-    },
+    plugins: [vue()],
     test: {
       environment: 'happy-dom',
       globals: true,
