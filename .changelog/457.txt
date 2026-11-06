@@ -1,0 +1,20 @@
+```release-note:dependency
+ci/dependabot: npm:(deps): bump @vitest/coverage-v8 from 5.0.5 to 5.1.0
+
+npm:(deps): bump @vitest/coverage-v8 from 5.0.5 to 5.1.0
+
+Bumps [@vitest/coverage-v8](https://github.com/vitest-dev/vitest/tree/HEAD/packages/coverage-v8) from 5.0.5 to 5.1.0.
+- [Release notes](https://github.com/vitest-dev/vitest/releases)
+- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)
+- [Commits](https://github.com/vitest-dev/vitest/commits/v5.1.0/packages/coverage-v8)
+
+---
+updated-dependencies:
+- dependency-name: "@vitest/coverage-v8"
+  dependency-version: 5.1.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+```
