@@ -20,7 +20,7 @@ import WiderHeader from '@/components/WiderHeader.vue';
 
 import { create } from "@bufbuild/protobuf";
 import { CronjobPodsRequestSchema } from '@/components/protos/sk8l_pb.ts';
-import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.js';
+import Sk8lCronjobClient from '@/components/Sk8lCronjobClient.ts';
 import { Code, ConnectError } from "@connectrpc/connect";
 
 export default {

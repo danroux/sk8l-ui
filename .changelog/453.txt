@@ -1,0 +1,3 @@
+```release-note:improvement
+js/deps: Remove legacy gRPC/CommonJS packages and move ConnectRPC runtime to dependencies
+```

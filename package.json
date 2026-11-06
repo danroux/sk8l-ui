@@ -15,14 +15,14 @@
   },
   "dependencies": {
     "@achrinza/node-ipc": "^10.1.11",
-    "@grpc/grpc-js": "^1.14.7",
+    "@bufbuild/protobuf": "^2.16.0",
+    "@connectrpc/connect": "^2.3.0",
+    "@connectrpc/connect-web": "^2.1.1",
     "@primer/octicons": "^19.42.0",
     "@testing-library/vue": "^8.1.0",
     "@vitest/coverage-v8": "^5.0.5",
     "cronstrue": "^3.38.0",
     "factory-girl-ts": "^2.3.1",
-    "google-protobuf": "^4.0.3",
-    "grpc-web": "^2.1.1",
     "happy-dom": "^21.0.4",
     "luxon": "^3.7.2",
     "rollup": "^4.67.4",
@@ -34,10 +34,6 @@
     "vue-router": "^5.0.6"
   },
   "devDependencies": {
-    "@bufbuild/protobuf": "^2.16.0",
-    "@connectrpc/connect": "^2.3.0",
-    "@connectrpc/connect-web": "^2.1.1",
-    "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@types/luxon": "^3.7.6",
     "@types/node": "^25.6.0",
     "@vitejs/plugin-vue": "^6.0.10",
