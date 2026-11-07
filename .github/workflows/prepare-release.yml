@@ -177,6 +177,6 @@ jobs:
           rm -f "${MSG_FILE}"
           git push origin "${BRANCH_NAME}" --force
 
-          BODY=$(printf "### %s\n\n%s\n\n---\n*Auto-generated release PR by prepare-release workflow.*" "${TITLE}" "${{ steps.changelog.outputs.notes }}")
+          BODY=$(printf "### %s\n\n%s" "${TITLE}" "${{ steps.changelog.outputs.notes }}")
           gh pr create --title "${TITLE}" --body "${BODY}" --base main --head "${BRANCH_NAME}" --label "pr/no-changelog" || \
             gh pr edit "${BRANCH_NAME}" --title "${TITLE}" --body "${BODY}" || true

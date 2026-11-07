@@ -1,3 +1,27 @@
+## v0.21.0 (November 07, 2026)
+
+
+IMPROVEMENTS:
+
+* docker: Migrate dev Dockerfile to node:22-bookworm-slim [[GH-447](https://github.com/danroux/sk8l-ui/issues/447)]
+* js/deps: Remove legacy gRPC/CommonJS packages and move ConnectRPC runtime to dependencies [[GH-453](https://github.com/danroux/sk8l-ui/issues/453)]
+
+DEPENDENCIES:
+
+* ci/dependabot: npm:(deps): bump @connectrpc/connect-web from 2.1.1 to 2.3.0 [[GH-455](https://github.com/danroux/sk8l-ui/issues/455)]
+* ci/dependabot: npm:(deps): bump @primer/octicons from 19.25.0 to 19.42.0 [[GH-452](https://github.com/danroux/sk8l-ui/issues/452)]
+* ci/dependabot: npm:(deps): bump cronstrue from 3.32.0 to 3.38.0 [[GH-433](https://github.com/danroux/sk8l-ui/issues/433)]
+* ci/dependabot: npm:(deps): bump happy-dom from 20.9.0 to 21.0.4 [[GH-442](https://github.com/danroux/sk8l-ui/issues/442)]
+* ci/dependabot: npm:(deps): bump rollup from 4.60.3 to 4.67.4 [[GH-445](https://github.com/danroux/sk8l-ui/issues/445)]
+* ci/dependabot: npm:(deps): bump shiki from 4.0.2 to 4.5.0 [[GH-428](https://github.com/danroux/sk8l-ui/issues/428)]
+* ci/dependabot: npm:(deps): bump vitest from 4.1.5 to 5.0.5 [[GH-437](https://github.com/danroux/sk8l-ui/issues/437)]
+* ci/dependabot: npm:(deps): bump vue from 3.5.33 to 3.5.44 [[GH-450](https://github.com/danroux/sk8l-ui/issues/450)]
+* ci/dependabot: npm:(deps): bump vue-router from 5.0.6 to 5.4.0 [[GH-454](https://github.com/danroux/sk8l-ui/issues/454)]
+* ci/dependabot: npm:(deps-dev): bump @bufbuild/protobuf from 2.15.0 to 2.16.0 [[GH-434](https://github.com/danroux/sk8l-ui/issues/434)]
+* ci/dependabot: npm:(deps-dev): bump @connectrpc/connect from 2.2.0 to 2.3.0 [[GH-439](https://github.com/danroux/sk8l-ui/issues/439)]
+* ci/dependabot: npm:(deps-dev): bump @vue/test-utils from 2.4.10 to 2.5.1 [[GH-446](https://github.com/danroux/sk8l-ui/issues/446)]
+* ci/dependabot: npm:(deps-dev): bump vue-tsc from 3.2.8 to 3.3.14 [[GH-436](https://github.com/danroux/sk8l-ui/issues/436)]
+
 ## v0.20.0 (October 26, 2026)
 
 
