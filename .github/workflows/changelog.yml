@@ -46,7 +46,7 @@ jobs:
           fi
 
           CHANGED_FILES=$(git diff --name-only "origin/${{ github.event.pull_request.base.ref }}...HEAD")
-          if [ -n "$CHANGED_FILES" ] && ! echo "$CHANGED_FILES" | grep -qvE '^(\.github/|ci/|\.devcontainer/|\.agents/)'; then
+          if [ -n "$CHANGED_FILES" ] && ! echo "$CHANGED_FILES" | grep -qvE '^(\.github/|ci/|testdata/|\.devcontainer/|\.agents/)'; then
             echo "Skipping: PR only modifies CI/internal configuration files."
             exit 0
           fi
