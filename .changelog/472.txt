@@ -1,5 +1,5 @@
 ```release-note:bug
-ui: Guard unscheduled Pods with empty containerStatuses and surface Unschedulable status and messages on Pod, Job, and CronJob rows
+ui: Guard unscheduled Pods with empty containerStatuses and surface Unschedulable status and messages on Pod, Job, and CronJob rows, Overview, ProgressBar, and JobCounter
 ```
 
 ```release-note:enhancement

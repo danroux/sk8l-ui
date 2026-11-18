@@ -120,10 +120,18 @@ const PodsGenerator = {
   unschedulablePods(pods: UIWrappedPod[]): UIWrappedPod[] {
     return pods.filter((pod) => Boolean(pod.unschedulableCondition));
   },
+  isJobUnschedulable(job: any): boolean{
+    if (!job || (job.status?.active ?? 0) <= 0) return false;
+    const pods = this.pods(job.pods || []);
+    if (pods.failingPods.length > 0 || (job.status?.failed ?? 0) > 0 || job.failed) {
+      return false;
+    }
+    const hasStartedPod = pods.some((p) => p.started.length > 0 || p.phase === 'Running');
+    return !hasStartedPod && pods.unschedulablePods.length > 0;
+  },
   runningState(status: ProcessedContainerStatus): boolean {
     return status.state === 'running';
   },
-
   errorReason(status: ProcessedContainerStatus): boolean {
     return (
       status.reason === 'Error' ||
@@ -133,7 +141,6 @@ const PodsGenerator = {
       status.reason === 'ErrImagePull'
     );
   },
-
   failingPods(pods: UIWrappedPod[]): UIWrappedPod[] {
     return pods.filter((pod) => pod.failing.length > 0 || pod.failed);
   },
