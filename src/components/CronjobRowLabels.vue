@@ -4,6 +4,7 @@
   <span class="Label mr-1 Label--success Label--inline" v-if="status == 'Succeeded'">Success</span>
   <span class="Label mr-1 Label--danger Label--inline" v-if="status == 'Failed'">Failed</span>
   <span class="Label mr-1 Label--danger Label--inline" v-if="status == 'Failing'">Failing</span>
+  <span class="Label mr-1 Label--attention Label--inline" v-if="status == 'Unschedulable'">Unschedulable</span>
 </template>
 
 <script>

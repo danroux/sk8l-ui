@@ -24,6 +24,8 @@ export default {
           return 'item-pop--danger';
         case 'Succeeded':
           return 'item-pop--success';
+        case 'Unschedulable':
+          return 'item-pop--attention';
       }
     },
   },

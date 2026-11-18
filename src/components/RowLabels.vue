@@ -6,6 +6,7 @@
   <span class="Label mr-1 Label--danger Label--inline" v-if="status == 'Failing'">Failing</span>
   <span class="Label mr-1 Label--done Label--inline" v-if="job.succeeded">Done</span>
   <span class="Label mr-1 Label--danger Label--inline" v-if="status == 'Failed'">Done</span>
+  <span class="Label mr-1 Label--attention Label--inline" v-if="status == 'Unschedulable'">Unschedulable</span>
 </template>
 
 <script>

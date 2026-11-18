@@ -108,6 +108,35 @@
                 <div class="text-small color-fg-muted mt-2">
                   <Octicon :name="specIcon" class="mr-1" /> failedJobsHistoryLimit {{ cronJob.spec.failedJobsHistoryLimit }}
                 </div>
+                <div class="text-small color-fg-muted mt-2" v-if="Object.keys(nodeSelector).length > 0">
+                  <Octicon :name="specIcon" class="mr-1" /> nodeSelector:
+                  <span v-for="(val, key) in nodeSelector" :key="key" class="mr-1">
+                    {{ key }}={{ val }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="BorderGrid-row" v-if="containerResources.length > 0">
+              <div class="BorderGrid-cell">
+                <h2 class="f4 mb-2">Resources</h2>
+                <div class="text-small color-fg-muted my-2" v-for="item in containerResources" :key="item.name">
+                  <div class="text-bold color-fg-default">{{ item.name }}</div>
+                  <div v-if="Object.keys(item.requests).length > 0">
+                    <Octicon :name="specIcon" class="mr-1" />
+                    Requests:
+                    <span v-for="(val, key) in item.requests" :key="key" class="mr-2">
+                      {{ key }}={{ val }}
+                    </span>
+                  </div>
+                  <div v-if="Object.keys(item.limits).length > 0">
+                    <Octicon :name="specIcon" class="mr-1" />
+                    Limits:
+                    <span v-for="(val, key) in item.limits" :key="key" class="mr-2">
+                      {{ key }}={{ val }}
+                    </span>
+                  </div>
+                </div>                       
               </div>
             </div>
           </div>
@@ -168,6 +197,22 @@ export default {
     },
     specIcon(_vm) {
         return "chevron-right";
+    },
+    containerResources(vm) {
+      const containers = [
+        ...(vm.cronJob?.podSpec?.initContainers || []),
+        ...(vm.cronJob?.podSpec?.containers || []),
+      ];
+      return containers
+        .map((c) => ({
+          name: c.name,
+          requests: c.resources?.requests || {},
+          limits: c.resources?.limits || {},
+        }))
+        .filter((c) => Object.keys(c.requests).length > 0 || Object.keys(c.limits).length > 0);
+    },
+    nodeSelector(vm) {
+      return vm.cronJob?.podSpec?.nodeSelector || {};
     },
   },
   methods: {

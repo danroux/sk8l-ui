@@ -6,8 +6,7 @@
         <div>
           <JobModal :job="job" />
 
-          <PodModal v-for="(pod, index) in pods"
-                    :pod="pod" />
+          <PodModal v-for="(pod, index) in pods" :pod="pod" />
         </div>
         <div>
           <strong class="job-name">{{ job.name }}</strong> <RowLabels :job="job" :status="status"/><br/>
@@ -27,6 +26,13 @@
           <p class="color-fg-muted mb-0 wb-break-word" v-if="job.failureCondition">
             <span class="job-failure-condition" >
               {{ job.failureCondition.reason }} - {{ job.failureCondition.message }}
+            </span>
+          </p>
+
+          <p class="color-fg-muted mb-0 wb-break-word" v-for="pod in unschedulablePods" :key="pod.uid || pod.name">
+            <span class="job-unschedulable-condition">
+              {{ pod.unschedulableCondition.reason || 'Unschedulable' }}:
+              {{ pod.unschedulableCondition.message }}
             </span>
           </p>
         </div>
@@ -92,10 +98,20 @@ export default {
     };
   },
   computed: {
+    unschedulablePods() {
+      return this.pods.unschedulablePods || [];
+    },
+    isUnschedulable() {
+      const hasStartedPod = this.pods.some((p) => p.started.length > 0 || p.phase === 'Running');
+      return this.job.status.active > 0 && !hasStartedPod && this.unschedulablePods.length > 0;
+    },
     status(vm) {
       if (this.job.status.active > 0) {
         if (vm.pods.failingPods.length > 0 || this.job.status.failed > 0 || this.job.failed) {
           return 'Failing';
+        }
+        if (this.isUnschedulable) {
+          return 'Unschedulable';
         }
         return 'Active';
       }
@@ -105,10 +121,14 @@ export default {
       if (this.job.succeeded) {
         return 'Succeeded';
       }
+      return '';
     },
     jobStatusClass(vm) {
       if (vm.pods.failingPods.length > 0 || this.job.status.failed > 0 || this.job.failed) {
         return 'Box-row--danger';
+      }
+      if (this.isUnschedulable) {
+        return 'Box-row--attention';
       }
       // if last execution failed but is no longer active, class is removed and
       // state is not visible anymore.
@@ -118,6 +138,7 @@ export default {
       if (this.job.succeeded === true) {
         return 'Box-row--success';
       }
+      return '';
     },
     lastFailureTime() {
       // when it failed

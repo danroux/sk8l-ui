@@ -19,6 +19,13 @@
             </span>
             <span class="termination-reason-container">Container: {{ tr.containerName }}</span>
           </p>
+
+          <p class="color-fg-muted mb-0 wb-break-word" v-if="pod.unschedulableCondition">
+            Status: {{ pod.unschedulableCondition.reason || 'Unschedulable' }}<br/>
+            <span v-if="pod.unschedulableCondition.message">
+              Message: {{ pod.unschedulableCondition.message }}
+            </span>
+          </p>
         </div>
       </div>
     </div>
@@ -26,11 +33,11 @@
     <div class="color-fg-muted f6 mt-2">
       <StatusProp :propText="status" />
 
-      <span class="mr-2"><Octicon name="sparkle-fill" /> {{ lux1(pod.startTime) }}</span>
+      <span class="mr-2" v-if="pod.startTime"><Octicon name="sparkle-fill" /> {{ lux1(pod.startTime) }}</span>
       <span class="mr-2" v-if="pod.finishedAt"><Octicon name="goal" /> {{ lux1(pod.finishedAt) }}</span>
-      <span class="mr-2"><Octicon name="apps" /> Node: {{ pod.nodeName }}</span>
-      <span class="mr-2"><Octicon name="server" /> Host: {{ pod.hostIP }}</span>
-      <span class="mr-2"><Octicon name="globe" /> Pod Ips:  {{ pod.podIPs.join(", ") }}</span>
+      <span class="mr-2" v-if="pod.nodeName"><Octicon name="apps" /> Node: {{ pod.nodeName }}</span>
+      <span class="mr-2" v-if="pod.hostIP"><Octicon name="server" /> Host: {{ pod.hostIP }}</span>
+      <span class="mr-2" v-if="pod.podIPs.length > 0"><Octicon name="globe" /> Pod Ips:  {{ pod.podIPs.join(", ") }}</span>
     </div>
   </li>
 </template>
@@ -46,35 +53,52 @@ export default {
   props: ['pod'],
   computed: {
     status(_vm) {
+      if (this.pod.unschedulableCondition && this.pod.containerStatuses.length === 0) {
+        return 'Unschedulable';
+      }
+      if (this.pod.containerStatuses.length === 0) {
+        if (this.pod.failed || this.pod.phase === 'Failed') {
+          return 'Failed';
+        }
+        return this.pod.phase || 'Pending';
+      }
+
       const { state: statusState, reason: reason } = this.pod.containerStatuses[0];
-      const statusKey = statusState;
-      if (statusKey === 'running' || statusKey == 'waiting') {
+      if (statusState === 'running' || statusState === 'waiting') {
         if (reason && reason.toLowerCase().includes('error')) {
           return 'Failing';
         }
-
         return 'Active';
       }
-      if (reason && reason.toLowerCase().includes('error') || this.pod.failed) {
+      if ((reason && reason.toLowerCase().includes('error')) || this.pod.failed) {
         return 'Failed';
       }
-      if (reason && reason == 'Completed') {
+      if (reason == 'Completed') {
         return 'Succeeded';
       }
+      return this.pod.phase || '';
     },
-    jobStatusClass(vm) {
-      const { state: statusState, reason: reason } = this.pod.containerStatuses[0];
-      const statusKey = statusState[0];
-
-      if (statusKey === 'running') {
+    jobStatusClass() {
+      if (this.pod.unschedulableCondition && this.pod.containerStatuses.length === 0) {
+        return 'Box-row--attention';
+      }
+      if (this.pod.containerStatuses.length === 0) {
+        if (this.pod.failed || this.pod.phase === 'Failed') {
+          return 'Box-row--danger';
+        }
+        return '';
+      }
+      const { state: statusState, reason } = this.pod.containerStatuses[0];
+      if (statusState === 'running') {
         return 'Box-row--active';
       }
-      if (reason && reason.toLowerCase().includes('error') || this.pod.failed) {
+      if ((reason && reason.toLowerCase().includes('error')) || this.pod.failed) {
         return 'Box-row--danger';
       }
-      if (reason == 'Completed') {
+      if (reason === 'Completed') {
         return 'Box-row--success';
       }
+      return '';
     },
   },
   methods: {

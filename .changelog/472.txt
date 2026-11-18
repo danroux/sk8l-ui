@@ -1,0 +1,7 @@
+```release-note:bug
+ui: Guard unscheduled Pods with empty containerStatuses and surface Unschedulable status and messages on Pod, Job, and CronJob rows
+```
+
+```release-note:enhancement
+ui: Regenerate Connect TypeScript protobuf stubs and display CronJob container resources and nodeSelector in the Overview sidebar
+```
