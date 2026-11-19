@@ -63,8 +63,7 @@ setup-certs: # setup-certs
 	for i in $$(seq 1 10); do kubectl apply -f https://raw.githubusercontent.com/danroux/sk8l-api/main/testdata/sk8l-trust.yml && break || sleep 3; done
 
 install-chart-ci: # install-chart-ci
-	helm repo add sk8l https://sk8l.io/charts --force-update
-	helm upgrade --install sk8l sk8l/sk8l \
+	helm upgrade --install sk8l oci://ghcr.io/danroux/sk8l/sk8l \
 	  -f testdata/sk8l-values.yml \
 	  --namespace sk8l \
 	  --create-namespace=true \

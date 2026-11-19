@@ -432,9 +432,6 @@ jobs:
         with:
           context: .
           file: Dockerfile.test
-          # Scoped per-platform and per-job to avoid cache eviction across jobs
-          cache-from: type=gha,scope=sk8l-ui-test
-          cache-to: type=gha,mode=max,scope=sk8l-ui-test
           # Test image is amd64-only.
           platforms: linux/amd64
           build-args: |

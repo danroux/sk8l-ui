@@ -51,6 +51,7 @@ jobs:
           version: 'v3.13.3'
       - name: Install Chart
         run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | helm registry login ghcr.io -u "${{ github.actor }}" --password-stdin
           make install-chart-ci API_IMAGE_TAG="e2e-pr-${{ inputs.pull_request_number }}" > /dev/null
       - name: ui smoke tests
         id: ui_smoke_tests
