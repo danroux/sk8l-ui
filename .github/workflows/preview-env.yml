@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
   pull-requests: write
 
 jobs:
@@ -40,7 +41,7 @@ jobs:
           (github.event.action == 'unlabeled' && github.event.label.name == 'deploy-preview') ||
           (github.event.action == 'closed')
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.UI_PREVIEW_PAT || secrets.GITHUB_TOKEN }}
         run: |
           PR_NUM="${{ github.event.pull_request.number }}"
           NAMESPACE="sk8l-ui-pr-${PR_NUM}"
@@ -54,5 +55,21 @@ jobs:
             git pull --rebase origin master
             git push origin master
 
-            gh pr comment "${PR_NUM}" --repo "${{ github.repository }}" --body "🧹 **Preview environment destroyed.** Namespace \`${NAMESPACE}\` ha sido eliminado." || true
+            MARKER="<!-- sk8l-preview -->"
+            TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+            {
+              echo "${MARKER}"
+              echo "🧹 **Preview environment destroyed.**"
+              echo ""
+              echo "- **Namespace**: \`${NAMESPACE}\`"
+              echo "- **Updated**: ${TIMESTAMP}"
+            } > /tmp/preview-comment.md
+
+            COMMENT_ID=$(gh api --paginate "repos/${{ github.repository }}/issues/${PR_NUM}/comments?per_page=100" \
+              --jq ".[] | select((.body // \"\") | contains(\"${MARKER}\")) | .id" | head -n 1 || true)
+            if [ -n "$COMMENT_ID" ]; then
+              gh api -X PATCH "repos/${{ github.repository }}/issues/comments/${COMMENT_ID}" -f body="$(cat /tmp/preview-comment.md)" >/dev/null || true
+            else
+              gh api -X POST "repos/${{ github.repository }}/issues/${PR_NUM}/comments" -f body="$(cat /tmp/preview-comment.md)" >/dev/null || true
+            fi
           fi
