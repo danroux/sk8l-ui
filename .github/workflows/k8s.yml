@@ -7,6 +7,7 @@ env:
   GO_VERSION: "1.26.0"
 
 permissions:
+  contents: read
   packages: write
 
 jobs:
@@ -25,9 +26,18 @@ jobs:
       k8s_version: ${{ matrix.k8s.version }}
       k8s_image: ${{ matrix.k8s.image }}
     secrets: inherit
+  build-e2e-api:
+    name: Build sk8l-api e2e image (PR #${{ github.event.pull_request.number }})
+    needs: [docker-img]
+    uses: danroux/sk8l-api/.github/workflows/ui-build-ui-e2e.yml@main
+    with:
+      ui_image: ghcr.io/danroux/sk8l-ui:pre-${{ github.event.pull_request.number }}
+      image_tag: e2e-pr-${{ github.event.pull_request.number }}
+      artifact_name: sk8l-api-e2e-${{ github.event.pull_request.number }}
+    secrets: inherit
   k8s-tests:
     name: k8s ${{ matrix.k8s.version }}/pr#${{ github.event.pull_request.number }} tests
-    needs: [docker-img]
+    needs: [build-e2e-api]
     strategy:
       matrix:
         k8s:

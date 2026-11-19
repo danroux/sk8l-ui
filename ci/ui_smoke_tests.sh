@@ -5,7 +5,17 @@ set -e
 pr_image_tag="$1"
 
 kubectl apply -f https://raw.githubusercontent.com/danroux/sk8l-api/main/testdata/sk8l-cronjobs.yml -n sk8l > /dev/null
-kubectl wait -n sk8l --for=condition=ready pod -l app.kubernetes.io/pod=sk8l-ui --timeout=300s
+kubectl apply -f testdata/sk8l-unschedulable-cronjobs.yml -n sk8l > /dev/null
+kubectl wait -n sk8l --for=condition=ready pod -l app.kubernetes.io/pod=sk8l-api --timeout=300s
+
+kubectl create job --from=cronjob/unschedulable-nodeselector unschedulable-nodeselector-e2e -n sk8l
+kubectl create job --from=cronjob/unschedulable-resources unschedulable-resources-e2e -n sk8l
+
+for job in unschedulable-nodeselector-e2e unschedulable-resources-e2e; do
+  kubectl wait -n sk8l \
+    --for=jsonpath='{.status.conditions[?(@.type=="PodScheduled")].reason}'=Unschedulable \
+    pod -l "job-name=${job}" --timeout=60s
+done
 
 cp testdata/cypress-job.yml testdata/cypress-job.yml.bak
 yq e -i ".spec.template.spec.containers[0].image = \"$pr_image_tag\"" testdata/cypress-job.yml

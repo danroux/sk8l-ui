@@ -16,6 +16,8 @@ VERSION_PATCH ?= 0
 WITHOUT ?= $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 VERSION ?= v$(WITHOUT)
 
+API_IMAGE_TAG ?= e2e
+
 version:
 	@echo $(VERSION)
 
@@ -61,10 +63,11 @@ setup-certs: # setup-certs
 	for i in $$(seq 1 10); do kubectl apply -f https://raw.githubusercontent.com/danroux/sk8l-api/main/testdata/sk8l-trust.yml && break || sleep 3; done
 
 install-chart-ci: # install-chart-ci
-	helm repo add sk8l https://sk8l.io/charts
+	helm repo add sk8l https://sk8l.io/charts --force-update
 	helm upgrade --install sk8l sk8l/sk8l \
 	  -f testdata/sk8l-values.yml \
 	  --namespace sk8l \
-	  --create-namespace=false \
+	  --create-namespace=true \
 	  --set namespace.create=false \
-	  --set namespace.name=sk8l
+	  --set namespace.name=sk8l \
+	  --set sk8lApi.imageTag=$(API_IMAGE_TAG)

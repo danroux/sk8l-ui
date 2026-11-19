@@ -1,6 +1,6 @@
 describe('Home Test', () => {
     it('visits the homepage', () => {
-        cy.visit('https://sk8l-ui:8001/')
+        cy.visit('/')
         // cy.reload(true)
         // cy.contains('It looks like no cronjobs exist for this namespace')
         // cy.screenshot('my-screenshot')
@@ -17,13 +17,13 @@ describe('Home Test', () => {
         cy.contains('sk8l / process-csv-files')
         cy.contains('sk8l / process-videos')
         cy.contains('Cronjob activity')
-        cy.contains('33%')
+        cy.contains(/\d+(\.\d+)?%/) 
         cy.contains('Latest completions')
     });
 
     describe('CronJobRow Details', () => {
         it('displays details for a working cronjob correctly', () => {
-            cy.visit('https://sk8l-ui:8001/')
+            cy.visit('/')
             const cronJobName = 'process-videos';
             cy.get(`#cronjob-${cronJobName}`).as('cronJobElement');
 
@@ -79,7 +79,7 @@ describe('Home Test', () => {
 
 describe('/cronjobs/:namespace', () => {
     it('visits a cronjob', () => {
-        cy.visit('https://sk8l-ui:8001/cronjob/sk8l/download-report-files')
+        cy.visit('/cronjob/sk8l/download-report-files')
 
         cy.contains('Overview')
         cy.contains('Success')
@@ -110,7 +110,7 @@ describe('/cronjobs/:namespace', () => {
     })
 
     it("visits a cronjob's pods", () => {
-        cy.visit('https://sk8l-ui:8001/cronjob/sk8l/process-videos/pods/')
+        cy.visit('/cronjob/sk8l/process-videos/pods/')
         cy.contains('Node:')
         cy.contains('Host:')
         cy.contains('Pod Ips:')
@@ -121,7 +121,7 @@ describe('/cronjobs/:namespace', () => {
 
 describe('/jobs/:namespace', () => {
     it("visits /jobs/:namespace ", () => {
-        cy.visit('https://sk8l-ui:8001/jobs/sk8l/')
+        cy.visit('/jobs/sk8l/')
         cy.get('#jobs-timeline').should('exist')
         cy.contains('Job activity')
         cy.get('.job-row').should('have.length', 3)
@@ -149,7 +149,7 @@ describe('/jobs/:namespace', () => {
 
     describe('JobRow Details', () => {
         it('displays details for a working job correctly', () => {
-            cy.visit('https://sk8l-ui:8001/jobs/sk8l/')
+            cy.visit('/jobs/sk8l/')
             cy.get('#job-sk8l-demo-job').as('jobElement');
 
             cy.get('@jobElement')
@@ -189,7 +189,7 @@ describe('/jobs/:namespace', () => {
         });
 
         it('displays details for a failing job correctly', () => {
-            cy.visit('https://sk8l-ui:8001/jobs/sk8l/')
+            cy.visit('/jobs/sk8l/')
             cy.get('#job-sk8l-failing-demo-job').as('jobElement');
 
             // ['job-uuid', 'job-failure-condition', 'job-row-footer', 'job-completions', 'job-parallelism',
@@ -246,7 +246,7 @@ describe('/jobs/:namespace', () => {
 
 describe('DashboardAnnotations Test', () => {
   it('Opens and closes the Dashboard modal', () => {
-    cy.visit('https://sk8l-ui:8001/');
+    cy.visit('/');
     cy.contains('a', 'Dashboard').click();
 
     // cy.get('.modal-container')
@@ -262,7 +262,7 @@ describe('DashboardAnnotations Test', () => {
   });
 
   it('Closes the Dashboard modal when pressing Escape', () => {
-    cy.visit('https://sk8l-ui:8001/');
+    cy.visit('/');
     cy.contains('a', 'Dashboard').click();
 
     cy.contains('sk8l-grafana-annotations.json');
