@@ -135,3 +135,92 @@ describe('CronjobRow', () => {
     // expect(el.textContent).toMatch('Latest completions');
   })
 });
+
+describe('CronJobRow unschedulable status', () => {
+  it('renders Unschedulable status and attention label when active with no running pods and an Unschedulable pod', async () => {
+    const activeJob = await jobResponseFactory.build({
+      name: 'active-unsched-job',
+      succeeded: false,
+      failed: false,
+      failureCondition: undefined,
+      status: await jobStatusRunningFactory.build(),
+    });
+    const cronJob = await cronJobResponseFactory.build({
+      name: 'unsched-cj',
+      namespace: 'sk8l',
+      jobs: [activeJob],
+      active: true,
+      failed: false,
+      runningJobsPods: [],
+      jobsPods: [
+        {
+          metadata: { name: 'unsched-pod', namespace: 'sk8l' },
+          phase: 'Pending',
+          status: {
+            conditions: [
+              {
+                type: 'PodScheduled',
+                status: 'False',
+                reason: 'Unschedulable',
+                message: '0/1 nodes are available: 1 Insufficient cpu.',
+              },
+            ],
+          },
+        },
+      ],
+    }) as CronjobResponse;
+
+    const wrapper = mount(CronJobRow, {
+      props: { cronJob },
+      global: { plugins: [router] },
+    });
+
+    expect(wrapper.find('.status-row').text()).toBe('Unschedulable');
+    expect(wrapper.find('.item-pop--attention').exists()).toBe(true);
+    expect(wrapper.find('.Label--attention').text()).toBe('Unschedulable');
+  });
+
+  it('keeps Pending status when no jobs exist yet', async () => {
+    const cronJob = await cronJobResponseFactory.build({
+      name: 'idle-cj',
+      namespace: 'sk8l',
+      jobs: [],
+      active: false,
+      failed: false,
+    }) as CronjobResponse;
+
+    const wrapper = mount(CronJobRow, {
+      props: { cronJob },
+      global: { plugins: [router] },
+    });
+
+    expect(wrapper.find('.status-row').text()).toBe('Pending');
+  });
+
+  it('keeps Active status when runningJobsPods is non-empty', async () => {
+    const activeJob = await jobResponseFactory.build({
+      name: 'active-running-job',
+      succeeded: false,
+      failed: false,
+      failureCondition: undefined,
+      status: await jobStatusRunningFactory.build(),
+    });
+    const cronJob = await cronJobResponseFactory.build({
+      name: 'running-cj',
+      namespace: 'sk8l',
+      jobs: [activeJob],
+      active: true,
+      failed: false,
+      runningJobsPods: [{ metadata: { name: 'running-pod' }, phase: 'Running' }],
+      jobsPods: [{ metadata: { name: 'running-pod' }, phase: 'Running' }],
+    }) as CronjobResponse;
+
+    const wrapper = mount(CronJobRow, {
+      props: { cronJob },
+      global: { plugins: [router] },
+    });
+
+    expect(wrapper.find('.status-row').text()).toBe('Active');
+    expect(wrapper.find('.Label--accent').text()).toBe('Active');
+  });
+});

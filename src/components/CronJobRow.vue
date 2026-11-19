@@ -181,6 +181,14 @@ export default {
 
       return false;
     },
+    hasUnschedulableActivePods() {
+      if (!this.cronJob.active || (this.cronJob.runningJobsPods && this.cronJob.runningJobsPods.length > 0)) {
+        return false;
+      }
+      return (this.cronJob.jobsPods || []).some((pod) =>
+        (pod.status?.conditions || []).some((c) => c.type === 'PodScheduled' && c.status === 'False')
+      );
+    },
     status(_vm) {
       if (this.all.length < 1) {
         return 'Pending';
@@ -188,6 +196,9 @@ export default {
 
       if (!this.showLastFailure) {
         if (this.cronJob.active) {
+          if (this.hasUnschedulableActivePods) {
+            return 'Unschedulable';
+          }
           return 'Active';
         }
 

@@ -6,6 +6,13 @@ export interface ProcessedContainerStatus {
   reason?: string;
 }
 
+export interface PodConditionInfo {
+  type: string;
+  status: string;
+  reason?: string;
+  message?: string;
+}
+
 // Define the shape of the pod object the UI expects
 export interface UIWrappedPod {
   namespace: string;
@@ -26,6 +33,9 @@ export interface UIWrappedPod {
   waiting: ProcessedContainerStatus[];
   failing: ProcessedContainerStatus[];
   started: ProcessedContainerStatus[];
+  phase: string;
+  conditions: PodConditionInfo[];
+  unschedulableCondition?: PodConditionInfo;
 }
 
 // Extend the Array to include our custom filter properties
@@ -33,6 +43,7 @@ export interface PodsCollection extends Array<UIWrappedPod> {
   failingPods: UIWrappedPod[];
   readyPods: UIWrappedPod[];
   waitingPods: UIWrappedPod[];
+  unschedulablePods: UIWrappedPod[];
 }
 
 const PodsGenerator = {
@@ -45,8 +56,17 @@ const PodsGenerator = {
       // Basic Metadata
       pod.namespace = jobPod.metadata?.namespace;
       pod.name = jobPod.metadata?.name;
-      pod.jobName = jobPod.metadata?.labels?.['job-name'];
+      pod.jobName =
+        jobPod.metadata?.labels?.['batch.kubernetes.io/job-name'] ||
+        jobPod.metadata?.labels?.['job-name'];
       pod.uid = jobPod.metadata?.uid;
+
+      // Phase & Conditions
+      pod.phase = jobPod.phase || jobPod.status?.phase || '';
+      pod.conditions = jobPod.status?.conditions || [];
+      pod.unschedulableCondition = pod.conditions.find(
+        (c) => c.type === 'PodScheduled' && c.status === 'False'
+      );
 
       // Networking & Nodes
       pod.startTime = jobPod.status?.startTime;
@@ -92,14 +112,26 @@ const PodsGenerator = {
     pods.failingPods = this.failingPods(pods);
     pods.readyPods = this.readyPods(pods);
     pods.waitingPods = this.waitingPods(pods);
-
+    pods.unschedulablePods = this.unschedulablePods(pods);
+    
     return pods;
   },
 
+  unschedulablePods(pods: UIWrappedPod[]): UIWrappedPod[] {
+    return pods.filter((pod) => Boolean(pod.unschedulableCondition));
+  },
+  isJobUnschedulable(job: any): boolean{
+    if (!job || (job.status?.active ?? 0) <= 0) return false;
+    const pods = this.pods(job.pods || []);
+    if (pods.failingPods.length > 0 || (job.status?.failed ?? 0) > 0 || job.failed) {
+      return false;
+    }
+    const hasStartedPod = pods.some((p) => p.started.length > 0 || p.phase === 'Running');
+    return !hasStartedPod && pods.unschedulablePods.length > 0;
+  },
   runningState(status: ProcessedContainerStatus): boolean {
     return status.state === 'running';
   },
-
   errorReason(status: ProcessedContainerStatus): boolean {
     return (
       status.reason === 'Error' ||
@@ -109,7 +141,6 @@ const PodsGenerator = {
       status.reason === 'ErrImagePull'
     );
   },
-
   failingPods(pods: UIWrappedPod[]): UIWrappedPod[] {
     return pods.filter((pod) => pod.failing.length > 0 || pod.failed);
   },

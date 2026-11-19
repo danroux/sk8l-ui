@@ -49,10 +49,13 @@
               </li>
               <li class="p-3 col-12 col-sm-12 col-md-mine-2 border-bottom border-sm-bottom-0 border-sm-right color-border-muted">
                 <span class="d-block h5 color-fg-default">
-                  <Octicon name="issue-draft" customClass="color-fg-accent" />
+                  <Octicon name="issue-draft" :customClass="unschedulable > 0 && active === 0 ? 'color-fg-attention' : 'color-fg-accent'" />
                   {{ active }}
                 </span>
                 <span class="color-fg-muted">Active Jobs</span>
+                <span v-if="unschedulable > 0" class="d-block f6 color-fg-attention">
+                  {{ unschedulable }} unschedulable
+                </span>                
               </li>
               <li class="p-3 col-12 col-sm-12 col-md-mine-2 border-bottom border-sm-bottom-0 border-sm-right color-border-muted">
                 <span class="d-block h5 color-fg-default">
@@ -112,6 +115,7 @@ import { DateTime, Duration } from 'luxon';
 import CronjobModal from '@/components/CronjobModal.vue';
 import Octicon from '@/components/Octicon.vue';
 import ProgressBar from '@/components/ProgressBar.vue';
+import PodsGenerator from '@/components/PodsGenerator.js';
 import * as ss from 'simple-statistics';
 
 export default {
@@ -121,6 +125,7 @@ export default {
     jobsByStatus() {
       const m = {
         active: 0,
+        unschedulable: 0,
         succeeded: 0,
         failed: 0,
       };
@@ -131,12 +136,17 @@ export default {
           m.succeeded += 1;
         } else if (job.status.failed > 0 || job.failed) {
           m.failed += 1;
+        } else if (PodsGenerator.isJobUnschedulable(job)) {
+          m.unschedulable += 1;
         } else if (job.status.active > 0) {
           m.active += 1;
         }
       });
 
       return m;
+    },
+    unschedulable() {
+      return this.jobsByStatus.unschedulable;
     },
     succeeded() {
       return this.jobsByStatus.succeeded;

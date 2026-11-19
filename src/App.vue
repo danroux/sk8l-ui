@@ -38,6 +38,12 @@
   .Box-row--danger {
     box-shadow: inset 2px 0 0 rgb(194, 11, 36);
   }
+  .Box-row--attention{
+    box-shadow: inset 2px 0 0 #bf8700;
+  }
+  .item-pop--attention {
+    background-color: #bf8700;
+  }
   .repo-language-color {
     position: relative;
     top: 1px;

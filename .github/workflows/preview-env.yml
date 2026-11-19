@@ -16,51 +16,24 @@ jobs:
       (github.event.action == 'closed')
     runs-on: ubuntu-latest
     steps:
+      - name: Trigger sk8l-api UI preview workflow
+        if: github.event.action == 'labeled' && github.event.label.name == 'deploy-preview'
+        env:
+          GH_TOKEN: ${{ secrets.UI_PREVIEW_PAT }}
+        run: |
+          gh workflow run ui-preview.yml \
+            --repo danroux/sk8l-api \
+            -f ui_pr_number="${{ github.event.pull_request.number }}"
+
       - name: Checkout sk8l-config
+        if: |
+          (github.event.action == 'unlabeled' && github.event.label.name == 'deploy-preview') ||
+          (github.event.action == 'closed')
         uses: actions/checkout@v7.0.1
         with:
           repository: danroux/sk8l-config
           token: ${{ secrets.CONFIG_REPO_PAT }}
           ref: master
-
-      - name: Deploy Preview Manifest
-        if: github.event.action == 'labeled' && github.event.label.name == 'deploy-preview'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          PR_NUM="${{ github.event.pull_request.number }}"
-          APP_NAME="sk8l-ui-pr-${PR_NUM}"
-          NAMESPACE="sk8l-ui-pr-${PR_NUM}"
-          FILE="apps/previews/ui-pr-${PR_NUM}.yaml"
-
-          CHART_VERSION=$(yq '.spec.sources[0].targetRevision' apps/sk8l.yaml)
-          STABLE_API_TAG=$(yq '.sk8lApi.imageTag' values/sk8l/values.yaml)
-
-          mkdir -p apps/previews
-
-          sed -e "s|APP_NAME_PLACEHOLDER|${APP_NAME}|g" \
-              -e "s|NAMESPACE_PLACEHOLDER|${NAMESPACE}|g" \
-              -e "s|CHART_VERSION_PLACEHOLDER|${CHART_VERSION}|g" \
-              -e "s|UI_IMAGE_PLACEHOLDER|ghcr.io/danroux/sk8l-ui|g" \
-              -e "s|UI_TAG_PLACEHOLDER|pre-${PR_NUM}|g" \
-              -e "s|API_IMAGE_PLACEHOLDER|danroux/sk8l-api|g" \
-              -e "s|API_TAG_PLACEHOLDER|${STABLE_API_TAG}|g" \
-              manifests/preview-template/application.yaml > "$FILE"
-
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "$FILE"
-          if ! git diff --staged --quiet; then
-            git commit -m "chore(preview): deploy preview for sk8l-ui PR #${PR_NUM}"
-            git pull --rebase origin master
-            git push origin master
-
-            if [ "${{ github.event.action }}" = "labeled" ]; then
-              COMMENT_BODY=$(printf "🚀 **Preview environment deployed!**\n\n- **Namespace**: \`%s\`\n- **ArgoCD App**: \`%s\`\n- **Chart Version**: \`%s\`\n- **UI (PR)**: \`ghcr.io/danroux/sk8l-ui:pre-%s\`\n- **API (Stable)**: \`danroux/sk8l-api:%s\`\n\n\`\`\`bash\nwhile ! kubectl -n %s get deployment sk8l-ui &>/dev/null; do sleep 3; done && \\\\\nkubectl -n %s rollout status deployment/sk8l-ui --timeout=300s && \\\\\nkubectl -n %s port-forward svc/sk8l-ui 8001:8001 9080:9080\n\`\`\`\nUI: https://localhost:8001" \
-                "${NAMESPACE}" "${APP_NAME}" "${CHART_VERSION}" "${PR_NUM}" "${STABLE_API_TAG}" "${NAMESPACE}" "${NAMESPACE}" "${NAMESPACE}")
-              gh pr comment "${PR_NUM}" --repo "${{ github.repository }}" --body "${COMMENT_BODY}" || true
-            fi
-          fi
 
       - name: Teardown Preview Manifest
         if: |
