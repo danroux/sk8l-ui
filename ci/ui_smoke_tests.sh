@@ -5,7 +5,8 @@ set -e
 pr_image_tag="$1"
 
 kubectl apply -f https://raw.githubusercontent.com/danroux/sk8l-api/main/testdata/sk8l-cronjobs.yml -n sk8l > /dev/null
-kubectl wait -n sk8l --for=condition=ready pod -l app.kubernetes.io/pod=sk8l-ui --timeout=300s
+kubectl apply -f testdata/sk8l-unschedulable-cronjobs.yml -n sk8l > /dev/null
+kubectl wait -n sk8l --for=condition=ready pod -l app.kubernetes.io/pod=sk8l-api --timeout=300s
 
 cp testdata/cypress-job.yml testdata/cypress-job.yml.bak
 yq e -i ".spec.template.spec.containers[0].image = \"$pr_image_tag\"" testdata/cypress-job.yml
@@ -22,6 +23,16 @@ fi
 
 kubectl apply -f testdata/sk8l-demo-job.yml -n sk8l
 kubectl wait --for=condition=complete job.batch/sk8l-demo-job -n sk8l --timeout=300s
+
+for cj in unschedulable-nodeselector unschedulable-resources; do
+  until kubectl get pod -n sk8l -l "e2e-cronjob=${cj}" -o name | grep -q .; do
+    sleep 2
+  done
+  kubectl wait -n sk8l \
+    --for=jsonpath='{.status.conditions[?(@.type=="PodScheduled")].reason}'=Unschedulable \
+    pod -l "e2e-cronjob=${cj}" --timeout=90s
+done
+
 kubectl apply -f testdata/cypress-job.yml -n sk8l
 set +e
 kubectl wait --for=condition=complete job.batch/cypress-job -n sk8l --timeout=300s
