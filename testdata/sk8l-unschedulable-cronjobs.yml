@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: unschedulable-nodeselector
 spec:
-  schedule: "*/5 * * * *"
+  schedule: "0 0 1 1 *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 1
@@ -28,7 +28,7 @@ kind: CronJob
 metadata:
   name: unschedulable-resources
 spec:
-  schedule: "*/5 * * * *"
+  schedule: "0 0 1 1 *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 1
