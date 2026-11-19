@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: unschedulable-nodeselector
 spec:
-  schedule: "0 0 1 1 *"
+  schedule: "*/1 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 1
@@ -13,6 +13,9 @@ spec:
       parallelism: 1
       backoffLimit: 1
       template:
+        metadata:
+          labels:
+            e2e-cronjob: unschedulable-nodeselector
         spec:
           nodeSelector:
             sk8l.io/does-not-exist: "true"
@@ -28,7 +31,7 @@ kind: CronJob
 metadata:
   name: unschedulable-resources
 spec:
-  schedule: "0 0 1 1 *"
+  schedule: "*/1 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 1
@@ -38,6 +41,9 @@ spec:
       parallelism: 1
       backoffLimit: 1
       template:
+        metadata:
+          labels:
+            e2e-cronjob: unschedulable-resources
         spec:
           containers:
             - name: worker
