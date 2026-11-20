@@ -1,3 +1,24 @@
+## v0.22.0 (November 20, 2026)
+
+
+ENHANCEMENTS:
+
+* ui: Regenerate Connect TypeScript protobuf stubs and display CronJob container resources and nodeSelector in the Overview sidebar [[GH-472](https://github.com/danroux/sk8l-ui/issues/472)]
+
+BUG FIXES:
+
+* ui: Guard unscheduled Pods with empty containerStatuses and surface Unschedulable status and messages on Pod, Job, and CronJob rows, Overview, ProgressBar, and JobCounter [[GH-472](https://github.com/danroux/sk8l-ui/issues/472)]
+
+DEPENDENCIES:
+
+* ci/dependabot: docker:(deps): bump cypress/included from 16.2.1 to 16.3.0 [[GH-466](https://github.com/danroux/sk8l-ui/issues/466)]
+* ci/dependabot: npm:(deps): bump shiki from 4.5.0 to 4.6.0 [[GH-467](https://github.com/danroux/sk8l-ui/issues/467)]
+* ci/dependabot: npm:(deps): bump vue-router from 5.4.0 to 5.5.0 [[GH-470](https://github.com/danroux/sk8l-ui/issues/470)]
+* ci/dependabot: npm:(deps-dev): bump eslint from 10.13.0 to 10.14.0 [[GH-464](https://github.com/danroux/sk8l-ui/issues/464)]
+* ci/dependabot: npm:(deps-dev): bump eslint-plugin-vue from 10.9.0 to 10.12.1 [[GH-471](https://github.com/danroux/sk8l-ui/issues/471)]
+* ci/dependabot: npm:(deps-dev): bump eslint-plugin-vuejs-accessibility from 2.5.0 to 2.6.3 [[GH-443](https://github.com/danroux/sk8l-ui/issues/443)]
+* ci/dependabot: npm:(deps-dev): bump vue-eslint-parser from 10.4.0 to 10.4.2 [[GH-463](https://github.com/danroux/sk8l-ui/issues/463)]
+
 ## v0.21.0 (November 07, 2026)
 
 
