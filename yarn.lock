@@ -2607,12 +2607,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cronstrue@npm:^3.38.0":
-  version: 3.38.0
-  resolution: "cronstrue@npm:3.38.0"
+"cronstrue@npm:^3.41.0":
+  version: 3.41.0
+  resolution: "cronstrue@npm:3.41.0"
   bin:
     cronstrue: bin/cli.js
-  checksum: 10c0/629cdb29c62101f4b6a9218b03bebf695af9e27bd1a7a02ec6b141311674e59d6cf3e1af9705057d82f18deffb687bb71864e0a948422f664d162ef762563daa
+  checksum: 10c0/bdf915915ff91c28795649c8d9349b3c65c0b44c04cd247cf0904be5ce2b1fd4086dc4e926bd56cbf03533e6eb749a17dee5ce29d9337bb52cb0d5f2bdbac54c
   languageName: node
   linkType: hard
 
@@ -5704,7 +5704,7 @@ __metadata:
     "@vue/eslint-config-typescript": "npm:^14.9.0"
     "@vue/test-utils": "npm:^2.5.1"
     "@vue/tsconfig": "npm:^0.9.1"
-    cronstrue: "npm:^3.38.0"
+    cronstrue: "npm:^3.41.0"
     eslint: "npm:^10.14.0"
     eslint-plugin-import: "npm:^2.32.0"
     eslint-plugin-vue: "npm:^10.12.1"
