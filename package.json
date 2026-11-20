@@ -25,7 +25,7 @@
     "factory-girl-ts": "^2.3.1",
     "happy-dom": "^21.0.4",
     "luxon": "^3.7.2",
-    "rollup": "^4.67.4",
+    "rollup": "^4.68.5",
     "shiki": "^4.6.0",
     "simple-statistics": "^7.8.3",
     "uplot": "^1.6.32",
