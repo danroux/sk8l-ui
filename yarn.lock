@@ -1240,7 +1240,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/core@npm:4.6.0":
+"@shikijs/core@npm:^4.6.0":
   version: 4.6.0
   resolution: "@shikijs/core@npm:4.6.0"
   dependencies:
@@ -1253,7 +1253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/engine-javascript@npm:4.6.0":
+"@shikijs/engine-javascript@npm:^4.6.0":
   version: 4.6.0
   resolution: "@shikijs/engine-javascript@npm:4.6.0"
   dependencies:
@@ -1264,17 +1264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/engine-oniguruma@npm:4.6.0":
-  version: 4.6.0
-  resolution: "@shikijs/engine-oniguruma@npm:4.6.0"
-  dependencies:
-    "@shikijs/types": "npm:4.6.0"
-    "@shikijs/vscode-textmate": "npm:^10.1.0"
-  checksum: 10c0/b9b007809b0a2d417076c20f27c025c5d1d090da41c35046ff5384b97b656b15b0f118b00b5cf63bd0a0ab218d516366c04ad8ff4eb181410d4bfb1df16cf00c
-  languageName: node
-  linkType: hard
-
-"@shikijs/langs@npm:4.6.0":
+"@shikijs/langs@npm:^4.6.0":
   version: 4.6.0
   resolution: "@shikijs/langs@npm:4.6.0"
   dependencies:
@@ -1294,7 +1284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/themes@npm:4.6.0":
+"@shikijs/themes@npm:^4.6.0":
   version: 4.6.0
   resolution: "@shikijs/themes@npm:4.6.0"
   dependencies:
@@ -5609,22 +5599,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "shiki@npm:4.6.0"
-  dependencies:
-    "@shikijs/core": "npm:4.6.0"
-    "@shikijs/engine-javascript": "npm:4.6.0"
-    "@shikijs/engine-oniguruma": "npm:4.6.0"
-    "@shikijs/langs": "npm:4.6.0"
-    "@shikijs/themes": "npm:4.6.0"
-    "@shikijs/types": "npm:4.6.0"
-    "@shikijs/vscode-textmate": "npm:^10.1.0"
-    "@types/hast": "npm:^3.0.5"
-  checksum: 10c0/955818f2cc02fc2a615ac2d2599d61291794fe32be0ec35442ebe582e3fb2a7634e3b32df7a0b15debb8bb1f3cab5b2be6fec369ecc33f3cf22cfff4f405a142
-  languageName: node
-  linkType: hard
-
 "side-channel-list@npm:^1.0.0":
   version: 1.0.1
   resolution: "side-channel-list@npm:1.0.1"
@@ -5696,6 +5670,10 @@ __metadata:
     "@connectrpc/connect": "npm:^2.3.0"
     "@connectrpc/connect-web": "npm:^2.3.0"
     "@primer/octicons": "npm:^19.42.0"
+    "@shikijs/core": "npm:^4.6.0"
+    "@shikijs/engine-javascript": "npm:^4.6.0"
+    "@shikijs/langs": "npm:^4.6.0"
+    "@shikijs/themes": "npm:^4.6.0"
     "@testing-library/vue": "npm:^8.1.0"
     "@types/luxon": "npm:^3.7.6"
     "@types/node": "npm:^25.6.0"
@@ -5714,7 +5692,6 @@ __metadata:
     luxon: "npm:^3.7.2"
     rollup: "npm:^4.67.4"
     sass: "npm:^1.99.0"
-    shiki: "npm:^4.6.0"
     simple-statistics: "npm:^7.8.3"
     typescript: "npm:^6.0.3"
     uplot: "npm:^1.6.32"

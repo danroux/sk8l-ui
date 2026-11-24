@@ -1,0 +1,3 @@
+```release-note:improvement
+ui: Switch Shiki to @shikijs/core with the JS regex engine and only yaml, json, and github-light grammars (~12 MB to 188 KB)
+```
