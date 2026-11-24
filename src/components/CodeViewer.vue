@@ -26,7 +26,7 @@ const updateHighlight = async () => {
 
   try {
     // Ensures lang grammar is loaded into the singleton before codeToHtml is called
-    const highlighter = await getHighlighter(lang);
+    const highlighter = await getHighlighter();
     highlightedHtml.value = highlighter.codeToHtml(body.value, {
       lang,
       theme: 'github-light',

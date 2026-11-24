@@ -1,24 +1,19 @@
-import { createHighlighter, type Highlighter } from 'shiki';
+import { createHighlighterCore, type HighlighterCore } from '@shikijs/core';
+import { createJavaScriptRegexEngine } from '@shikijs/engine-javascript';
 
-let highlighterPromise: Promise<Highlighter> | null = null;
-const loadedLangs = new Set<string>();
+let highlighterPromise: Promise<HighlighterCore> | null = null;
 
-export async function getHighlighter(lang?: string): Promise<Highlighter> {
+export async function getHighlighter(): Promise<HighlighterCore> {
   if (!highlighterPromise) {
-    highlighterPromise = createHighlighter({
-      themes: ['github-light'],
-      langs: ['yaml', 'json'],
+    highlighterPromise = createHighlighterCore({
+      themes: [import('@shikijs/themes/github-light')],
+      langs: [
+        import('@shikijs/langs/yaml'),
+        import('@shikijs/langs/json'),
+      ],
+      engine: createJavaScriptRegexEngine(),
     });
-    loadedLangs.add('yaml');
-    loadedLangs.add('json');
   }
 
-  const highlighter = await highlighterPromise;
-
-  if (lang && !loadedLangs.has(lang)) {
-    await highlighter.loadLanguage(lang as Parameters<Highlighter['loadLanguage']>[0]);
-    loadedLangs.add(lang);
-  }
-
-  return highlighter;
+  return highlighterPromise;
 }
